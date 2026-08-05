@@ -1,0 +1,18 @@
+@media(max-width:900px){
+
+    .hero,
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-image img,
+    .about-image img{
+        width:90%;
+    }
+
+}
