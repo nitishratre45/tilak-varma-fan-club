@@ -1,18 +1,15 @@
 @media (max-width:768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 120px 20px 50px;
-        gap: 30px;
-    }
-    .hero-text {
-        max-width: 100%;
-    }
     .hero h1 {
-        font-size: 56px;
+        font-size: 50px;
     }
     .hero h3 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+    .hero-tag {
+        font-size: 14px;
     }
     .hero-image img {
         width: 90%;

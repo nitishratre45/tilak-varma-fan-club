@@ -81,18 +81,20 @@ header {
 }
 
 .hero h1 {
-    font-size: 70px;
+    font-size: 72px;
     color: #00abf0;
+    line-height: 1.1;
 }
 
 .hero h3 {
-    margin: 20px 0;
-    font-size: 35px;
+    margin: 18px 0;
+    font-size: 34px;
 }
 
 .hero p {
-    line-height: 30px;
-    font-size: 18px;
+    line-height: 1.8;
+    font-size: 20px;
+    color: #ddd;
     margin-bottom: 40px;
 }
 
