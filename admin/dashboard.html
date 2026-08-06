@@ -13,21 +13,23 @@
 
     <div class="admin-container">
 
+        <!-- Sidebar -->
         <div class="sidebar">
 
             <h2>🏏 Admin</h2>
 
             <ul>
-                <li>🏠 Dashboard</li>
+                <li onclick="showDashboard()">🏠 Dashboard</li>
                 <li onclick="showNews()">📰 News</li>
                 <li>🖼 Gallery</li>
                 <li>🏏 Matches</li>
-                <li>⚙ Settings</li>
-                <li>🚪 Logout</li>
+                <li>⚙️ Settings</li>
+                <li onclick="logout()">🚪 Logout</li>
             </ul>
 
         </div>
 
+        <!-- Main Content -->
         <div class="content">
 
             <!-- Dashboard -->
@@ -46,17 +48,35 @@
 
                 <br>
 
-                <input type="text" id="newsTitle" placeholder="News Title">
+                <input
+                    type="text"
+                    id="newsTitle"
+                    placeholder="News Title"
+                    style="width:100%;padding:12px;">
 
                 <br><br>
 
-                <textarea id="newsDesc"
+                <textarea
+                    id="newsDesc"
                     placeholder="News Description"
-                    style="width:100%;height:180px;padding:10px;"></textarea>
+                    style="width:100%;height:180px;padding:12px;"></textarea>
 
                 <br><br>
 
-                <button onclick="addNews()">Publish News</button>
+                <label><b>📷 Upload News Image</b></label>
+
+                <br><br>
+
+                <input
+                    type="file"
+                    id="newsImage"
+                    accept="image/*">
+
+                <br><br>
+
+                <button onclick="addNews()">
+                    🚀 Publish News
+                </button>
 
             </div>
 
