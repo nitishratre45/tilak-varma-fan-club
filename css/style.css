@@ -666,3 +666,11 @@ footer p {
     color: white;
     cursor: pointer;
 }
+
+.menu-toggle {
+    display: none;
+    font-size: 38px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
