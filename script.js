@@ -224,7 +224,7 @@ async function loadLiveMatches() {
         container.innerHTML = "";
 
         if (!result.data || result.data.length === 0) {
-            container.innerHTML = "<p>No live matches available.</p>";
+            container.innerHTML = "<p>🏏 No Live Match Tilak Varma is currently not playing a live match.Please check back later.</p>";
             return;
         }
 
