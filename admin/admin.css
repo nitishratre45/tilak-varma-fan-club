@@ -105,3 +105,42 @@ body{
 .content h1{
     color:#00abf0;
 }
+/* News Panel */
+
+#newsPanel input,
+#newsPanel textarea{
+    width:100%;
+    padding:15px;
+    margin:15px 0;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    font-size:16px;
+    background:#16344d;
+    color:#fff;
+}
+
+#newsPanel textarea{
+    min-height:220px;
+    resize:vertical;
+}
+
+#newsPanel input::placeholder,
+#newsPanel textarea::placeholder{
+    color:#bfc9d4;
+}
+
+#newsPanel button{
+    background:#00abf0;
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#newsPanel button:hover{
+    background:#008fd0;
+}
