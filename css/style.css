@@ -181,35 +181,57 @@ body::after {
     z-index: -1;
 }
 
-.stats {
+
+/* Career Stats Table */
+
+.career-stats {
     width: 90%;
-    margin: 80px auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    margin: 100px auto;
 }
 
-.card {
-    background: #10293d;
-    border-radius: 20px;
-    padding: 40px;
+.career-stats h2 {
     text-align: center;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(0, 171, 240, .4);
-}
-
-.card h2 {
-    color: #00abf0;
     font-size: 45px;
+    color: #00abf0;
+    margin-bottom: 40px;
 }
 
-.card p {
-    margin-top: 10px;
+.table-container {
+    overflow-x: auto;
+    border-radius: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #10293d;
+    color: #fff;
+}
+
+th {
+    background: #00abf0;
+    color: #fff;
+    padding: 15px;
     font-size: 18px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+tr:hover {
+    background: #17364d;
+}
+
+@media(max-width:768px) {
+    table {
+        min-width: 700px;
+    }
+    .career-stats h2 {
+        font-size: 34px;
+    }
 }
 
 
