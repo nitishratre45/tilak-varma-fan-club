@@ -1,32 +1,52 @@
-const loginBtn = document.getElementById("loginBtn");
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-loginBtn.onclick = () => {
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const msg = document.getElementById("msg");
+import { db } from "./firebase.js";
 
-    if (username === "admin" && password === "12345") {
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-        window.location.href = "dashboard.html";
-
-    } else {
-
-        msg.innerText = "Wrong Username or Password";
-
-    }
-
-};
-function showNews(){
-
-    document.getElementById("dashboardContent").style.display="none";
-
-    document.getElementById("newsPanel").style.display="block";
-
+window.showNews = function () {
+    document.getElementById("dashboardContent").style.display = "none";
+    document.getElementById("newsPanel").style.display = "block";
 }
 
-function addNews(){
+window.addNews = async function () {
 
-    alert("Next step me Firebase se live publish karenge 🚀");
+    const title = document.getElementById("newsTitle").value;
+    const description = document.getElementById("newsDesc").value;
+
+    if (title === "" || description === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    try {
+
+        await addDoc(collection(db, "news"), {
+
+            title: title,
+            description: description,
+            image: "https://picsum.photos/500/300"
+
+        });
+
+        alert("News Published Successfully ✅");
+
+        document.getElementById("newsTitle").value = "";
+        document.getElementById("newsDesc").value = "";
+
+    } catch (e) {
+
+        alert("Error : " + e);
+
+    }
 
 }
