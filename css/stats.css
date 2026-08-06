@@ -1,0 +1,187 @@
+/* =========================
+   STATS HERO
+========================= */
+
+.stats-hero{
+    width:100%;
+    min-height:45vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#081b29,#10293d,#00abf0);
+    padding:120px 20px 80px;
+}
+
+.stats-hero h1{
+    font-size:60px;
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.stats-hero p{
+    max-width:750px;
+    margin:auto;
+    color:#e8e8e8;
+    font-size:20px;
+    line-height:1.8;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+
+.overview{
+    width:90%;
+    margin:80px auto;
+}
+
+.overview h2{
+    text-align:center;
+    color:#00abf0;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+.overview-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.overview-card{
+    background:#10293d;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    transition:.35s;
+    box-shadow:0 0 20px rgba(0,171,240,.15);
+}
+
+.overview-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 35px rgba(0,171,240,.35);
+}
+
+.overview-card h3{
+    color:#ddd;
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.overview-card h1{
+    color:#00abf0;
+    font-size:48px;
+}
+/* =========================
+   STATS SECTION
+========================= */
+
+.stats-section{
+    width:90%;
+    margin:90px auto;
+}
+
+.stats-section h2{
+    text-align:center;
+    font-size:42px;
+    color:#00abf0;
+    margin-bottom:45px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.stats-card{
+    background:#10293d;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    transition:.35s;
+    border:1px solid rgba(0,171,240,.15);
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.stats-card:hover{
+    transform:translateY(-10px);
+    border-color:#00abf0;
+    box-shadow:0 15px 40px rgba(0,171,240,.35);
+}
+
+.stats-card h1{
+    color:#00abf0;
+    font-size:48px;
+    margin:15px 0;
+}
+
+.stats-card h3{
+    color:#fff;
+    font-size:26px;
+    margin-bottom:18px;
+}
+
+.stats-card p{
+    color:#d8d8d8;
+    line-height:1.8;
+    font-size:17px;
+    margin:8px 0;
+}
+
+.stats-card strong{
+    color:#fff;
+}
+
+/* =========================
+   TABLES
+========================= */
+
+.career-stats{
+    width:90%;
+    margin:90px auto;
+}
+
+.career-stats h2{
+    text-align:center;
+    color:#00abf0;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+.table-container{
+    overflow-x:auto;
+    border-radius:18px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#10293d;
+}
+
+thead{
+    background:#00abf0;
+}
+
+th{
+    padding:18px;
+    color:#fff;
+    font-size:18px;
+}
+
+td{
+    padding:16px;
+    text-align:center;
+    color:#eee;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:#17364d;
+}
