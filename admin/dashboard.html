@@ -11,81 +11,75 @@
 
 <body>
 
-    <div class="admin-container">
+<div class="admin-container">
 
-        <!-- Sidebar -->
-        <div class="sidebar">
+    <div class="sidebar">
 
-            <h2>🏏 Admin</h2>
+        <h2>🏏 Admin</h2>
 
-            <ul>
-                <li onclick="showDashboard()">🏠 Dashboard</li>
-                <li onclick="showNews()">📰 News</li>
-                <li>🖼 Gallery</li>
-                <li>🏏 Matches</li>
-                <li>⚙️ Settings</li>
-                <li onclick="logout()">🚪 Logout</li>
-            </ul>
+        <ul>
+            <li onclick="showDashboard()">🏠 Dashboard</li>
+            <li onclick="showNews()">📰 News</li>
+            <li>🖼 Gallery</li>
+            <li>🏏 Matches</li>
+            <li>⚙️ Settings</li>
+            <li onclick="logout()">🚪 Logout</li>
+        </ul>
+
+    </div>
+
+    <div class="content">
+
+        <!-- Dashboard -->
+        <div id="dashboardContent">
+
+            <h1>Welcome Admin 👋</h1>
+
+            <p>Manage your Tilak Varma Fan Club website from here.</p>
 
         </div>
 
-        <!-- Main Content -->
-        <div class="content">
+        <!-- News Panel -->
+        <div id="newsPanel" style="display:none;">
 
-            <!-- Dashboard -->
-            <div id="dashboardContent">
+            <h1>📰 Publish News</h1>
 
-                <h1>Welcome Admin 👋</h1>
+            <br>
 
-                <p>Manage your Tilak Varma Fan Club website from here.</p>
+            <input
+                type="text"
+                id="newsTitle"
+                placeholder="News Title"
+                style="width:100%;padding:12px;">
 
-            </div>
+            <br><br>
 
-            <!-- News Panel -->
-            <div id="newsPanel" style="display:none;">
+            <textarea
+                id="newsDesc"
+                placeholder="News Description"
+                style="width:100%;height:180px;padding:12px;"></textarea>
 
-                <h1>📰 Manage News</h1>
+            <br><br>
 
-                <br>
+            <input
+                type="text"
+                id="newsImageName"
+                placeholder="Image Name (Example: tilak13.jpg)"
+                style="width:100%;padding:12px;">
 
-                <input
-                    type="text"
-                    id="newsTitle"
-                    placeholder="News Title"
-                    style="width:100%;padding:12px;">
+            <br><br>
 
-                <br><br>
-
-                <textarea
-                    id="newsDesc"
-                    placeholder="News Description"
-                    style="width:100%;height:180px;padding:12px;"></textarea>
-
-                <br><br>
-
-                <label><b>📷 Upload News Image</b></label>
-
-                <br><br>
-
-                <input
-                    type="file"
-                    id="newsImage"
-                    accept="image/*">
-
-                <br><br>
-
-                <button onclick="addNews()">
-                    🚀 Publish News
-                </button>
-
-            </div>
+            <button onclick="addNews()">
+                🚀 Publish News
+            </button>
 
         </div>
 
     </div>
 
-    <script type="module" src="admin.js"></script>
+</div>
+
+<script type="module" src="admin.js"></script>
 
 </body>
-
 </html>

@@ -23,8 +23,9 @@ window.addNews = async function () {
 
     const title = document.getElementById("newsTitle").value;
     const description = document.getElementById("newsDesc").value;
+    const imageName = document.getElementById("newsImageName").value;
 
-    if (!title || !description) {
+    if (!title || !description || !imageName) {
         alert("Please fill all fields");
         return;
     }
@@ -32,18 +33,20 @@ window.addNews = async function () {
     try {
 
         await addDoc(collection(db, "news"), {
-            title,
-            description,
-            image: "https://picsum.photos/500/300"
+            title: title,
+            description: description,
+            image: "image/" + imageName
         });
 
         alert("News Published Successfully ✅");
 
         document.getElementById("newsTitle").value = "";
         document.getElementById("newsDesc").value = "";
+        document.getElementById("newsImageName").value = "";
 
     } catch (err) {
         console.error(err);
         alert(err.message);
     }
+
 };
