@@ -98,6 +98,17 @@ header {
     margin-bottom: 40px;
 }
 
+.hero-tag {
+    display: inline-block;
+    background: rgba(0, 171, 240, .15);
+    color: #00abf0;
+    border: 1px solid #00abf0;
+    padding: 8px 16px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
 .btn {
     display: inline-block;
     background: #00abf0;
