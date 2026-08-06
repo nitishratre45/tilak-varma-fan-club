@@ -810,8 +810,8 @@ footer p {
 }
 
 .team img {
-    width: 90px;
-    height: 90px;
+    width: 200px;
+    height: 150px;
     object-fit: contain;
 }
 
