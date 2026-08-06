@@ -17,3 +17,16 @@ loginBtn.onclick = () => {
     }
 
 };
+function showNews(){
+
+    document.getElementById("dashboardContent").style.display="none";
+
+    document.getElementById("newsPanel").style.display="block";
+
+}
+
+function addNews(){
+
+    alert("Next step me Firebase se live publish karenge 🚀");
+
+}
