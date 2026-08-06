@@ -1,24 +1,29 @@
 @media (max-width:768px) {
-    .hero h1 {
-        font-size: 50px;
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 35px;
+        padding: 120px 20px 50px;
     }
-    .hero h3 {
-        font-size: 26px;
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
     }
-    .hero p {
-        font-size: 18px;
-    }
-    .hero-tag {
-        font-size: 14px;
+    .hero-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .hero-image img {
-        width: 90%;
-        max-width: 350px;
+        display: block;
+        width: 280px;
+        max-width: 90%;
         margin: 0 auto;
     }
     .buttons {
         justify-content: center;
-        flex-wrap: wrap;
     }
     .stats,
     .news-container,

@@ -133,6 +133,14 @@ header {
     gap: 60px;
 }
 
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 8% 60px;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
