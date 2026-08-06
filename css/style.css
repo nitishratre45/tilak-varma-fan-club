@@ -614,3 +614,55 @@ footer p {
 .nav-links a:hover::after {
     width: 100%;
 }
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #00abf0;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#topBtn:hover {
+    background: #008ed1;
+}
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+}
+
+#close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}

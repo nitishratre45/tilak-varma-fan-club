@@ -113,3 +113,44 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 observer.observe(statsSection);
+const menu = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav-links");
+
+menu.onclick = () => {
+    nav.classList.toggle("active");
+}
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+topBtn.onclick = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+const gallery = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const close = document.getElementById("close");
+
+gallery.forEach(img => {
+    img.onclick = () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    }
+})
+
+close.onclick = () => {
+    lightbox.style.display = "none";
+}
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+
+    themeBtn.innerHTML =
+        document.body.classList.contains("light") ? "🌞" : "🌙";
+};
