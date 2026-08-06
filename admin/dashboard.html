@@ -13,6 +13,7 @@
 
 <div class="admin-container">
 
+    <!-- Sidebar -->
     <div class="sidebar">
 
         <h2>🏏 Admin</h2>
@@ -20,58 +21,133 @@
         <ul>
             <li onclick="showDashboard()">🏠 Dashboard</li>
             <li onclick="showNews()">📰 News</li>
-            <li>🖼 Gallery</li>
-            <li>🏏 Matches</li>
-            <li>⚙️ Settings</li>
+            <li onclick="showGallery()">📷 Gallery</li>
+            <li onclick="showCareer()">👤 Career</li>
+            <li onclick="showRecords()">🏆 Records</li>
+            <li onclick="showMatches()">🏏 Matches</li>
+            <li onclick="showSettings()">⚙️ Settings</li>
             <li onclick="logout()">🚪 Logout</li>
         </ul>
 
     </div>
 
+    <!-- Main Content -->
     <div class="content">
 
-        <!-- Dashboard -->
+        <!-- ================= DASHBOARD ================= -->
+
         <div id="dashboardContent">
 
             <h1>Welcome Admin 👋</h1>
 
             <p>Manage your Tilak Varma Fan Club website from here.</p>
 
+            <div class="dashboard-cards">
+
+                <div class="dash-card">
+                    <h2 id="totalNews">0</h2>
+                    <p>📰 Total News</p>
+                </div>
+
+                <div class="dash-card">
+                    <h2 id="totalGallery">0</h2>
+                    <p>📷 Total Photos</p>
+                </div>
+
+                <div class="dash-card">
+                    <h2>Online</h2>
+                    <p>🔥 Firebase Status</p>
+                </div>
+
+                <div class="dash-card">
+                    <h2>Active</h2>
+                    <p>🌐 Website Status</p>
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- News Panel -->
+        <!-- ================= NEWS ================= -->
+
         <div id="newsPanel" style="display:none;">
 
             <h1>📰 Publish News</h1>
 
-            <br>
-
             <input
                 type="text"
                 id="newsTitle"
-                placeholder="News Title"
-                style="width:100%;padding:12px;">
-
-            <br><br>
+                placeholder="News Title">
 
             <textarea
                 id="newsDesc"
-                placeholder="News Description"
-                style="width:100%;height:180px;padding:12px;"></textarea>
-
-            <br><br>
+                placeholder="News Description"></textarea>
 
             <input
                 type="text"
                 id="newsImageName"
-                placeholder="Image Name (Example: tilak13.jpg)"
-                style="width:100%;padding:12px;">
-
-            <br><br>
+                placeholder="Image Name (Example: tilak13.jpg)">
 
             <button onclick="addNews()">
                 🚀 Publish News
             </button>
+
+        </div>
+
+        <!-- ================= GALLERY ================= -->
+
+        <div id="galleryPanel" style="display:none;">
+
+            <h1>📷 Upload Gallery Photo</h1>
+
+            <input
+                type="text"
+                id="galleryImage"
+                placeholder="Image Name (Example: tilak20.jpg)">
+
+            <button onclick="addGallery()">
+                📤 Upload Photo
+            </button>
+
+        </div>
+
+        <!-- ================= CAREER ================= -->
+
+        <div id="careerPanel" style="display:none;">
+
+            <h1>👤 Career</h1>
+
+            <p>Career Management Coming Soon...</p>
+
+        </div>
+
+        <!-- ================= RECORDS ================= -->
+
+        <div id="recordsPanel" style="display:none;">
+
+            <h1>🏆 Records</h1>
+
+            <p>Records Management Coming Soon...</p>
+
+        </div>
+
+        <!-- ================= MATCHES ================= -->
+
+        <div id="matchesPanel" style="display:none;">
+
+            <h1>🏏 Matches</h1>
+
+            <p>Match Management Coming Soon...</p>
+
+        </div>
+
+        <!-- ================= SETTINGS ================= -->
+
+        <div id="settingsPanel" style="display:none;">
+
+            <h1>⚙️ Settings</h1>
+
+            <p>Website Settings Coming Soon...</p>
 
         </div>
 

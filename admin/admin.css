@@ -144,3 +144,58 @@ body{
 #newsPanel button:hover{
     background:#008fd0;
 }
+/* Dashboard Cards */
+
+.dashboard-cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.dash-card{
+
+background:#10293d;
+
+padding:35px;
+
+border-radius:18px;
+
+text-align:center;
+
+transition:.35s;
+
+box-shadow:0 0 20px rgba(0,171,240,.18);
+
+}
+
+.dash-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 35px rgba(0,171,240,.4);
+
+}
+
+.dash-card h2{
+
+font-size:42px;
+
+color:#00abf0;
+
+margin-bottom:15px;
+
+}
+
+.dash-card p{
+
+font-size:18px;
+
+color:#ddd;
+
+}
