@@ -133,14 +133,6 @@ header {
     gap: 60px;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 120px 8% 60px;
-}
-
 .hero-image {
     flex: 1;
     display: flex;
@@ -716,4 +708,134 @@ footer p {
     color: #fff;
     cursor: pointer;
     z-index: 1001;
+}
+
+.quick-info {
+    width: 90%;
+    margin: 80px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    background: #10293d;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 171, 240, .35);
+}
+
+.info-card h3 {
+    color: #00abf0;
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: #ddd;
+    font-size: 17px;
+}
+
+@media(max-width:768px) {
+    .quick-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+.records {
+    width: 90%;
+    margin: 100px auto;
+}
+
+.records h2 {
+    text-align: center;
+    color: #00abf0;
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+.records-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.record-card {
+    background: #10293d;
+    padding: 30px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.record-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 171, 240, .35);
+}
+
+.record-card h3 {
+    color: #00abf0;
+    margin-bottom: 15px;
+}
+
+.record-card p {
+    color: #ddd;
+    line-height: 28px;
+}
+
+@media(max-width:768px) {
+    .records-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.match-section {
+    width: 90%;
+    margin: 100px auto;
+}
+
+.match-card {
+    background: #10293d;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 171, 240, .25);
+}
+
+.team img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.team h3 {
+    margin-top: 15px;
+}
+
+.match-info h2 {
+    color: #00abf0;
+    font-size: 42px;
+}
+
+.match-info p {
+    margin: 10px 0;
+}
+
+.match-info span {
+    color: #00abf0;
+    font-weight: bold;
+}
+
+@media(max-width:768px) {
+    .match-card {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
