@@ -307,3 +307,28 @@ async function loadLiveMatches() {
 }
 
 loadLiveMatches();
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+        (window.scrollY /
+        (document.body.scrollHeight - window.innerHeight)) * 100;
+
+    document.getElementById("progressBar").style.width = scroll + "%";
+
+});
+const popup = document.getElementById("welcomePopup");
+const closePopup = document.getElementById("closePopup");
+
+if (popup && closePopup) {
+
+    if (localStorage.getItem("welcomeShown")) {
+        popup.style.display = "none";
+    }
+
+    closePopup.onclick = () => {
+        popup.style.display = "none";
+        localStorage.setItem("welcomeShown", "true");
+    };
+
+}
