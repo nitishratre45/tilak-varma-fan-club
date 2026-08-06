@@ -201,3 +201,109 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         nav.classList.remove("active");
     });
 });
+// =====================
+// Live Cricket Matches
+// =====================
+
+const API_KEY = "50c3cfa2-eec9-4d33-8309-22a8bdce1f64";
+
+async function loadLiveMatches() {
+
+    try {
+
+        const response = await fetch(
+            `https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`
+        );
+
+        const result = await response.json();
+
+        const container = document.getElementById("liveMatches");
+
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        if (!result.data || result.data.length === 0) {
+            container.innerHTML = "<p>No live matches available.</p>";
+            return;
+        }
+
+        // Filter only India / Mumbai Indians / Hyderabad / India A
+        const filteredMatches = result.data.filter(match => {
+
+            const text = (
+                (match.name || "") + " " +
+                (match.series || "") + " " +
+                (match.teamInfo?.map(team => team.name).join(" ") || "")
+            ).toLowerCase();
+
+            return (
+                text.includes("india") ||
+                text.includes("india a") ||
+                text.includes("mumbai indians") ||
+                text.includes("hyderabad")
+            );
+
+        });
+
+        if (filteredMatches.length === 0) {
+
+            container.innerHTML = `
+                <div class="match-card">
+                    <h3>🏏 No Match</h3>
+                    <p>No India / Tilak Varma matches available.</p>
+                    <div class="status">Check back later.</div>
+                </div>
+            `;
+
+            return;
+        }
+
+        filteredMatches.slice(0, 6).forEach(match => {
+
+            const card = document.createElement("div");
+            card.className = "match-card";
+
+            const team1 = match.teamInfo?.[0]?.name || "Team 1";
+            const team2 = match.teamInfo?.[1]?.name || "Team 2";
+
+            card.innerHTML = `
+                <h3>${team1} vs ${team2}</h3>
+
+                <p><strong>🏏 Match:</strong> ${match.matchType || "N/A"}</p>
+
+                <p><strong>🏆 Series:</strong> ${match.name || "N/A"}</p>
+
+                <p><strong>📅 Date:</strong> ${match.date || "N/A"}</p>
+
+                <p><strong>📍 Venue:</strong> ${match.venue || "N/A"}</p>
+
+                <div class="status">${match.status || "Upcoming"}</div>
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+        const container = document.getElementById("liveMatches");
+
+        if (container) {
+
+            container.innerHTML = `
+                <div class="match-card">
+                    <h3>API Error</h3>
+                    <p>Unable to load live matches.</p>
+                </div>
+            `;
+
+        }
+
+    }
+
+}
+
+loadLiveMatches();

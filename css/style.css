@@ -792,50 +792,149 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
-
-.match-section {
-    width: 90%;
-    margin: 100px auto;
+.match-section{
+    width:60%;
+    max-width:500px;
+    margin:10px auto;
 }
 
-.match-card {
-    background: #10293d;
-    border-radius: 20px;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 171, 240, .25);
+.match-card{
+    background:#0d2233;
+    border-radius:18px;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    min-height:320px;   /* pehle bahut bada tha */
 }
 
-.team img {
-    width: 200px;
-    height: 150px;
-    object-fit: contain;
+.team img{
+    width: 150px;
+    height:100px;
+    object-fit:contain;
 }
 
-.team h3 {
-    margin-top: 15px;
+.team h3{
+    margin-top:30px;
+    font-size:20px;
+    color:#00abf0;
 }
 
-.match-info h2 {
-    color: #00abf0;
-    font-size: 42px;
+.match-info h2{
+    font-size:42px;
+    margin:8px 0;
 }
 
-.match-info p {
-    margin: 10px 0;
+.match-info p{
+    font-size:15px;
+    margin:4px 0;
 }
 
-.match-info span {
-    color: #00abf0;
-    font-weight: bold;
-}
+@media(max-width:768px){
 
-@media(max-width:768px) {
-    .match-card {
-        flex-direction: column;
-        gap: 30px;
+    .match-card{
+        min-height:auto;
+        padding:18px;
+        gap:15px;
     }
+
+    .team img{
+        width:70px;
+        height:70px;
+    }
+
+    .match-info h2{
+        font-size:34px;
+    }
+
+    .match-info p{
+        font-size:14px;
+    }
+
+}
+/* ===========================
+   Live Cricket Cards
+=========================== */
+
+.live-matches{
+    width:90%;
+    max-width:1300px;
+    margin:70px auto;
+}
+
+.matches-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
+}
+
+.match-card{
+    background:#10293d;
+    border:1px solid rgba(0,171,240,.25);
+    border-radius:18px;
+    padding:25px;
+    transition:.35s;
+    box-shadow:0 0 15px rgba(0,171,240,.15);
+}
+
+.match-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(0,171,240,.35);
+}
+
+.match-card h3{
+    color:#00abf0;
+    font-size:28px;
+    margin-bottom:18px;
+    line-height:1.35;
+}
+
+.match-card p{
+    color:#e5e5e5;
+    font-size:17px;
+    margin:12px 0;
+    line-height:1.6;
+}
+
+.match-card strong{
+    color:#fff;
+}
+
+.status{
+    margin-top:18px;
+    background:#00abf0;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    display:inline-block;
+    font-weight:600;
+    font-size:15px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .matches-container{
+        grid-template-columns:1fr;
+    }
+
+    .match-card{
+        padding:20px;
+    }
+
+    .match-card h3{
+        font-size:22px;
+    }
+
+    .match-card p{
+        font-size:15px;
+    }
+
+    .status{
+        width:100%;
+        text-align:center;
+    }
+
 }
