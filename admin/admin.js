@@ -42,3 +42,12 @@ window.addNews = async function () {
     }
 
 }
+
+window.showDashboard = function () {
+    document.getElementById("dashboardContent").style.display = "block";
+    document.getElementById("newsPanel").style.display = "none";
+};
+
+window.logout = function () {
+    window.location.href = "index.html";
+};

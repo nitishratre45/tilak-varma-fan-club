@@ -1,9 +1,9 @@
 // Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-import {
-  getFirestore
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+import { getStorage } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 // Firebase Config
 const firebaseConfig = {
@@ -21,11 +21,7 @@ const app = initializeApp(firebaseConfig);
 // Firestore
 const db = getFirestore(app);
 
-
-export { db };
-
-import { getStorage } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
-
+// Storage
 const storage = getStorage(app);
 
 export { db, storage };
