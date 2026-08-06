@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tilak-varma-fan-club.vercel.app/sitemap.xml
