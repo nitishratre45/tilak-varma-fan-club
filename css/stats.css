@@ -185,3 +185,139 @@ tbody tr{
 tbody tr:hover{
     background:#17364d;
 }
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:992px){
+
+.stats-hero h1{
+    font-size:48px;
+}
+
+.stats-hero p{
+    font-size:18px;
+}
+
+.overview-grid,
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:768px){
+
+.stats-hero{
+    min-height:35vh;
+    padding:110px 20px 60px;
+}
+
+.stats-hero h1{
+    font-size:38px;
+}
+
+.stats-hero p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+.overview h2,
+.stats-section h2,
+.career-stats h2{
+    font-size:32px;
+}
+
+.overview-grid,
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.overview-card,
+.stats-card{
+    padding:25px;
+}
+
+.overview-card h1,
+.stats-card h1{
+    font-size:38px;
+}
+
+.stats-card h3{
+    font-size:22px;
+}
+
+.stats-card p{
+    font-size:15px;
+}
+
+table{
+    min-width:850px;
+}
+
+th,
+td{
+    padding:14px;
+    font-size:15px;
+}
+
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.stats-card,
+.overview-card{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.table-container::-webkit-scrollbar{
+    height:8px;
+}
+
+.table-container::-webkit-scrollbar-thumb{
+    background:#00abf0;
+    border-radius:20px;
+}
+
+.table-container::-webkit-scrollbar-track{
+    background:#0d2436;
+}
+
+/* =========================
+   GLOW EFFECT
+========================= */
+
+.stats-card:hover h1,
+.overview-card:hover h1{
+    text-shadow:0 0 18px rgba(0,171,240,.7);
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+
+.stats-section,
+.career-stats,
+.overview{
+    scroll-margin-top:110px;
+}
