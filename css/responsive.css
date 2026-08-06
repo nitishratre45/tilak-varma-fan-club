@@ -15,6 +15,12 @@
     .hero h3 {
         font-size: 28px;
     }
+    .stats,
+    .news-container,
+    .timeline-container,
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width:768px) {
