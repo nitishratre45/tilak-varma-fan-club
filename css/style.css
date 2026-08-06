@@ -792,67 +792,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
-.match-section{
-    width:60%;
-    max-width:500px;
-    margin:10px auto;
-}
 
-.match-card{
-    background:#0d2233;
-    border-radius:18px;
-    padding:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:25px;
-    min-height:320px;   /* pehle bahut bada tha */
-}
-
-.team img{
-    width: 150px;
-    height:100px;
-    object-fit:contain;
-}
-
-.team h3{
-    margin-top:30px;
-    font-size:20px;
-    color:#00abf0;
-}
-
-.match-info h2{
-    font-size:42px;
-    margin:8px 0;
-}
-
-.match-info p{
-    font-size:15px;
-    margin:4px 0;
-}
-
-@media(max-width:768px){
-
-    .match-card{
-        min-height:auto;
-        padding:18px;
-        gap:15px;
-    }
-
-    .team img{
-        width:70px;
-        height:70px;
-    }
-
-    .match-info h2{
-        font-size:34px;
-    }
-
-    .match-info p{
-        font-size:14px;
-    }
-
-}
 /* ===========================
    Live Cricket Cards
 =========================== */
@@ -936,5 +876,54 @@ footer p {
         width:100%;
         text-align:center;
     }
+
+}
+
+.contact{
+    width:90%;
+    margin:100px auto;
+}
+
+.contact h2{
+    text-align:center;
+    color:#00abf0;
+    margin-bottom:40px;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.contact-card{
+    background:#10293d;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    transition:.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(0,171,240,.35);
+}
+
+.contact-card h3{
+    margin:15px 0;
+    color:#00abf0;
+}
+
+.contact-card p{
+    color:#ddd;
+}
+
+@media(max-width:768px){
+
+.contact-container{
+    grid-template-columns:1fr;
+}
 
 }
