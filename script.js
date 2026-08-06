@@ -122,7 +122,9 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.5
 });
 
-observer.observe(statsSection);
+if (statsSection) {
+    observer.observe(statsSection);
+}
 
 // =====================
 // Mobile Menu
