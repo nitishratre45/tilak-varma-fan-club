@@ -354,14 +354,19 @@ if (popup && closePopup) {
     };
 
 }
+
+
 async function loadNews() {
+
+    console.log("loadNews called");
 
     const newsContainer = document.querySelector(".news-container");
 
     newsContainer.innerHTML = "";
 
     const querySnapshot = await getDocs(collection(db, "news"));
-
+    console.log(querySnapshot.size);
+    
     querySnapshot.forEach((doc) => {
 
         const news = doc.data();
