@@ -195,3 +195,9 @@ lightbox.onclick = (e) => {
     }
 
 };
+// Auto close menu after clicking any link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+    });
+});
