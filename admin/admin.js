@@ -15,9 +15,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 
-// ==============================
+// ======================================
 // Hide All Panels
-// ==============================
+// ======================================
 
 function hideAllPanels() {
 
@@ -32,79 +32,86 @@ function hideAllPanels() {
 }
 
 
-// ==============================
-// Sidebar Buttons
-// ==============================
+// ======================================
+// Sidebar Functions
+// ======================================
 
-window.showDashboard = function(){
-
-    hideAllPanels();
-
-    document.getElementById("dashboardContent").style.display="block";
-
-}
-
-window.showNews = function(){
+window.showDashboard = function () {
 
     hideAllPanels();
 
-    document.getElementById("newsPanel").style.display="block";
+    document.getElementById("dashboardContent").style.display = "block";
 
-}
+};
 
-window.showGallery = function(){
 
-    hideAllPanels();
-
-    document.getElementById("galleryPanel").style.display="block";
-
-}
-
-window.showCareer = function(){
+window.showNews = function () {
 
     hideAllPanels();
 
-    document.getElementById("careerPanel").style.display="block";
+    document.getElementById("newsPanel").style.display = "block";
 
-}
+};
 
-window.showRecords = function(){
 
-    hideAllPanels();
-
-    document.getElementById("recordsPanel").style.display="block";
-
-}
-
-window.showMatches = function(){
+window.showGallery = function () {
 
     hideAllPanels();
 
-    document.getElementById("matchesPanel").style.display="block";
+    document.getElementById("galleryPanel").style.display = "block";
 
-}
+};
 
-window.showSettings = function(){
+
+window.showCareer = function () {
 
     hideAllPanels();
 
-    document.getElementById("settingsPanel").style.display="block";
+    document.getElementById("careerPanel").style.display = "block";
 
-}
+};
 
 
-// ==============================
+window.showRecords = function () {
+
+    hideAllPanels();
+
+    document.getElementById("recordsPanel").style.display = "block";
+
+};
+
+
+window.showMatches = function () {
+
+    hideAllPanels();
+
+    document.getElementById("matchesPanel").style.display = "block";
+
+};
+
+
+window.showSettings = function () {
+
+    hideAllPanels();
+
+    document.getElementById("settingsPanel").style.display = "block";
+
+};
+
+
+// ======================================
 // Logout
-// ==============================
+// ======================================
 
-window.logout=function(){
+window.logout = function () {
 
-    location.href="index.html";
+    window.location.href = "index.html";
 
-}
-// ==============================
+};
+
+// ======================================
 // Add News
-// ==============================
+// ======================================
 
 window.addNews = async function () {
 
@@ -114,14 +121,15 @@ window.addNews = async function () {
 
     if (!title || !description || !imageFile) {
 
-        alert("Please fill all fields and select an image.");
+        alert("Please fill all fields.");
         return;
 
     }
 
     try {
 
-        // Upload image to Firebase Storage
+        // Upload Image to Firebase Storage
+
         const fileName = Date.now() + "_" + imageFile.name;
 
         const storageRef = ref(storage, "news/" + fileName);
@@ -130,7 +138,8 @@ window.addNews = async function () {
 
         const imageURL = await getDownloadURL(storageRef);
 
-        // Save data in Firestore
+        // Save News
+
         await addDoc(collection(db, "news"), {
 
             title: title,
@@ -142,7 +151,6 @@ window.addNews = async function () {
 
         alert("✅ News Published Successfully");
 
-        // Clear form
         document.getElementById("newsTitle").value = "";
         document.getElementById("newsDesc").value = "";
         document.getElementById("newsImage").value = "";
@@ -150,17 +158,22 @@ window.addNews = async function () {
         loadDashboard();
         loadNewsList();
 
-    } catch (err) {
+    }
+
+    catch (err) {
 
         console.error(err);
+
         alert(err.message);
 
     }
 
 };
-// ==============================
-// Add Gallery Photo
-// ==============================
+
+
+// ======================================
+// Add Gallery
+// ======================================
 
 window.addGallery = async function () {
 
@@ -168,14 +181,14 @@ window.addGallery = async function () {
 
     if (!imageFile) {
 
-        alert("Please select an image.");
+        alert("Please Select Image");
+
         return;
 
     }
 
     try {
 
-        // Upload image to Firebase Storage
         const fileName = Date.now() + "_" + imageFile.name;
 
         const storageRef = ref(storage, "gallery/" + fileName);
@@ -184,10 +197,10 @@ window.addGallery = async function () {
 
         const imageURL = await getDownloadURL(storageRef);
 
-        // Save image URL in Firestore
         await addDoc(collection(db, "gallery"), {
 
             image: imageURL,
+
             date: new Date().toLocaleDateString()
 
         });
@@ -197,18 +210,22 @@ window.addGallery = async function () {
         document.getElementById("galleryImage").value = "";
 
         loadDashboard();
+        loadGalleryList();
 
-    } catch (err) {
+    }
+
+    catch (err) {
 
         console.error(err);
+
         alert(err.message);
 
     }
 
 };
-// ==============================
+// ======================================
 // Dashboard Count
-// ==============================
+// ======================================
 
 async function loadDashboard() {
 
@@ -229,9 +246,9 @@ async function loadDashboard() {
 }
 
 
-// ==============================
+// ======================================
 // Load News List
-// ==============================
+// ======================================
 
 async function loadNewsList() {
 
@@ -281,8 +298,130 @@ async function loadNewsList() {
 
     } catch (err) {
 
-        console.log(err);
+        console.error(err);
 
     }
 
 }
+
+
+// ======================================
+// Load Gallery List
+// ======================================
+
+async function loadGalleryList() {
+
+    const galleryList = document.getElementById("galleryList");
+
+    if (!galleryList) return;
+
+    galleryList.innerHTML = "";
+
+    try {
+
+        const snapshot = await getDocs(collection(db, "gallery"));
+
+        snapshot.forEach((item) => {
+
+            const photo = item.data();
+
+            galleryList.innerHTML += `
+
+            <div class="gallery-card">
+
+                <img src="${photo.image}" alt="Gallery">
+
+                <button onclick="deleteGallery('${item.id}')">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+            `;
+
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+    }
+
+}
+
+
+// ======================================
+// Delete News
+// ======================================
+
+window.deleteNews = async function(id){
+
+    if(!confirm("Delete this news?")) return;
+
+    try{
+
+        await deleteDoc(doc(db,"news",id));
+
+        loadDashboard();
+        loadNewsList();
+
+        alert("News Deleted");
+
+    }
+
+    catch(err){
+
+        console.error(err);
+
+        alert(err.message);
+
+    }
+
+};
+
+
+// ======================================
+// Delete Gallery
+// ======================================
+
+window.deleteGallery = async function(id){
+
+    if(!confirm("Delete this photo?")) return;
+
+    try{
+
+        await deleteDoc(doc(db,"gallery",id));
+
+        loadDashboard();
+        loadGalleryList();
+
+        alert("Photo Deleted");
+
+    }
+
+    catch(err){
+
+        console.error(err);
+
+        alert(err.message);
+
+    }
+
+};
+
+
+// ======================================
+// Initialize
+// ======================================
+
+window.addEventListener("load",()=>{
+
+    loadDashboard();
+
+    loadNewsList();
+
+    loadGalleryList();
+
+});
