@@ -1,20 +1,46 @@
-import { db, storage } from "./firebase.js";
-
-import {
-    collection,
-    addDoc,
-    getDocs,
-    deleteDoc,
-    doc
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+import { db } from "./firebase.js";
 
 
+
+// ===============================
+// Cloudinary Config
+// ===============================
+
+const CLOUD_NAME = "wad76b1f";
+const UPLOAD_PRESET = "tilakfanclub";
+
+async function uploadToCloudinary(file) {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    const response = await fetch(
+
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+
+        {
+
+            method: "POST",
+
+            body: formData
+
+        }
+
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+
+        throw new Error(data.error?.message || "Cloudinary Upload Failed");
+
+    }
+
+    return data.secure_url;
+
+}
 // ======================================
 // Hide All Panels
 // ======================================
@@ -113,10 +139,16 @@ window.logout = function () {
 // Add News
 // ======================================
 
+// ==============================
+// Add News (Cloudinary)
+// ==============================
+
 window.addNews = async function () {
 
     const title = document.getElementById("newsTitle").value.trim();
+
     const description = document.getElementById("newsDesc").value.trim();
+
     const imageFile = document.getElementById("newsImage").files[0];
 
     if (!title || !description || !imageFile) {
@@ -128,18 +160,10 @@ window.addNews = async function () {
 
     try {
 
-        // Upload Image to Firebase Storage
+        // Upload image to Cloudinary
+        const imageURL = await uploadToCloudinary(imageFile);
 
-        const fileName = Date.now() + "_" + imageFile.name;
-
-        const storageRef = ref(storage, "news/" + fileName);
-
-        await uploadBytes(storageRef, imageFile);
-
-        const imageURL = await getDownloadURL(storageRef);
-
-        // Save News
-
+        // Save News in Firestore
         await addDoc(collection(db, "news"), {
 
             title: title,
@@ -158,9 +182,7 @@ window.addNews = async function () {
         loadDashboard();
         loadNewsList();
 
-    }
-
-    catch (err) {
+    } catch (err) {
 
         console.error(err);
 
@@ -169,11 +191,9 @@ window.addNews = async function () {
     }
 
 };
-
-
-// ======================================
-// Add Gallery
-// ======================================
+// ==============================
+// Add Gallery (Cloudinary)
+// ==============================
 
 window.addGallery = async function () {
 
@@ -181,40 +201,37 @@ window.addGallery = async function () {
 
     if (!imageFile) {
 
-        alert("Please Select Image");
-
+        alert("Please select an image.");
         return;
 
     }
 
     try {
 
-        const fileName = Date.now() + "_" + imageFile.name;
+        // Upload to Cloudinary
+        const imageURL = await uploadToCloudinary(imageFile);
 
-        const storageRef = ref(storage, "gallery/" + fileName);
-
-        await uploadBytes(storageRef, imageFile);
-
-        const imageURL = await getDownloadURL(storageRef);
-
+        // Save URL in Firestore
         await addDoc(collection(db, "gallery"), {
 
             image: imageURL,
-
             date: new Date().toLocaleDateString()
 
         });
 
-        alert("✅ Gallery Photo Uploaded");
+        alert("✅ Gallery Photo Uploaded Successfully");
 
         document.getElementById("galleryImage").value = "";
 
         loadDashboard();
-        loadGalleryList();
 
-    }
+        if (typeof loadGalleryList === "function") {
 
-    catch (err) {
+            loadGalleryList();
+
+        }
+
+    } catch (err) {
 
         console.error(err);
 
