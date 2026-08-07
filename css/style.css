@@ -949,7 +949,7 @@ footer hr{
     cursor:pointer;
 
     display:none;  
-    
+
     justify-content: center;
     align-items: center;
     display: flex;
@@ -1306,4 +1306,29 @@ grid-template-columns:1fr;
     grid-template-columns:repeat(3,1fr);
     gap:8px;
 }
+}
+
+.btn{
+
+display:inline-block;
+padding:15px 35px;
+border-radius:12px;
+
+background:linear-gradient(135deg,#00abf0,#0078d4);
+
+color:#fff;
+font-weight:600;
+
+transition:.35s;
+
+box-shadow:0 8px 25px rgba(0,171,240,.35);
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 12px 35px rgba(0,171,240,.55);
+
 }
