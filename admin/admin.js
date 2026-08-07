@@ -454,7 +454,6 @@ window.addEventListener("load",()=>{
     loadGalleryList();
 
 });
-
 window.saveStats = async function () {
 
     try {
@@ -465,23 +464,21 @@ window.saveStats = async function () {
 
             runs: document.getElementById("runs").value,
 
-            average: document.getElementById("average").value,
-
-            strikeRate: document.getElementById("strikeRate").value,
+            fifties: document.getElementById("fifties").value,
 
             hundreds: document.getElementById("hundreds").value,
 
-            fifties: document.getElementById("fifties").value
+            debut: document.getElementById("debut").value
 
         });
 
-        alert("✅ Stats Updated Successfully");
+        alert("✅ Stats Saved Successfully");
 
     } catch (error) {
 
         console.error(error);
 
-        alert("❌ Failed to Update Stats");
+        alert("❌ Failed to Save");
 
     }
 
