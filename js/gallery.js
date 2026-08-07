@@ -160,17 +160,12 @@ window.nextImage = function () {
 
 window.downloadImage = function () {
 
-    const link = document.createElement("a");
+    let url = images[currentIndex];
 
-    link.href = images[currentIndex];
+    // Cloudinary URL ko forced download URL me convert karo
+    url = url.replace("/upload/", "/upload/fl_attachment/");
 
-    link.download = "Tilak-Varma.jpg";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
+    window.open(url, "_blank");
 
 };
 
