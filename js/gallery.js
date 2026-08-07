@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+
 import {
   collection,
   getDocs
@@ -7,9 +8,7 @@ import {
 const galleryGrid = document.querySelector(".gallery-grid");
 
 let images = [];
-
 let currentIndex = 0;
-
 
 // ===========================
 // Load Gallery
@@ -20,7 +19,6 @@ async function loadGallery() {
     if (!galleryGrid) return;
 
     galleryGrid.innerHTML = "";
-
     images = [];
 
     try {
@@ -30,13 +28,12 @@ async function loadGallery() {
         if (snapshot.empty) {
 
             galleryGrid.innerHTML = `
-
-                <h2>No Photos Available</h2>
-
+                <h2 style="color:white;text-align:center;">
+                    No Photos Available
+                </h2>
             `;
 
             return;
-
         }
 
         snapshot.forEach((doc) => {
@@ -54,13 +51,12 @@ async function loadGallery() {
             <div class="gallery-item">
 
                 <img
-                src="${url}"
-                data-index="${index}">
+                    src="${url}"
+                    data-index="${index}"
+                    class="gallery-image">
 
                 <div class="gallery-overlay">
-
                     <i class="fa-solid fa-expand"></i>
-
                 </div>
 
             </div>
@@ -73,9 +69,9 @@ async function loadGallery() {
 
     }
 
-    catch(err){
+    catch (err) {
 
-        console.log(err);
+        console.error(err);
 
     }
 
@@ -86,11 +82,11 @@ async function loadGallery() {
 
 function enableLightbox() {
 
+    const galleryImages = document.querySelectorAll(".gallery-image");
+
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const close = document.getElementById("close");
-
-    const galleryImages = document.querySelectorAll(".gallery-item img");
 
     galleryImages.forEach((img) => {
 
@@ -98,56 +94,66 @@ function enableLightbox() {
 
             currentIndex = Number(img.dataset.index);
 
-            openImage();
+            lightbox.style.display = "flex";
+            lightboxImg.src = images[currentIndex];
 
         });
 
     });
 
-    if (close) {
+    close.onclick = () => {
 
-        close.onclick = () => {
+        lightbox.style.display = "none";
+
+    };
+
+    lightbox.onclick = (e) => {
+
+        if (e.target === lightbox) {
 
             lightbox.style.display = "none";
 
-        };
+        }
 
-    }
-
-    if (lightbox) {
-
-        lightbox.onclick = (e) => {
-
-            if (e.target === lightbox) {
-
-                lightbox.style.display = "none";
-
-            }
-
-        };
-
-    }
+    };
 
 }
 
+// ===========================
+// Previous Image
+// ===========================
+
+window.previousImage = function () {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+
+        currentIndex = images.length - 1;
+
+    }
+
+    document.getElementById("lightbox-img").src = images[currentIndex];
+
+};
 
 // ===========================
-// Open Image
+// Next Image
 // ===========================
 
-function openImage() {
+window.nextImage = function () {
 
-    const lightbox = document.getElementById("lightbox");
+    currentIndex++;
 
-    const lightboxImg = document.getElementById("lightbox-img");
+    if (currentIndex >= images.length) {
 
-    lightbox.style.display = "flex";
+        currentIndex = 0;
 
-    lightboxImg.src = images[currentIndex];
+    }
 
-}
+    document.getElementById("lightbox-img").src = images[currentIndex];
 
-
+};
 // ===========================
 // Download Image
 // ===========================
@@ -165,42 +171,6 @@ window.downloadImage = function () {
     link.click();
 
     document.body.removeChild(link);
-
-}
-// ===========================
-// Previous Image
-// ===========================
-
-window.previousImage = function () {
-
-    currentIndex--;
-
-    if (currentIndex < 0) {
-
-        currentIndex = images.length - 1;
-
-    }
-
-    openImage();
-
-};
-
-
-// ===========================
-// Next Image
-// ===========================
-
-window.nextImage = function () {
-
-    currentIndex++;
-
-    if (currentIndex >= images.length) {
-
-        currentIndex = 0;
-
-    }
-
-    openImage();
 
 };
 
