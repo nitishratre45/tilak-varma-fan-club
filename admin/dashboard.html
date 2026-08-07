@@ -1,161 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="content">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <!-- ================= Dashboard ================= -->
 
-    <link rel="stylesheet" href="admin.css">
-</head>
+    <div id="dashboardContent">
 
-<body>
+        <h1>Welcome Admin 👋</h1>
 
-<div class="admin-container">
+        <p>Manage your Tilak Varma Fan Club website from here.</p>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+        <div class="dashboard-cards">
 
-        <h2>🏏 Admin</h2>
+            <div class="dash-card">
+                <h2 id="totalNews">0</h2>
+                <p>📰 Total News</p>
+            </div>
 
-        <ul>
-            <li onclick="showDashboard()">🏠 Dashboard</li>
-            <li onclick="showNews()">📰 News</li>
-            <li onclick="showGallery()">📷 Gallery</li>
-            <li onclick="showCareer()">👤 Career</li>
-            <li onclick="showRecords()">🏆 Records</li>
-            <li onclick="showMatches()">🏏 Matches</li>
-            <li onclick="showSettings()">⚙️ Settings</li>
-            <li onclick="logout()">🚪 Logout</li>
-        </ul>
+            <div class="dash-card">
+                <h2 id="totalGallery">0</h2>
+                <p>📷 Total Photos</p>
+            </div>
 
-    </div>
+            <div class="dash-card">
+                <h2>Online</h2>
+                <p>🔥 Firebase Status</p>
+            </div>
 
-    <!-- Main Content -->
-    <div class="content">
-
-        <!-- ================= DASHBOARD ================= -->
-
-        <div id="dashboardContent">
-
-            <h1>Welcome Admin 👋</h1>
-
-            <p>Manage your Tilak Varma Fan Club website from here.</p>
-
-            <div class="dashboard-cards">
-
-                <div class="dash-card">
-                    <h2 id="totalNews">0</h2>
-                    <p>📰 Total News</p>
-                </div>
-
-                <div class="dash-card">
-                    <h2 id="totalGallery">0</h2>
-                    <p>📷 Total Photos</p>
-                </div>
-
-                <div class="dash-card">
-                    <h2>Online</h2>
-                    <p>🔥 Firebase Status</p>
-                </div>
-
-                <div class="dash-card">
-                    <h2>Active</h2>
-                    <p>🌐 Website Status</p>
-                </div>
-
+            <div class="dash-card">
+                <h2>Active</h2>
+                <p>🌐 Website Status</p>
             </div>
 
         </div>
 
-        <!-- ================= NEWS ================= -->
+    </div>
 
-        <div id="newsPanel" style="display:none;">
+    <!-- ================= News Panel ================= -->
 
-            <h1>📰 Publish News</h1>
+    <div id="newsPanel" style="display:none;">
 
-            <input
-                type="text"
-                id="newsTitle"
-                placeholder="News Title">
+        <h1>📰 Publish News</h1>
 
-            <textarea
-                id="newsDesc"
-                placeholder="News Description"></textarea>
+        <input
+            type="text"
+            id="newsTitle"
+            placeholder="News Title">
 
-            <input
-                type="text"
-                id="newsImageName"
-                placeholder="Image Name (Example: tilak13.jpg)">
+        <textarea
+            id="newsDesc"
+            placeholder="News Description"></textarea>
 
-            <button onclick="addNews()">
-                🚀 Publish News
-            </button>
+        <label><b>📷 Select News Image</b></label>
 
-        </div>
+        <br><br>
 
-        <!-- ================= GALLERY ================= -->
+        <input
+            type="file"
+            id="newsImage"
+            accept="image/*">
 
-        <div id="galleryPanel" style="display:none;">
+        <br><br>
 
-            <h1>📷 Upload Gallery Photo</h1>
+        <button onclick="addNews()">
+            🚀 Publish News
+        </button>
 
-            <input
-                type="text"
-                id="galleryImage"
-                placeholder="Image Name (Example: tilak20.jpg)">
+        <hr style="margin:40px 0;">
 
-            <button onclick="addGallery()">
-                📤 Upload Photo
-            </button>
+        <h2>📰 Published News</h2>
 
-        </div>
+        <div id="newsList"></div>
 
-        <!-- ================= CAREER ================= -->
+    </div>
 
-        <div id="careerPanel" style="display:none;">
+    <!-- ================= Gallery Panel ================= -->
 
-            <h1>👤 Career</h1>
+    <div id="galleryPanel" style="display:none;">
 
-            <p>Career Management Coming Soon...</p>
+        <h1>📷 Upload Gallery Photo</h1>
 
-        </div>
+        <label><b>📷 Select Gallery Image</b></label>
 
-        <!-- ================= RECORDS ================= -->
+        <br><br>
 
-        <div id="recordsPanel" style="display:none;">
+        <input
+            type="file"
+            id="galleryImage"
+            accept="image/*">
 
-            <h1>🏆 Records</h1>
+        <br><br>
 
-            <p>Records Management Coming Soon...</p>
+        <button onclick="addGallery()">
+            📤 Upload Photo
+        </button>
 
-        </div>
+        <hr style="margin:40px 0;">
 
-        <!-- ================= MATCHES ================= -->
+        <h2>📷 Gallery Photos</h2>
 
-        <div id="matchesPanel" style="display:none;">
+        <div id="galleryList"></div>
 
-            <h1>🏏 Matches</h1>
+    </div>
 
-            <p>Match Management Coming Soon...</p>
+    <!-- ================= Career Panel ================= -->
 
-        </div>
+    <div id="careerPanel" style="display:none;">
 
-        <!-- ================= SETTINGS ================= -->
+        <h1>👤 Career</h1>
 
-        <div id="settingsPanel" style="display:none;">
+        <p>Career Management Coming Soon...</p>
 
-            <h1>⚙️ Settings</h1>
+    </div>
 
-            <p>Website Settings Coming Soon...</p>
+    <!-- ================= Records Panel ================= -->
 
-        </div>
+    <div id="recordsPanel" style="display:none;">
+
+        <h1>🏆 Records</h1>
+
+        <p>Records Management Coming Soon...</p>
+
+    </div>
+
+    <!-- ================= Matches Panel ================= -->
+
+    <div id="matchesPanel" style="display:none;">
+
+        <h1>🏏 Matches</h1>
+
+        <p>Match Management Coming Soon...</p>
+
+    </div>
+
+    <!-- ================= Settings Panel ================= -->
+
+    <div id="settingsPanel" style="display:none;">
+
+        <h1>⚙️ Settings</h1>
+
+        <p>Website Settings Coming Soon...</p>
 
     </div>
 
 </div>
-
-<script type="module" src="admin.js"></script>
-
-</body>
-</html>
