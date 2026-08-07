@@ -273,6 +273,12 @@
     right:20px;
 
 }
+.gallery-item img{
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
 
 #downloadBtn{
 
