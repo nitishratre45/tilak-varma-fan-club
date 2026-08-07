@@ -406,58 +406,54 @@ async function loadNews() {
 }
 
 loadNews();
-
-
-
 // ===========================================
 // LOAD GALLERY
 // ===========================================
 
-async function loadGallery(){
+async function loadGallery() {
 
-    const gallery=document.querySelector(".gallery-grid");
+    const gallery = document.querySelector(".gallery-grid");
 
-    if(!gallery) return;
+    if (!gallery) return;
 
-    gallery.innerHTML="";
+    gallery.innerHTML = "";
 
-    try{
+    try {
 
-        const snapshot=await getDocs(collection(db,"gallery"));
+        const snapshot = await getDocs(collection(db, "gallery"));
 
-        let html="";
+        let html = "";
 
-        snapshot.forEach((doc)=>{
+        // Sirf latest 6 photos
+        const docs = snapshot.docs.slice(0, 6);
 
-            const photo=doc.data();
+        docs.forEach((doc) => {
 
-            html+=`
+            const photo = doc.data();
+
+            html += `
 
             <img
-
-            src="${photo.image}"
-
-            alt="Gallery Image"
-
-            class="gallery-photo"
-
+                src="${photo.image}"
+                alt="Gallery Image"
+                class="gallery-photo"
             >
 
             `;
 
         });
 
-        gallery.innerHTML=html;
+        gallery.innerHTML = html;
 
         enableLightbox();
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.log(error);
 
-        gallery.innerHTML="<h3>Gallery Not Found.</h3>";
+        gallery.innerHTML = "<h3>Gallery Not Found.</h3>";
 
     }
 
