@@ -948,11 +948,16 @@ footer hr{
 
     cursor:pointer;
 
-    display:none;
+    display:none;  
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
 
     z-index:999;
 
     transition:.3s;
+    
 
 }
 
