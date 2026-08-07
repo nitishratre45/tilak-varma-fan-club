@@ -23,6 +23,7 @@
           <li onclick="showNews()">📰 News</li>
 
           <li onclick="showGallery()">📷 Gallery</li>
+          <li onclick="showStats()">📊 Stats</li>
 
           <li onclick="showCareer()">👤 Career</li>
 
@@ -118,6 +119,31 @@
           <h2>📷 Gallery Photos</h2>
 
           <div id="galleryList"></div>
+        </div>
+        <!-- ================= Stats Panel ================= -->
+
+       <div id="statsPanel" style="display:none;">
+
+       <h1>📊 Homepage Stats</h1>
+
+         <input type="number" id="matches" placeholder="Total Matches">
+
+        <input type="number" id="runs" placeholder="Total Runs">
+
+         <input type="number" id="fifties" placeholder="Half Centuries">
+
+         <input type="number" id="hundreds" placeholder="Centuries">
+
+         <input type="number" id="debut" placeholder="Debut Year">
+
+         <br><br>
+
+         <button onclick="saveStats()">
+
+        💾 Save Stats
+
+         </button>
+
         </div>
         <!-- ================= Career Panel ================= -->
 

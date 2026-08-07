@@ -1,11 +1,11 @@
 import { db } from "./firebase.js";
-
 import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc,
+setDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 // ===============================
 // Cloudinary Config
@@ -128,7 +128,13 @@ window.showSettings = function () {
     document.getElementById("settingsPanel").style.display = "block";
 
 };
+window.showStats = function () {
 
+    hideAllPanels();
+
+    document.getElementById("statsPanel").style.display = "block";
+
+};
 
 // ======================================
 // Logout
@@ -447,3 +453,35 @@ window.addEventListener("load",()=>{
     loadGalleryList();
 
 });
+
+window.saveStats = async function () {
+
+    try {
+
+        await setDoc(doc(db, "stats", "home"), {
+
+            matches: document.getElementById("matches").value,
+
+            runs: document.getElementById("runs").value,
+
+            average: document.getElementById("average").value,
+
+            strikeRate: document.getElementById("strikeRate").value,
+
+            hundreds: document.getElementById("hundreds").value,
+
+            fifties: document.getElementById("fifties").value
+
+        });
+
+        alert("✅ Stats Updated Successfully");
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ Failed to Update Stats");
+
+    }
+
+};
