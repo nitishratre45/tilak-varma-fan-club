@@ -34,37 +34,191 @@ window.addEventListener("load", () => {
     reveal();
 
 });
+// ===========================================
+// TILAK VARMA FAN CLUB
+// script.js
+// ===========================================
 
-// =====================
-// Scroll Reveal
-// =====================
+import { db } from "./firebase.js";
 
-const reveals = document.querySelectorAll(".reveal");
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-function reveal() {
+
+// ===========================================
+// LOADER
+// ===========================================
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+
+        setTimeout(() => {
+
+            loader.style.opacity = "0";
+
+            loader.style.visibility = "hidden";
+
+        }, 1000);
+
+    }
+
+});
+
+
+// ===========================================
+// MOBILE MENU
+// ===========================================
+
+const menu = document.querySelector(".menu");
+
+const navLinks = document.querySelector(".nav-links");
+
+if (menu && navLinks) {
+
+    menu.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+}
+
+
+// ===========================================
+// CLOSE MENU AFTER CLICK
+// ===========================================
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+// ===========================================
+// STICKY HEADER
+// ===========================================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("sticky");
+
+    } else {
+
+        header.classList.remove("sticky");
+
+    }
+
+});
+
+
+// ===========================================
+// BACK TO TOP BUTTON
+// ===========================================
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (!topBtn) return;
+
+    if (window.scrollY > 300) {
+
+        topBtn.style.display = "flex";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+if (topBtn) {
+
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
+
+// ===========================================
+// SCROLL PROGRESS BAR
+// ===========================================
+
+window.addEventListener("scroll", () => {
+
+    const progressBar = document.getElementById("progressBar");
+
+    if (!progressBar) return;
+
+    const scroll =
+
+        (window.scrollY /
+
+        (document.body.scrollHeight - window.innerHeight)) * 100;
+
+    progressBar.style.width = scroll + "%";
+
+});
+// ===========================================
+// REVEAL ANIMATION
+// ===========================================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
 
     const windowHeight = window.innerHeight;
 
-    reveals.forEach((item) => {
+    revealElements.forEach((element) => {
 
-        const revealTop = item.getBoundingClientRect().top;
+        const top = element.getBoundingClientRect().top;
 
-        if (revealTop < windowHeight - 150) {
-            item.classList.add("active");
+        if (top < windowHeight - 120) {
+
+            element.classList.add("active");
+
         }
 
     });
 
 }
 
-window.addEventListener("scroll", reveal);
+window.addEventListener("scroll", revealOnScroll);
 
-// =====================
-// Active Navbar
-// =====================
+window.addEventListener("load", revealOnScroll);
+
+
+// ===========================================
+// ACTIVE NAVBAR
+// ===========================================
 
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+
+const links = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
 
@@ -74,46 +228,119 @@ window.addEventListener("scroll", () => {
 
         const sectionTop = section.offsetTop - 120;
 
-        if (window.scrollY >= sectionTop) {
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+
             current = section.getAttribute("id");
+
         }
 
     });
 
-    navLinks.forEach(link => {
+    links.forEach(link => {
 
         link.classList.remove("active");
 
-        if (link.getAttribute("href") === "#" + current) {
+        if (
+            current &&
+            link.getAttribute("href") === "#" + current
+        ) {
+
             link.classList.add("active");
+
         }
 
     });
 
 });
 
-// =====================
-// Animated Counter
-// =====================
+
+// ===========================================
+// LIGHTBOX
+// ===========================================
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImg = document.getElementById("lightbox-img");
+
+const closeBtn = document.getElementById("close");
+
+function enableLightbox() {
+
+    const images = document.querySelectorAll(".gallery-grid img");
+
+    images.forEach((img) => {
+
+        img.addEventListener("click", () => {
+
+            if (!lightbox || !lightboxImg) return;
+
+            lightbox.style.display = "flex";
+
+            lightboxImg.src = img.src;
+
+        });
+
+    });
+
+}
+
+enableLightbox();
+
+if (closeBtn) {
+
+    closeBtn.addEventListener("click", () => {
+
+        lightbox.style.display = "none";
+
+    });
+
+}
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", (e) => {
+
+        if (e.target === lightbox) {
+
+            lightbox.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ===========================================
+// COUNTER ANIMATION
+// ===========================================
 
 const counters = document.querySelectorAll(".counter");
 
-function startCounter() {
+function startCounters() {
 
     counters.forEach(counter => {
 
-        const target = +counter.dataset.target;
+        const target = Number(counter.dataset.target);
 
-        const update = () => {
+        let count = 0;
 
-            const count = +counter.innerText;
-            const increment = Math.ceil(target / 60);
+        const speed = target / 80;
+
+        function updateCounter() {
 
             if (count < target) {
 
-                counter.innerText = count + increment;
+                count += speed;
 
-                setTimeout(update, 25);
+                counter.innerText = Math.floor(count);
+
+                requestAnimationFrame(updateCounter);
 
             } else {
 
@@ -121,266 +348,30 @@ function startCounter() {
 
             }
 
-        };
+        }
 
-        update();
+        updateCounter();
 
     });
 
 }
 
-const statsSection = document.querySelector(".stats");
-
-const observer = new IntersectionObserver((entries) => {
-
-    if (entries[0].isIntersecting) {
-
-        startCounter();
-        observer.disconnect();
-
-    }
-
-}, {
-    threshold: 0.5
-});
+const statsSection = document.querySelector(".stats-section");
 
 if (statsSection) {
+
+    const observer = new IntersectionObserver((entries) => {
+
+        if (entries[0].isIntersecting) {
+
+            startCounters();
+
+            observer.disconnect();
+
+        }
+
+    });
+
     observer.observe(statsSection);
-}
-
-// =====================
-// Mobile Menu
-// =====================
-
-const menu = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav-links");
-
-menu.onclick = () => {
-
-    nav.classList.toggle("active");
-
-};
-
-// =====================
-// Back To Top
-// =====================
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-
-});
-
-topBtn.onclick = () => {
-
-    window.scrollTo({
-
-        top: 0,
-        behavior: "smooth"
-
-    });
-
-};
-
-// =====================
-// Gallery Lightbox
-// =====================
-
-const gallery = document.querySelectorAll(".gallery-item img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const close = document.getElementById("close");
-
-gallery.forEach(img => {
-
-    img.onclick = () => {
-
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-
-    };
-
-});
-
-close.onclick = () => {
-
-    lightbox.style.display = "none";
-
-};
-
-lightbox.onclick = (e) => {
-
-    if (e.target === lightbox) {
-        lightbox.style.display = "none";
-    }
-
-};
-// Auto close menu after clicking any link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("active");
-    });
-});
-// =====================
-// Live Cricket Matches
-// =====================
-
-const API_KEY = "50c3cfa2-eec9-4d33-8309-22a8bdce1f64";
-
-async function loadLiveMatches() {
-
-    try {
-
-        const response = await fetch(
-            `https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`
-        );
-
-        const result = await response.json();
-
-        const container = document.getElementById("liveMatches");
-
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        if (!result.data || result.data.length === 0) {
-            container.innerHTML = "<p>🏏 No Live Match Tilak Varma is currently not playing a live match.Please check back later.</p>";
-            return;
-        }
-
-        // Filter only India / Mumbai Indians / Hyderabad / India A
-        const filteredMatches = result.data.filter(match => {
-
-            const text = (
-                (match.name || "") + " " +
-                (match.series || "") + " " +
-                (match.teamInfo?.map(team => team.name).join(" ") || "")
-            ).toLowerCase();
-
-            return (
-                text.includes("india") ||
-                text.includes("india a") ||
-                text.includes("mumbai indians") ||
-                text.includes("hyderabad")
-            );
-
-        });
-
-        if (filteredMatches.length === 0) {
-
-            container.innerHTML = `
-                <div class="match-card">
-                    <h3>🏏 No Match</h3>
-                    <p>No India / Tilak Varma matches available.</p>
-                    <div class="status">Check back later.</div>
-                </div>
-            `;
-
-            return;
-        }
-
-        filteredMatches.slice(0, 6).forEach(match => {
-
-            const card = document.createElement("div");
-            card.className = "match-card";
-
-            const team1 = match.teamInfo?.[0]?.name || "Team 1";
-            const team2 = match.teamInfo?.[1]?.name || "Team 2";
-
-            card.innerHTML = `
-                <h3>${team1} vs ${team2}</h3>
-
-                <p><strong>🏏 Match:</strong> ${match.matchType || "N/A"}</p>
-
-                <p><strong>🏆 Series:</strong> ${match.name || "N/A"}</p>
-
-                <p><strong>📅 Date:</strong> ${match.date || "N/A"}</p>
-
-                <p><strong>📍 Venue:</strong> ${match.venue || "N/A"}</p>
-
-                <div class="status">${match.status || "Upcoming"}</div>
-            `;
-
-            container.appendChild(card);
-
-        });
-
-    } catch (err) {
-
-        console.error(err);
-
-        const container = document.getElementById("liveMatches");
-
-        if (container) {
-
-            container.innerHTML = `
-                <div class="match-card">
-                    <h3>API Error</h3>
-                    <p>Unable to load live matches.</p>
-                </div>
-            `;
-
-        }
-
-    }
 
 }
-
-loadLiveMatches();
-
-window.addEventListener("scroll", () => {
-
-    const scroll =
-        (window.scrollY /
-        (document.body.scrollHeight - window.innerHeight)) * 100;
-
-    document.getElementById("progressBar").style.width = scroll + "%";
-
-});
-const popup = document.getElementById("welcomePopup");
-const closePopup = document.getElementById("closePopup");
-
-if (popup && closePopup) {
-
-    if (localStorage.getItem("welcomeShown")) {
-        popup.style.display = "none";
-    }
-
-    closePopup.onclick = () => {
-        popup.style.display = "none";
-        localStorage.setItem("welcomeShown", "true");
-    };
-
-}
-
-
-async function loadNews() {
-
-    console.log("loadNews called");
-
-    const newsContainer = document.querySelector(".news-container");
-
-    newsContainer.innerHTML = "";
-
-    const querySnapshot = await getDocs(collection(db, "news"));
-    console.log(querySnapshot.size);
-    
-    querySnapshot.forEach((doc) => {
-
-        const news = doc.data();
-
-        newsContainer.innerHTML += `
-        <div class="news-card">
-            <img src="${news.image}">
-            <h3>${news.title}</h3>
-            <p>${news.description}</p>
-        </div>
-        `;
-
-    });
-
-}
-
-loadNews();
