@@ -127,26 +127,43 @@
        <div id="statsPanel" style="display:none;">
 
        <h1>📊 Homepage Stats</h1>
+<div class="stats-form">
 
-         <input type="number" id="matches" placeholder="Total Matches">
+<div class="stats-box">
+<label>Total Matches</label>
+<input type="number" id="matches">
+</div>
 
-        <input type="number" id="runs" placeholder="Total Runs">
+<div class="stats-box">
+<label>Total Runs</label>
+<input type="number" id="runs">
+</div>
 
-         <input type="number" id="fifties" placeholder="Half Centuries">
+<div class="stats-box">
+<label>Average</label>
+<input type="number" step="0.01" id="average">
+</div>
 
-         <input type="number" id="hundreds" placeholder="Centuries">
+<div class="stats-box">
+<label>Strike Rate</label>
+<input type="number" step="0.01" id="strikeRate">
+</div>
 
-         <input type="number" id="debut" placeholder="Debut Year">
+<div class="stats-box">
+<label>100s</label>
+<input type="number" id="hundreds">
+</div>
 
-         <br><br>
+<div class="stats-box">
+<label>50s</label>
+<input type="number" id="fifties">
+</div>
 
-         <button onclick="saveStats()">
+</div>
 
-        💾 Save Stats
-
-         </button>
-
-        </div>
+<button onclick="saveStats()">
+💾 Save Stats
+</button>
         <!-- ================= Career Panel ================= -->
 
         <div id="careerPanel" style="display: none">
