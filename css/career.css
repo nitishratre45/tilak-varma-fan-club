@@ -1,81 +1,76 @@
-/* ================= Career ================= */
 
-.career{
-    padding:90px 8%;
+/* =========================
+   Career Section
+========================= */
+
+.career-section{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
 }
 
 .career-title{
     text-align:center;
     color:#00bfff;
-    font-size:46px;
-    margin-bottom:60px;
+    font-size:45px;
+    margin-bottom:50px;
 }
 
-.timeline{
-    position:relative;
-    max-width:900px;
-    margin:auto;
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
 }
 
-.timeline::before{
-    content:"";
-    position:absolute;
-    left:50%;
-    width:4px;
-    height:100%;
-    background:#00bfff;
-    transform:translateX(-50%);
-}
-
-.timeline-item{
-    width:45%;
-    background:#12243b;
-    padding:25px;
-    border-radius:18px;
-    margin-bottom:40px;
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
+.career-card{
+    background:#13243a;
+    border-radius:20px;
+    padding:30px;
+    border:1px solid rgba(0,191,255,.15);
     transition:.35s;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-.timeline-item:hover{
-    transform:translateY(-6px);
+.career-card:hover{
+    transform:translateY(-8px);
+    border-color:#00bfff;
     box-shadow:0 15px 35px rgba(0,191,255,.25);
 }
 
-.timeline-item h2{
+.career-card h2{
     color:#00bfff;
-    margin-bottom:12px;
+    font-size:28px;
+    margin-bottom:15px;
 }
 
-.timeline-item p{
-    color:#d9e5f2;
+.career-card p{
+    color:#d8e6f2;
     line-height:1.8;
-}
-
-.timeline-item:nth-child(odd){
-    margin-right:auto;
-}
-
-.timeline-item:nth-child(even){
-    margin-left:auto;
+    font-size:17px;
 }
 
 /* Mobile */
 
 @media(max-width:768px){
 
-.timeline::before{
-    left:18px;
-}
-
-.timeline-item{
-    width:100%;
-    margin-left:35px !important;
-    padding:20px;
-}
-
 .career-title{
-    font-size:32px;
+    font-size:30px;
+}
+
+.career-grid{
+    grid-template-columns:1fr;
+}
+
+.career-card{
+    padding:22px;
+}
+
+.career-card h2{
+    font-size:22px;
+}
+
+.career-card p{
+    font-size:15px;
 }
 
 }
