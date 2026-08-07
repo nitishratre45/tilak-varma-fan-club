@@ -53,6 +53,7 @@ async function uploadToCloudinary(file) {
 function hideAllPanels() {
 
     document.getElementById("dashboardContent").style.display = "none";
+    document.getElementById("statsPanel").style.display = "none";
     document.getElementById("newsPanel").style.display = "none";
     document.getElementById("galleryPanel").style.display = "none";
     document.getElementById("careerPanel").style.display = "none";
