@@ -1,248 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilak Varma Fan Club</title>
 
-<title>Tilak Varma Fan Club</title>
+    <meta
+      name="description"
+      content="India's Biggest Tilak Varma Fan Website"
+    />
 
-<meta name="description"
-content="Official Fan Website of Tilak Varma. Latest News, Career Stats, Gallery, Records and Match Updates.">
+    <link rel="icon" href="image/tilak12.jpg" />
 
-<meta name="keywords"
-content="Tilak Varma, Tilak Varma Fan Club, Tilak Varma Stats, Tilak Varma News">
+    <!-- CSS -->
 
-<meta name="theme-color" content="#00abf0">
+    <link rel="stylesheet" href="css/style.css" />
 
-<link rel="icon" href="image/tilak13.jpg">
+    <link rel="stylesheet" href="css/home.css" />
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/news.css" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/gallery.css" />
 
-</head>
+    <link rel="stylesheet" href="css/stats.css" />
 
-<body>
+    <link rel="stylesheet" href="css/responsive.css" />
 
-<div id="loader">
+    <!-- Font Awesome -->
 
-<div class="spinner"></div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
 
-<h2>Tilak Varma Fan Club</h2>
+  <body>
+    <!-- ================= HEADER ================= -->
 
-</div>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="image/logo.png" alt="Logo" />
 
-<div id="welcomePopup" class="popup">
+          <h2>
+            Tilak Varma
 
-<div class="popup-box">
+            <span>Fan Club</span>
+          </h2>
+        </div>
 
-<h2>🏏 Welcome</h2>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
 
-<p>Welcome to India's Biggest Tilak Varma Fan Club.</p>
+          <li><a href="news.html">News</a></li>
 
-<button id="closePopup">
-Explore Website
-</button>
+          <li><a href="gallery.html">Gallery</a></li>
 
-</div>
+          <li><a href="career.html">Career</a></li>
 
-</div>
+          <li><a href="records.html">Records</a></li>
 
-<header>
+          <li><a href="matches.html">Matches</a></li>
 
-<nav class="navbar">
+          <li><a href="stats.html">Stats</a></li>
 
-<div class="logo">
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-<img src="image/tilak.png" alt="Logo">
+        <div class="menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
 
-<span>Tilak Varma Fan Club</span>
+    <!-- ================= HERO ================= -->
 
-</div>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tag">🏏 India • Batting All-rounder</p>
 
-<ul class="nav-links">
+        <h1>Tilak <span>Varma</span></h1>
 
-<li><a href="index.html">Home</a></li>
+        <h3>Indian International Cricketer</h3>
 
-<li><a href="stats.html">Stats</a></li>
+        <p>
+          Welcome to India's biggest fan website dedicated to Tilak Varma. Get
+          the latest News, Career Stats, Gallery, Records, Live Matches and much
+          more.
+        </p>
 
-<li><a href="news.html">News</a></li>
+        <div class="hero-buttons">
+          <a href="career.html" class="btn"> Explore Career </a>
 
-<li><a href="gallery.html">Gallery</a></li>
+          <a href="news.html" class="btn"> Latest News </a>
+        </div>
+      </div>
 
-<li><a href="career.html">Career</a></li>
+      <div class="hero-image">
+        <img src="image/tilak10.jpg" alt="Tilak Varma" />
+      </div>
+    </section>
+    <!-- ================= PLAYER INFO ================= -->
 
-<li><a href="records.html">Records</a></li>
+    <section class="info-section">
+      <h2 class="section-title">Player Information</h2>
 
-<li><a href="matches.html">Matches</a></li>
+      <p class="section-subtitle">Quick Facts About Tilak Varma</p>
 
-<li><a href="contact.html">Contact</a></li>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>🏏 Full Name</h3>
+          <p>Namboori Thakur Tilak Varma</p>
+        </div>
 
-</ul>
+        <div class="info-card">
+          <h3>🎂 Born</h3>
+          <p>8 November 2002</p>
+        </div>
 
-<div class="menu-toggle">
+        <div class="info-card">
+          <h3>👋 Batting</h3>
+          <p>Left Hand Bat</p>
+        </div>
 
-&#9776;
+        <div class="info-card">
+          <h3>🎯 Bowling</h3>
+          <p>Right Arm Off Break</p>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- ================= LIVE MATCH ================= -->
 
-</nav>
+    <section class="live-match">
+      <h2 class="section-title">🏏 Live Match</h2>
 
-</header>
+      <p class="section-subtitle">Latest Match Updates</p>
 
-<section class="hero reveal">
+      <div id="liveMatches" class="matches-container">
+        <!-- Firebase Match Data -->
+      </div>
+    </section>
 
-<div class="hero-text">
+    <!-- ================= LATEST NEWS ================= -->
 
-<span class="hero-tag">
+    <section class="latest-news">
+      <h2 class="section-title">📰 Latest News</h2>
 
-🏏 India • Batting All-rounder
+      <p class="section-subtitle">Latest Updates About Tilak Varma</p>
 
-</span>
+      <div class="news-container">
+        <!-- Firebase Latest 3 News -->
+      </div>
 
-<h1>Tilak Varma</h1>
+      <div class="center-btn">
+        <a href="news.html" class="btn"> View All News → </a>
+      </div>
+    </section>
 
-<h3>Indian International Cricketer</h3>
+    <!-- ================= ABOUT ================= -->
 
-<p>
+    <section class="about">
+      <div class="about-image">
+        <img src="image/tilak.png" alt="Tilak Varma" />
+      </div>
 
-Welcome to India's biggest fan website dedicated to Tilak Varma.
-
-Get Latest News, Career Stats, Gallery, Records,
-
-Live Matches and much more.
-
-</p>
-
-<div class="buttons">
-
-<a href="career.html" class="btn">
-
-Explore Career
-
-</a>
-
-<a href="news.html" class="btn btn2">
-
-Latest News
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="image/tilak23.png"
-alt="Tilak Varma">
-
-</div>
-
-</section>
-<!-- ================= Quick Info ================= -->
-
-<section class="quick-info reveal">
-
-    <div class="info-card">
-        <h3>🏏 Full Name</h3>
-        <p>Namboori Thakur Tilak Varma</p>
-    </div>
-
-    <div class="info-card">
-        <h3>🎂 Born</h3>
-        <p>8 November 2002</p>
-    </div>
-
-    <div class="info-card">
-        <h3>👋 Batting</h3>
-        <p>Left Hand Bat</p>
-    </div>
-
-    <div class="info-card">
-        <h3>🎯 Bowling</h3>
-        <p>Right Arm Off Break</p>
-    </div>
-
-</section>
-
-<!-- ================= Live Match ================= -->
-
-<section class="live-matches reveal">
-
-    <h2>🏏 Live Match</h2>
-
-    <div id="liveMatches" class="matches-container">
-
-    </div>
-
-</section>
-
-<!-- ================= Latest News ================= -->
-
-<section class="news reveal">
-
-    <h2>Latest News</h2>
-
-    <!-- Firebase yaha automatically sirf latest 3 news dikhayega -->
-
-    <div class="news-container">
-
-    </div>
-
-    <br><br>
-
-    <div style="text-align:center;">
-
-        <a href="news.html" class="btn">
-
-            View All News →
-
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ================= About ================= -->
-
-<section class="about reveal">
-
-    <div class="about-image">
-
-        <img src="image/tilak.png" alt="Tilak Varma">
-
-    </div>
-
-    <div class="about-content">
-
+      <div class="about-content">
         <h2>About Tilak Varma</h2>
 
         <p>
-
-            Tilak Varma is one of India's brightest young cricketers.
-            This fan website brings together the latest news, career
-            statistics, match updates, records and an extensive gallery
-            dedicated to him.
-
+          Tilak Varma is one of India's brightest young cricketers. He has
+          represented India in international cricket and has become one of the
+          most exciting young batters in world cricket. This fan website brings
+          together the latest news, career statistics, match updates, records,
+          gallery and everything related to Tilak Varma.
         </p>
 
-        <a href="career.html" class="btn">
+        <a href="career.html" class="btn"> Read Full Career → </a>
+      </div>
+    </section>
 
-            Read Full Career →
+    <!-- ================= CAREER HIGHLIGHTS ================= -->
 
-        </a>
+    <section class="stats-section">
+      <h2 class="section-title">Career Highlights</h2>
 
-    </div>
+      <p class="section-subtitle">Quick Career Statistics</p>
 
-</section>
-<!-- ================= Footer ================= -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h2>100+</h2>
 
-<footer class="footer reveal">
+          <p>Professional Matches</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>3000+</h2>
+
+          <p>Total Runs</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>50+</h2>
+
+          <p>Half Centuries</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>2023</h2>
+
+          <p>India Debut</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY PREVIEW ================= -->
+
+    <section class="gallery-preview">
+      <h2 class="section-title">📷 Photo Gallery</h2>
+
+      <p class="section-subtitle">Latest Gallery Photos</p>
+
+      <div class="gallery-grid">
+        <!-- Firebase Gallery -->
+      </div>
+
+      <div class="center-btn">
+        <a href="gallery.html" class="btn"> View Full Gallery → </a>
+      </div>
+    </section>
+    <!-- ================= FOOTER ================= -->
+
+<footer>
 
     <div class="footer-content">
 
@@ -251,8 +242,13 @@ alt="Tilak Varma">
             <h2>Tilak Varma Fan Club</h2>
 
             <p>
-                India's fan-made website dedicated to Tilak Varma.
-                Latest News, Career Stats, Gallery and Match Updates.
+
+                India's fan-made website dedicated to
+                Tilak Varma.
+
+                Latest News, Career Stats,
+                Gallery, Records and Match Updates.
+
             </p>
 
         </div>
@@ -261,14 +257,14 @@ alt="Tilak Varma">
 
             <h3>Quick Links</h3>
 
-            <a href="index.html">Home</a>
-            <a href="stats.html">Stats</a>
-            <a href="news.html">News</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="career.html">Career</a>
-            <a href="records.html">Records</a>
-            <a href="matches.html">Matches</a>
-            <a href="contact.html">Contact</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="news.html">📰 News</a>
+            <a href="gallery.html">📷 Gallery</a>
+            <a href="career.html">👤 Career</a>
+            <a href="records.html">🏆 Records</a>
+            <a href="matches.html">🏏 Matches</a>
+            <a href="stats.html">📊 Stats</a>
+            <a href="contact.html">📩 Contact</a>
 
         </div>
 
@@ -276,9 +272,23 @@ alt="Tilak Varma">
 
             <h3>Follow Us</h3>
 
-            <a href="https://www.instagram.com/tilakvarma72fc" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/tilakvarma72fc"
+               target="_blank">
 
-            <a href="https://t.me/+zEn6qYPk-aMzY2Zl" target="_blank">Telegram</a>
+                <i class="fab fa-instagram"></i>
+
+                Instagram
+
+            </a>
+
+            <a href="https://t.me/+zEn6qYPk-aMzY2Zl"
+               target="_blank">
+
+                <i class="fab fa-telegram"></i>
+
+                Telegram
+
+            </a>
 
         </div>
 
@@ -288,44 +298,81 @@ alt="Tilak Varma">
 
     <p class="copyright">
 
-        © 2026 Tilak Varma Fan Club.
+        © 2026 Tilak Varma Fan Club
+
         <br>
+
         Made with ❤️ by Nitish
 
     </p>
 
 </footer>
 
-<button id="topBtn">↑</button>
 
-<div id="lightbox">
+
+<!-- ================= Scroll Top ================= -->
+
+<button id="topBtn">
+
+    <i class="fas fa-arrow-up"></i>
+
+</button>
+
+
+
+<!-- ================= Lightbox ================= -->
+
+<div class="lightbox" id="lightbox">
 
     <span id="close">&times;</span>
 
-    <img id="lightbox-img">
+    <img id="lightbox-img" src="" alt="Preview">
 
 </div>
 
-<div id="progressBar"></div>
 
-<div class="floating-social">
 
-    <a href="https://www.instagram.com/tilakvarma72fc" target="_blank">
+<!-- ================= Floating Social ================= -->
 
-        <i class="fa-brands fa-instagram"></i>
+<div class="social-floating">
+
+    <a href="https://www.instagram.com/tilakvarma72fc"
+       target="_blank">
+
+        <i class="fab fa-instagram"></i>
 
     </a>
 
-    <a href="https://t.me/+zEn6qYPk-aMzY2Zl" target="_blank">
+    <a href="https://t.me/+zEn6qYPk-aMzY2Zl"
+       target="_blank">
 
-        <i class="fa-brands fa-telegram"></i>
+        <i class="fab fa-telegram"></i>
 
     </a>
 
 </div>
+
+
+
+<!-- ================= Loader ================= -->
+
+<div id="loader">
+
+    <div class="loader-circle"></div>
+
+</div>
+
+
+
+<!-- ================= JavaScript ================= -->
+
+<script type="module" src="js/firebase.js"></script>
 
 <script type="module" src="js/script.js"></script>
 
 </body>
 
+</html>
+    
+  </body>
 </html>
