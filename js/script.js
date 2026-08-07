@@ -481,9 +481,7 @@ async function loadLiveMatches() {
 
     try {
 
-        const response = await fetch(
-
-            `https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`
+        const response = await fetch(`https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`
 
         );
 
