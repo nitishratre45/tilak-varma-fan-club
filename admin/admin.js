@@ -464,11 +464,13 @@ window.saveStats = async function () {
 
             runs: document.getElementById("runs").value,
 
-            fifties: document.getElementById("fifties").value,
+            average: document.getElementById("average").value,
+
+            strikeRate: document.getElementById("strikeRate").value,
 
             hundreds: document.getElementById("hundreds").value,
 
-            debut: document.getElementById("debut").value
+            fifties: document.getElementById("fifties").value
 
         });
 
