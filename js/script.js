@@ -364,29 +364,30 @@ async function loadNews() {
 
             const news = doc.data();
 
-            html += `
+           html += `
 
-            <div class="news-card">
+         <div class="news-card">
 
-                <img src="${news.image}" alt="${news.title}">
+            <img src="${news.image}" alt="${news.title}">
 
-                <div class="news-content">
+            <div class="news-content">
 
-                    <h3>${news.title}</h3>
+            <small style="color:#00abf0;">
+            </small>
 
-                    <p>${news.description.substring(0,120)}...</p>
+            <h3>${news.title}</h3>
 
-                    <a href="news.html" class="btn">
+            <p>${news.description.substring(0,120)}...</p>
 
-                        Read More
+            <a href="news.html" class="btn">
+            Read More →
+            </a>
 
-                    </a>
+    </div>
 
-                </div>
+</div>
 
-            </div>
-
-            `;
+`;
 
         });
 
