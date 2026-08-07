@@ -1,17 +1,28 @@
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  getDocs
+    collection,
+    getDocs
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-const galleryContainer = document.querySelector(".gallery-grid");
+const galleryGrid = document.querySelector(".gallery-grid");
+
+let images = [];
+
+let currentIndex = 0;
+
+
+// ===========================
+// Load Gallery
+// ===========================
 
 async function loadGallery() {
 
-    if (!galleryContainer) return;
+    if (!galleryGrid) return;
 
-    galleryContainer.innerHTML = "";
+    galleryGrid.innerHTML = "";
+
+    images = [];
 
     try {
 
@@ -19,28 +30,41 @@ async function loadGallery() {
 
         if (snapshot.empty) {
 
-            galleryContainer.innerHTML = `
-                <div class="empty-gallery">
-                    <h2>📷 No Photos Available</h2>
-                    <p>Gallery will be updated soon.</p>
-                </div>
+            galleryGrid.innerHTML = `
+
+                <h2>No Photos Available</h2>
+
             `;
 
             return;
+
         }
-                snapshot.forEach((doc) => {
+
+        snapshot.forEach((doc) => {
 
             const photo = doc.data();
 
-            galleryContainer.innerHTML += `
+            images.push(photo.image);
 
-                <div class="gallery-item">
+        });
 
-                    <img
-                        src="${photo.image}"
-                        alt="Tilak Varma">
+        images.forEach((url, index) => {
+
+            galleryGrid.innerHTML += `
+
+            <div class="gallery-item">
+
+                <img
+                src="${url}"
+                data-index="${index}">
+
+                <div class="gallery-overlay">
+
+                    <i class="fa-solid fa-expand"></i>
 
                 </div>
+
+            </div>
 
             `;
 
@@ -48,68 +72,173 @@ async function loadGallery() {
 
         enableLightbox();
 
-    } catch (err) {
+    }
 
-        console.error(err);
+    catch(err){
 
-        galleryContainer.innerHTML = `
-            <div class="empty-gallery">
-                <h2>❌ Error</h2>
-                <p>Unable to load gallery.</p>
-            </div>
-        `;
+        console.log(err);
+
     }
 
 }
-function enableLightbox() {
+// ===========================
+// Lightbox
+// ===========================
 
-    const images = document.querySelectorAll(".gallery-item img");
+function enableLightbox() {
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const close = document.getElementById("close");
 
-    if (!lightbox || !lightboxImg || !close) return;
+    const galleryImages = document.querySelectorAll(".gallery-item img");
 
-    images.forEach((img) => {
+    galleryImages.forEach((img) => {
 
-        img.onclick = () => {
+        img.addEventListener("click", () => {
 
-            lightbox.style.display = "flex";
-            lightboxImg.src = img.src;
+            currentIndex = Number(img.dataset.index);
 
-        };
+            openImage();
+
+        });
 
     });
 
-    close.onclick = () => {
+    if (close) {
 
-        lightbox.style.display = "none";
-
-    };
-
-    lightbox.onclick = (e) => {
-
-        if (e.target === lightbox) {
+        close.onclick = () => {
 
             lightbox.style.display = "none";
 
-        }
+        };
 
-    };
+    }
+
+    if (lightbox) {
+
+        lightbox.onclick = (e) => {
+
+            if (e.target === lightbox) {
+
+                lightbox.style.display = "none";
+
+            }
+
+        };
+
+    }
 
 }
 
-loadGallery();
-const images = document.querySelectorAll(".gallery-item img");
 
-images.forEach(img=>{
-    img.onclick=()=>{
-        document.getElementById("lightbox").style.display="flex";
-        document.getElementById("lightbox-img").src=img.src;
-    };
+// ===========================
+// Open Image
+// ===========================
+
+function openImage() {
+
+    const lightbox = document.getElementById("lightbox");
+
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    lightbox.style.display = "flex";
+
+    lightboxImg.src = images[currentIndex];
+
+}
+
+
+// ===========================
+// Download Image
+// ===========================
+
+window.downloadImage = function () {
+
+    const link = document.createElement("a");
+
+    link.href = images[currentIndex];
+
+    link.download = "Tilak-Varma.jpg";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+}
+// ===========================
+// Previous Image
+// ===========================
+
+window.previousImage = function () {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+
+        currentIndex = images.length - 1;
+
+    }
+
+    openImage();
+
+};
+
+
+// ===========================
+// Next Image
+// ===========================
+
+window.nextImage = function () {
+
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+
+        currentIndex = 0;
+
+    }
+
+    openImage();
+
+};
+
+
+// ===========================
+// Keyboard Support
+// ===========================
+
+document.addEventListener("keydown", (e) => {
+
+    const lightbox = document.getElementById("lightbox");
+
+    if (!lightbox || lightbox.style.display !== "flex") return;
+
+    if (e.key === "ArrowRight") {
+
+        nextImage();
+
+    }
+
+    if (e.key === "ArrowLeft") {
+
+        previousImage();
+
+    }
+
+    if (e.key === "Escape") {
+
+        lightbox.style.display = "none";
+
+    }
+
 });
 
-document.getElementById("close").onclick=()=>{
-    document.getElementById("lightbox").style.display="none";
-};
+
+// ===========================
+// Initialize
+// ===========================
+
+loadGallery();

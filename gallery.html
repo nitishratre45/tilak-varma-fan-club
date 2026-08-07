@@ -58,12 +58,21 @@
         <!-- Firebase Images -->
       </div>
     </section>
+<div id="lightbox">
 
-    <div id="lightbox">
-      <span id="close">&times;</span>
+    <span id="close">&times;</span>
 
-      <img id="lightbox-img" />
-    </div>
+    <button class="prev-btn" onclick="previousImage()">❮</button>
+
+    <img id="lightbox-img" src="" alt="Preview">
+
+    <button class="next-btn" onclick="nextImage()">❯</button>
+
+    <button id="downloadBtn" onclick="downloadImage()">
+        ⬇ Download
+    </button>
+
+</div>
 
     <script type="module" src="js/gallery.js"></script>
   </body>
