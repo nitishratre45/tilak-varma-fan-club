@@ -1,0 +1,81 @@
+/* ================= Career ================= */
+
+.career{
+    padding:90px 8%;
+}
+
+.career-title{
+    text-align:center;
+    color:#00bfff;
+    font-size:46px;
+    margin-bottom:60px;
+}
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    width:4px;
+    height:100%;
+    background:#00bfff;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:45%;
+    background:#12243b;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transition:.35s;
+}
+
+.timeline-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,191,255,.25);
+}
+
+.timeline-item h2{
+    color:#00bfff;
+    margin-bottom:12px;
+}
+
+.timeline-item p{
+    color:#d9e5f2;
+    line-height:1.8;
+}
+
+.timeline-item:nth-child(odd){
+    margin-right:auto;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:auto;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.timeline::before{
+    left:18px;
+}
+
+.timeline-item{
+    width:100%;
+    margin-left:35px !important;
+    padding:20px;
+}
+
+.career-title{
+    font-size:32px;
+}
+
+}
