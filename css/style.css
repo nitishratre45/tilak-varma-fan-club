@@ -110,32 +110,24 @@ section{
 ========================== */
 
 header{
-
-position:sticky;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-
-background:rgba(8,27,41,.75);
-
-backdrop-filter:blur(18px);
-
--webkit-backdrop-filter:blur(18px);
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: .3s ease;
 }
 
 header.sticky{
-
-background:rgba(8,27,41,.95);
-
-box-shadow:0 10px 30px rgba(0,0,0,.35);
-
+    background: rgba(8,27,41,.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
 }
+
+body{
+    padding-top: 90px;
+}
+
 
 .navbar{
 
