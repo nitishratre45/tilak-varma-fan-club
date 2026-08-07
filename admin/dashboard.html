@@ -1,234 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Admin Dashboard</title>
 
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css" />
+  </head>
 
-</head>
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
 
-<body>
-
-<div class="admin-container">
-
-    <!-- Sidebar -->
-
-    <div class="sidebar">
-
+      <div class="sidebar">
         <h2>🏏 Admin Panel</h2>
 
         <ul>
+          <li onclick="showDashboard()">🏠 Dashboard</li>
 
-            <li onclick="showDashboard()">
-                🏠 Dashboard
-            </li>
+          <li onclick="showNews()">📰 News</li>
 
-            <li onclick="showNews()">
-                📰 News
-            </li>
+          <li onclick="showGallery()">📷 Gallery</li>
 
-            <li onclick="showGallery()">
-                📷 Gallery
-            </li>
+          <li onclick="showCareer()">👤 Career</li>
 
-            <li onclick="showCareer()">
-                👤 Career
-            </li>
+          <li onclick="showRecords()">🏆 Records</li>
 
-            <li onclick="showRecords()">
-                🏆 Records
-            </li>
+          <li onclick="showMatches()">🏏 Matches</li>
 
-            <li onclick="showMatches()">
-                🏏 Matches
-            </li>
+          <li onclick="showSettings()">⚙️ Settings</li>
 
-            <li onclick="showSettings()">
-                ⚙️ Settings
-            </li>
-
-            <li onclick="logout()">
-                🚪 Logout
-            </li>
-
+          <li onclick="logout()">🚪 Logout</li>
         </ul>
+      </div>
 
-    </div>
+      <!-- Main Content -->
 
-    <!-- Main Content -->
-
-    <div class="content">
-
+      <div class="content">
         <!-- Dashboard -->
 
         <div id="dashboardContent">
+          <h1>Welcome Admin 👋</h1>
 
-            <h1>Welcome Admin 👋</h1>
+          <p>Manage your Tilak Varma Fan Club website from here.</p>
 
-            <p>
-                Manage your Tilak Varma Fan Club website from here.
-            </p>
+          <div class="dashboard-cards">
+            <div class="dash-card">
+              <h2 id="totalNews">0</h2>
 
-            <div class="dashboard-cards">
-
-                <div class="dash-card">
-
-                    <h2 id="totalNews">0</h2>
-
-                    <p>📰 Total News</p>
-
-                </div>
-
-                <div class="dash-card">
-
-                    <h2 id="totalGallery">0</h2>
-
-                    <p>📷 Total Gallery</p>
-
-                </div>
-
-                <div class="dash-card">
-
-                    <h2>Online</h2>
-
-                    <p>🔥 Firebase Status</p>
-
-                </div>
-
-                <div class="dash-card">
-
-                    <h2>Active</h2>
-
-                    <p>🌐 Website Status</p>
-
-                </div>
-
+              <p>📰 Total News</p>
             </div>
 
+            <div class="dash-card">
+              <h2 id="totalGallery">0</h2>
+
+              <p>📷 Total Gallery</p>
+            </div>
+
+            <div class="dash-card">
+              <h2>Online</h2>
+
+              <p>🔥 Firebase Status</p>
+            </div>
+
+            <div class="dash-card">
+              <h2>Active</h2>
+
+              <p>🌐 Website Status</p>
+            </div>
+          </div>
         </div>
-                <!-- ================= News Panel ================= -->
+        <!-- ================= News Panel ================= -->
 
-        <div id="newsPanel" style="display:none;">
+        <div id="newsPanel" style="display: none">
+          <h1>📰 Publish News</h1>
 
-            <h1>📰 Publish News</h1>
+          <input type="text" id="newsTitle" placeholder="News Title" />
 
-            <input
-                type="text"
-                id="newsTitle"
-                placeholder="News Title">
+          <textarea id="newsDesc" placeholder="News Description"></textarea>
 
-            <textarea
-                id="newsDesc"
-                placeholder="News Description"></textarea>
+          <label><b>📷 Select News Image</b></label>
 
-            <label><b>📷 Select News Image</b></label>
+          <br /><br />
 
-            <br><br>
+          <input type="file" id="newsImage" accept="image/*" />
 
-            <input
-                type="file"
-                id="newsImage"
-                accept="image/*">
+          <br /><br />
 
-            <br><br>
+          <button onclick="addNews()">🚀 Publish News</button>
 
-            <button onclick="addNews()">
-                🚀 Publish News
-            </button>
+          <hr style="margin: 40px 0" />
 
-            <hr style="margin:40px 0;">
+          <h2>📰 Published News</h2>
 
-            <h2>📰 Published News</h2>
-
-            <div id="newsList"></div>
-
+          <div id="newsList"></div>
         </div>
-
 
         <!-- ================= Gallery Panel ================= -->
 
-        <div id="galleryPanel" style="display:none;">
+        <div id="galleryPanel" style="display: none">
+          <h1>📷 Upload Gallery Photo</h1>
 
-            <h1>📷 Upload Gallery Photo</h1>
+          <label><b>📷 Select Gallery Image</b></label>
 
-            <label><b>📷 Select Gallery Image</b></label>
+          <br /><br />
 
-            <br><br>
+          <input type="file" id="galleryImage" accept="image/*" />
 
-            <input
-                type="file"
-                id="galleryImage"
-                accept="image/*">
+          <br /><br />
 
-            <br><br>
+          <button onclick="addGallery()">📤 Upload Photo</button>
 
-            <button onclick="addGallery()">
-                📤 Upload Photo
-            </button>
+          <hr style="margin: 40px 0" />
 
-            <hr style="margin:40px 0;">
+          <h2>📷 Gallery Photos</h2>
 
-            <h2>📷 Gallery Photos</h2>
-
-            <div id="galleryList"></div>
-
+          <div id="galleryList"></div>
         </div>
-                <!-- ================= Career Panel ================= -->
+        <!-- ================= Career Panel ================= -->
 
-        <div id="careerPanel" style="display:none;">
+        <div id="careerPanel" style="display: none">
+          <h1>👤 Career Management</h1>
 
-            <h1>👤 Career Management</h1>
-
-            <p>Career Management Coming Soon...</p>
-
+          <p>Career Management Coming Soon...</p>
         </div>
-
 
         <!-- ================= Records Panel ================= -->
 
-        <div id="recordsPanel" style="display:none;">
+        <div id="recordsPanel" style="display: none">
+          <h1>🏆 Records Management</h1>
 
-            <h1>🏆 Records Management</h1>
-
-            <p>Records Management Coming Soon...</p>
-
+          <p>Records Management Coming Soon...</p>
         </div>
-
 
         <!-- ================= Matches Panel ================= -->
 
-        <div id="matchesPanel" style="display:none;">
+        <div id="matchesPanel" style="display: none">
+          <h1>🏏 Match Management</h1>
 
-            <h1>🏏 Match Management</h1>
-
-            <p>Match Management Coming Soon...</p>
-
+          <p>Match Management Coming Soon...</p>
         </div>
-
 
         <!-- ================= Settings Panel ================= -->
 
-        <div id="settingsPanel" style="display:none;">
+        <div id="settingsPanel" style="display: none">
+          <h1>⚙️ Website Settings</h1>
 
-            <h1>⚙️ Website Settings</h1>
-
-            <p>Website Settings Coming Soon...</p>
-
+          <p>Website Settings Coming Soon...</p>
         </div>
-
+      </div>
+      <!-- End Content -->
     </div>
-    <!-- End Content -->
+    <!-- End Admin Container -->
 
-</div>
-<!-- End Admin Container -->
-
-<script type="module" src="admin.js"></script>
-
-</body>
+    <script type="module" src="admin.js"></script>
+  </body>
 </html>

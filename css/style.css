@@ -1301,40 +1301,4 @@ grid-template-columns:1fr;
     grid-template-columns:repeat(3,1fr);
     gap:8px;
 }
-@media (max-width:768px){
-
-html,
-body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-.hero{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    gap:30px;
-}
-
-.hero-content,
-.hero-image{
-    width:100%;
-}
-
-.hero-image img{
-    width:280px;
-    max-width:85%;
-    margin:auto;
-}
-
-.navbar{
-    padding:15px;
-}
-
-.logo h2{
-    font-size:18px;
-}
-
-}
-
 }

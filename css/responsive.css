@@ -64,3 +64,21 @@
         transform: translateY(0);
     }
 }
+@media (max-width:768px){
+
+html,
+body{
+    overflow-x:hidden !important;
+    width:100% !important;
+}
+
+section,
+div,
+header,
+nav,
+main,
+footer{
+    max-width:100% !important;
+}
+
+}

@@ -279,7 +279,11 @@
     user-select: none;
     -webkit-touch-callout: none;
 }
-
+#lightbox img{
+    touch-action: manipulation;
+    max-width:95%;
+    max-height:95%;
+}
 #downloadBtn{
 
     position:absolute;

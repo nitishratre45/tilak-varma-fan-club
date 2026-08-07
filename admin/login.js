@@ -1,7 +1,10 @@
 document.getElementById("loginBtn").onclick = function () {
 
     const username = document.getElementById("username").value.trim().toLowerCase();
-const password = document.getElementById("password").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    alert("Username = " + username);
+    alert("Password = " + password);
     if (username === "admin" && password === "12345") {
 
         window.location.href = "dashboard.html";

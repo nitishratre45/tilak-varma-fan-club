@@ -1,30 +1,13 @@
 // Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { db } from "./firebase.js";
 
 import {
-    getFirestore,
-    collection,
-    getDocs,
-    query,
-    orderBy
+  collection,
+  getDocs,
+  query,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// Firebase Config
-
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "XXXXXXXXXX",
-    appId: "XXXXXXXXXXXXX"
-};
-
-// Firebase Init
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
 
 // Load News
 
