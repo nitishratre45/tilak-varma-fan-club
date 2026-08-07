@@ -1,39 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-import {
-  getFirestore,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-// Firebase Config
-const firebaseConfig = {
-  apiKey: "AIzaSyCIbWp-r1ofg3TCxmGwr6OIZMfYkBf7fQ4",
-  authDomain: "tilak-varma-fan-club.firebaseapp.com",
-  projectId: "tilak-varma-fan-club",
-  storageBucket: "tilak-varma-fan-club.firebasestorage.app",
-  messagingSenderId: "362732593494",
-  appId: "1:362732593494:web:768a0aacda61ae5891f6f7"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Firestore
-const db = getFirestore(app);
-// =====================
-// Loader
-// =====================
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-        document.getElementById("loader").style.opacity = "0";
-        document.getElementById("loader").style.visibility = "hidden";
-    }, 1800);
-
-    reveal();
-
-});
 // ===========================================
 // TILAK VARMA FAN CLUB
 // script.js
@@ -375,3 +340,311 @@ if (statsSection) {
     observer.observe(statsSection);
 
 }
+
+// ===========================================
+// LOAD LATEST NEWS
+// ===========================================
+
+async function loadNews() {
+
+    const newsContainer = document.querySelector(".news-container");
+
+    if (!newsContainer) return;
+
+    newsContainer.innerHTML = "";
+
+    try {
+
+        const snapshot = await getDocs(collection(db, "news"));
+
+        let html = "";
+
+        snapshot.forEach((doc) => {
+
+            const news = doc.data();
+
+            html += `
+
+            <div class="news-card">
+
+                <img src="${news.image}" alt="${news.title}">
+
+                <div class="news-content">
+
+                    <h3>${news.title}</h3>
+
+                    <p>${news.description.substring(0,120)}...</p>
+
+                    <a href="news.html" class="btn">
+
+                        Read More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        newsContainer.innerHTML = html;
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        newsContainer.innerHTML =
+
+        "<h3>Unable to load News.</h3>";
+
+    }
+
+}
+
+loadNews();
+
+
+
+// ===========================================
+// LOAD GALLERY
+// ===========================================
+
+async function loadGallery(){
+
+    const gallery=document.querySelector(".gallery-grid");
+
+    if(!gallery) return;
+
+    gallery.innerHTML="";
+
+    try{
+
+        const snapshot=await getDocs(collection(db,"gallery"));
+
+        let html="";
+
+        snapshot.forEach((doc)=>{
+
+            const photo=doc.data();
+
+            html+=`
+
+            <img
+
+            src="${photo.image}"
+
+            alt="Gallery Image"
+
+            class="gallery-photo"
+
+            >
+
+            `;
+
+        });
+
+        gallery.innerHTML=html;
+
+        enableLightbox();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        gallery.innerHTML="<h3>Gallery Not Found.</h3>";
+
+    }
+
+}
+
+loadGallery();
+
+// ===========================================
+// LIVE CRICKET MATCHES
+// ===========================================
+
+const API_KEY = "50c3cfa2-eec9-4d33-8309-22a8bdce1f64";
+
+async function loadLiveMatches() {
+
+    const container = document.getElementById("liveMatches");
+
+    if (!container) return;
+
+    container.innerHTML = "<p>Loading Matches...</p>";
+
+    try {
+
+        const response = await fetch(
+
+            `https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`
+
+        );
+
+        const result = await response.json();
+
+        container.innerHTML = "";
+
+        if (!result.data || result.data.length === 0) {
+
+            container.innerHTML = `
+
+            <div class="match-card">
+
+                <h3>No Live Match</h3>
+
+                <p>No India / Tilak Varma match available.</p>
+
+            </div>
+
+            `;
+
+            return;
+
+        }
+
+        const matches = result.data.filter(match => {
+
+            const text = (
+
+                (match.name || "") + " " +
+
+                (match.series || "") + " " +
+
+                (match.teamInfo?.map(team => team.name).join(" ") || "")
+
+            ).toLowerCase();
+
+            return (
+
+                text.includes("india") ||
+
+                text.includes("mumbai indians") ||
+
+                text.includes("india a") ||
+
+                text.includes("hyderabad")
+
+            );
+
+        });
+
+        matches.slice(0,3).forEach(match => {
+
+            const card = document.createElement("div");
+
+            card.className = "match-card";
+
+            card.innerHTML = `
+
+                <h3>${match.teamInfo?.[0]?.name || "Team A"}
+
+                vs
+
+                ${match.teamInfo?.[1]?.name || "Team B"}</h3>
+
+                <p>${match.name}</p>
+
+                <p>${match.date}</p>
+
+                <p>${match.status}</p>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        container.innerHTML = `
+
+        <div class="match-card">
+
+            <h3>API Error</h3>
+
+            <p>Unable to load matches.</p>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+loadLiveMatches();
+
+
+
+// ===========================================
+// WELCOME POPUP
+// ===========================================
+
+const popup = document.getElementById("welcomePopup");
+
+const closePopup = document.getElementById("closePopup");
+
+if (popup && closePopup) {
+
+    if (localStorage.getItem("welcomeShown")) {
+
+        popup.style.display = "none";
+
+    }
+
+    closePopup.onclick = () => {
+
+        popup.style.display = "none";
+
+        localStorage.setItem("welcomeShown", "true");
+
+    };
+
+}
+
+
+
+// ===========================================
+// SMOOTH SCROLL
+// ===========================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if(target){
+
+            target.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+
+
+// ===========================================
+// FINISHED
+// ===========================================
+
+console.log("✅ Tilak Varma Fan Club Loaded Successfully");
