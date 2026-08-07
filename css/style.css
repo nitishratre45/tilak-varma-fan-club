@@ -447,3 +447,398 @@ header{
     margin-top:20px;
 
 }
+/* ===========================================
+   ABOUT SECTION
+=========================================== */
+
+.about{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:60px;
+    align-items:center;
+    padding:90px 8%;
+
+}
+
+.about-image img{
+
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 0 35px rgba(0,171,240,.35);
+    transition:.4s;
+
+}
+
+.about-image img:hover{
+
+    transform:scale(1.03);
+
+}
+
+.about-content h2{
+
+    color:var(--primary);
+    font-size:40px;
+    margin-bottom:25px;
+
+}
+
+.about-content p{
+
+    color:#ddd;
+    line-height:1.9;
+    font-size:18px;
+    margin-bottom:30px;
+
+}
+
+
+/* ===========================================
+   STATS SECTION
+=========================================== */
+
+.stats-section{
+
+    padding:90px 8%;
+
+}
+
+.stats-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:var(--dark2);
+    border-radius:18px;
+    text-align:center;
+    padding:35px;
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(0,171,240,.35);
+
+}
+
+.stat-card h2{
+
+    color:var(--primary);
+    font-size:42px;
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    color:#ddd;
+    font-size:18px;
+
+}
+
+
+/* ===========================================
+   TIMELINE
+=========================================== */
+
+.timeline{
+
+    padding:90px 8%;
+
+}
+
+.timeline-item{
+
+    position:relative;
+    margin-bottom:40px;
+    padding-left:35px;
+    border-left:3px solid var(--primary);
+
+}
+
+.timeline-item::before{
+
+    content:"";
+    position:absolute;
+    left:-10px;
+    top:0;
+    width:18px;
+    height:18px;
+    background:var(--primary);
+    border-radius:50%;
+
+}
+
+.timeline-item h3{
+
+    color:var(--primary);
+    margin-bottom:10px;
+
+}
+
+.timeline-item p{
+
+    color:#ddd;
+    line-height:1.7;
+
+}
+
+
+/* ===========================================
+   COMMON HEADINGS
+=========================================== */
+
+h2{
+
+    margin-bottom:25px;
+
+}
+
+hr{
+
+    border:none;
+    height:1px;
+    background:#1b3f5d;
+    margin:40px 0;
+
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+footer{
+
+    background:#06131f;
+    padding:70px 8% 30px;
+
+}
+
+.footer-content{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+
+}
+
+.footer-box h2,
+.footer-box h3{
+
+    color:var(--primary);
+    margin-bottom:20px;
+
+}
+
+.footer-box p{
+
+    color:#ccc;
+    line-height:1.8;
+
+}
+
+.footer-box a{
+
+    display:block;
+    color:#ddd;
+    margin:10px 0;
+    transition:.3s;
+
+}
+
+.footer-box a:hover{
+
+    color:var(--primary);
+    padding-left:8px;
+
+}
+
+footer hr{
+
+    margin:40px 0 20px;
+    border:none;
+    height:1px;
+    background:#1a3a55;
+
+}
+
+.copyright{
+
+    text-align:center;
+    color:#bbb;
+    line-height:1.8;
+
+}
+
+
+/* ===========================================
+   SCROLL TO TOP
+=========================================== */
+
+#topBtn{
+
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    background:var(--primary);
+    color:white;
+
+    font-size:20px;
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    transition:.3s;
+
+}
+
+#topBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 20px rgba(0,171,240,.45);
+
+}
+
+
+/* ===========================================
+   LIGHTBOX
+=========================================== */
+
+.lightbox{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:10000;
+
+}
+
+.lightbox img{
+
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+
+}
+
+#close{
+
+    position:absolute;
+
+    top:30px;
+    right:40px;
+
+    font-size:45px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+/* ===========================================
+   FLOATING SOCIAL
+=========================================== */
+
+.social-floating{
+
+    position:fixed;
+
+    left:25px;
+    bottom:25px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+
+    z-index:999;
+
+}
+
+.social-floating a{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#10293d;
+
+    color:white;
+
+    font-size:26px;
+
+    transition:.3s;
+
+}
+
+.social-floating a:hover{
+
+    background:var(--primary);
+
+    transform:scale(1.1);
+
+}
+
+
+/* ===========================================
+   ANIMATION
+=========================================== */
+
+.fade-up{
+
+    opacity:0;
+    transform:translateY(50px);
+    transition:.8s;
+
+}
+
+.fade-up.show{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+
+/* ===========================================
+   SELECTION
+=========================================== */
+
+::selection{
+
+    background:var(--primary);
+    color:white;
+
+}
