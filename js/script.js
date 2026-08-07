@@ -545,11 +545,13 @@ async function loadLiveMatches() {
 
                 ${match.teamInfo?.[1]?.name || "Team B"}</h3>
 
-                <p>${match.name}</p>
+                <p>📅 ${match.date || "-"}</p>
 
-                <p>${match.date}</p>
+                <p>📍 ${match.venue || "Venue Not Available"}</p>
 
-                <p>${match.status}</p>
+                <p>📢 ${match.status || "Upcoming"}</p>
+
+                
 
             `;
 
