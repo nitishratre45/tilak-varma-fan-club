@@ -497,54 +497,103 @@ box-shadow:0 12px 35px rgba(0,171,240,.55);
 
 }
 
-
-/* ==========================================
-   LIVE MATCH
-========================================== */
+/* ======================================
+   PREMIUM LIVE MATCH
+====================================== */
 
 .matches-container{
 
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:25px;
+display:flex;
+justify-content:center;
 
 }
 
 .match-card{
 
-    background:var(--card);
+width:100%;
+max-width:850px;
 
-    padding:25px;
+background:linear-gradient(135deg,#10293d,#081b29);
 
-    border-radius:18px;
+border:1px solid rgba(0,171,240,.15);
 
-    transition:.35s;
+border-radius:22px;
+
+padding:30px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+transition:.35s;
 
 }
 
 .match-card:hover{
 
-    transform:translateY(-8px);
+transform:translateY(-8px);
 
-    box-shadow:var(--shadow);
+box-shadow:0 20px 45px rgba(0,171,240,.30);
 
 }
 
 .match-card h3{
 
-    color:var(--primary);
+color:#fff;
 
-    margin-bottom:12px;
+font-size:28px;
+
+margin-bottom:15px;
 
 }
 
 .match-card p{
 
-    color:#ddd;
+color:#c8d5df;
 
-    line-height:1.7;
+margin:10px 0;
+
+font-size:17px;
+
+}
+
+.match-status{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+background:#00abf0;
+
+color:#fff;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+@media(max-width:768px){
+
+.match-card{
+
+padding:20px;
+
+border-radius:16px;
+
+}
+
+.match-card h3{
+
+font-size:22px;
+
+}
+
+.match-card p{
+
+font-size:15px;
+
+}
 
 }
 
@@ -656,6 +705,9 @@ transform:translateY(-8px) scale(1.03);
 box-shadow:0 20px 40px rgba(0,171,240,.35);
 
 }
+
+
+
 
 
 /* ==========================================
@@ -1146,18 +1198,6 @@ footer hr{
 
 @media(max-width:991px){
 
-.navbar{
-
-padding:18px 5%;
-
-}
-
-.nav-links{
-
-display:none;
-
-}
-
 .menu{
 
 display:block;
@@ -1347,22 +1387,5 @@ padding:12px 24px;
 
 font-size:15px;
 
-}
-
-}@media(max-width:600px){
-
-.info-grid,
-.news-container,
-.matches-container,
-.stats-grid{
-
-grid-template-columns:1fr;
-
-}
-
-/* Gallery */
-.gallery-grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
 }
 }

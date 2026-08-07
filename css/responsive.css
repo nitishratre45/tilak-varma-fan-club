@@ -41,28 +41,6 @@
         cursor: pointer;
         z-index: 1001;
     }
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        right: 15px;
-        width: 220px;
-        background: #081b29;
-        border-radius: 15px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: .35s ease;
-        box-shadow: 0 0 20px rgba(0, 171, 240, .3);
-    }
-    .nav-links.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
 }
 @media (max-width:768px){
 
@@ -165,46 +143,120 @@ padding:8px 16px;
 
 }
 
-
-@media(max-width:992px){
+@media (max-width:992px){
 
 .menu{
-
-display:block;
-
+    display:block;
+    font-size:34px;
+    cursor:pointer;
+    z-index:1001;
 }
 
 .nav-links{
-
-position:fixed;
-
-top:85px;
-
-right:-100%;
-
-width:270px;
-
-height:calc(100vh - 85px);
-
-background:#0d2437;
-
-display:flex;
-
-flex-direction:column;
-
-padding:40px 25px;
-
-gap:25px;
-
-transition:.35s;
-
-box-shadow:-10px 0 25px rgba(0,0,0,.35);
-
+    position:fixed;
+    top:80px;
+    right:-100%;
+    width:75%;
+    max-width:280px;
+    height:auto;
+    max-height:70vh;
+    overflow-y:auto;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    background:#10293d;
+    border-radius:18px 0 0 18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+    transition:.35s ease;
+    z-index:1000;
 }
 
 .nav-links.active{
+    right:15px;
+}
 
-right:0;
+.nav-links li{
+    margin:0;
+    list-style:none;
+}
+
+.nav-links a{
+    display:block;
+    padding:12px 10px;
+    font-size:18px;
+    border-radius:10px;
+}
+
+.nav-links a:hover{
+    background:rgba(0,171,240,.15);
+}
+}
+}
+
+  @media(max-width:992px){
+
+.news-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.news-container{
+
+grid-template-columns:1fr;
+
+}
+
+.news-card img{
+
+height:210px;
+
+}
+
+.news-content h3{
+
+font-size:20px;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.gallery-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.gallery-photo{
+
+height:220px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.gallery-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+.gallery-photo{
+
+height:160px;
+
+border-radius:12px;
 
 }
 
