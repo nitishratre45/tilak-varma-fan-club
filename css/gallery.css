@@ -174,7 +174,7 @@
     gap:20px;
 }
 
-/* Tablet */
+
 @media (max-width:992px){
     .gallery-grid{
         grid-template-columns:repeat(2,1fr);
@@ -298,4 +298,18 @@
 
     font-size:16px;
 
+}@media (max-width:768px){
+
+    .gallery-item:hover{
+        transform:none;
+    }
+
+    .gallery-item:hover img{
+        transform:none;
+    }
+
+}  
+
+.gallery-overlay{
+    pointer-events:none;
 }}
