@@ -9,6 +9,7 @@ const galleryGrid = document.querySelector(".gallery-grid");
 
 let images = [];
 let currentIndex = 0;
+<body class="gallery-page"></body>
 
 // ===========================
 // Load Gallery

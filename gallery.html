@@ -60,18 +60,6 @@
         <!-- Firebase Images -->
       </div>
     </section>
-    snapshot.forEach((doc) => {
-
-    const photo = doc.data();
-
-    html += `
-        <img
-            src="${photo.image}"
-            alt="Gallery Image"
-            class="gallery-photo">
-    `;
-
-});
     <div id="lightbox">
 
     <span id="close">&times;</span>
@@ -89,8 +77,5 @@
     </div>
 
     <script type="module" src="js/gallery.js"></script>
-    
-    <script type="module" src="js/script.js"></script>
-
   </body>
 </html>
