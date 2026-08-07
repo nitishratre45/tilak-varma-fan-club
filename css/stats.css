@@ -27,20 +27,19 @@
     line-height:1.8;
 }
 
-/* =========================
-   OVERVIEW
-========================= */
+/* ===========================
+   Career Overview
+=========================== */
 
 .overview{
-    width:90%;
-    margin:80px auto;
+    padding:80px 8%;
 }
 
 .overview h2{
     text-align:center;
-    color:#00abf0;
+    color:#00bfff;
     font-size:42px;
-    margin-bottom:40px;
+    margin-bottom:45px;
 }
 
 .overview-grid{
@@ -50,28 +49,82 @@
 }
 
 .overview-card{
-    background:#10293d;
-    border-radius:20px;
-    padding:35px;
+    background:#111a2e;
+    border:1px solid rgba(0,191,255,.15);
+    border-radius:22px;
+    padding:35px 25px;
     text-align:center;
     transition:.35s;
-    box-shadow:0 0 20px rgba(0,171,240,.15);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .overview-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 35px rgba(0,171,240,.35);
+    transform:translateY(-8px);
+    border-color:#00bfff;
+    box-shadow:0 20px 40px rgba(0,191,255,.18);
 }
 
 .overview-card h3{
-    color:#ddd;
-    margin-bottom:15px;
-    font-size:20px;
+    color:#8da2b8;
+    font-size:18px;
+    margin-bottom:18px;
+    font-weight:600;
 }
 
 .overview-card h1{
-    color:#00abf0;
-    font-size:48px;
+    color:#fff;
+    font-size:52px;
+    font-weight:800;
+}
+
+.overview-card p{
+    color:#c8d3df;
+    margin-top:10px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.overview{
+    padding:60px 20px;
+}
+
+.overview h2{
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.overview-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.overview-card{
+    padding:22px 15px;
+    border-radius:16px;
+}
+
+.overview-card h3{
+    font-size:14px;
+}
+
+.overview-card h1{
+    font-size:32px;
+}
+
+}
+
+@media(max-width:480px){
+
+.overview-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.overview-card h1{
+    font-size:28px;
+}
+
 }
 /* =========================
    STATS SECTION
