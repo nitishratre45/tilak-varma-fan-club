@@ -109,7 +109,7 @@ search.addEventListener("keyup", function () {
 // MOBILE MENU
 // ===========================
 
-const menuToggle = document.querySelector(".menu-toggle");
+const menuToggle = document.querySelector(".menu");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
