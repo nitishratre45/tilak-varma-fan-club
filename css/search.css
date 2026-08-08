@@ -1,97 +1,153 @@
 /* ==========================================
-   PREMIUM SITE SEARCH
+   SEARCH BAR
 ========================================== */
 
 .site-search {
     width: 100%;
-    max-width: 700px;
-    margin: 25px auto 10px;
+    max-width: 620px;
+    margin: 25px auto 0;
     padding: 0 18px;
     box-sizing: border-box;
+
     position: relative;
-    z-index: 50;
+    z-index: 100;
 }
 
-.search-box {
-    position: relative;
 
-    display: flex;
-    align-items: center;
+/* ==========================================
+   SEARCH BOX
+========================================== */
 
+.site-search .search-box {
     width: 100%;
+    height: 54px;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    box-sizing: border-box;
 
     background: #102b40;
 
-    border: 1px solid rgba(0, 171, 240, .25);
+    border: 1px solid rgba(0,171,240,.35);
 
-    border-radius: 14px;
+    border-radius: 28px;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.18);
+    padding: 0 10px 0 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.20);
 
     transition: .3s ease;
 }
 
-.search-box:focus-within {
+.site-search .search-box:focus-within {
     border-color: #00abf0;
 
     box-shadow:
         0 0 0 3px rgba(0,171,240,.10),
-        0 10px 30px rgba(0,0,0,.22);
+        0 10px 30px rgba(0,0,0,.25);
 }
 
-.search-box > i {
-    margin-left: 16px;
+
+/* ==========================================
+   SEARCH ICON
+========================================== */
+
+.site-search .search-box > i {
+    position: static !important;
+
+    display: flex !important;
+
+    flex-shrink: 0;
+
+    width: 25px;
+    height: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 8px 0 0 !important;
 
     color: #00abf0;
 
-    font-size: 17px;
+    font-size: 18px;
+
+    line-height: 1;
 }
 
-.search-box input {
-    flex: 1;
 
-    width: 100%;
+/* ==========================================
+   INPUT
+========================================== */
 
-    padding: 14px 12px;
+.site-search .search-box input {
+    flex: 1 1 auto !important;
 
-    border: none;
+    width: auto !important;
 
-    outline: none;
+    min-width: 0;
 
-    background: transparent;
+    height: 100%;
 
-    color: #fff;
+    padding: 0 8px !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: #fff !important;
 
     font-size: 15px;
 }
 
-.search-box input::placeholder {
+.site-search .search-box input::placeholder {
     color: #8296a5;
 }
 
-#clearSearch {
+
+/* ==========================================
+   CLEAR BUTTON
+========================================== */
+
+.site-search #clearSearch {
     display: none;
 
-    margin-right: 10px;
+    flex-shrink: 0;
 
-    width: 28px;
-    height: 28px;
+    width: 30px !important;
+    height: 30px !important;
 
-    border: none;
+    min-width: 30px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: none !important;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.08);
+    background: rgba(255,255,255,.08) !important;
 
-    color: #fff;
+    color: #fff !important;
 
-    font-size: 19px;
+    font-size: 20px;
+
+    line-height: 30px;
+
+    text-align: center;
 
     cursor: pointer;
 }
 
-#clearSearch:hover {
-    background: rgba(0,171,240,.2);
+.site-search #clearSearch:hover {
+    background: rgba(0,171,240,.25) !important;
 }
 
 
@@ -99,58 +155,60 @@
    SEARCH RESULTS
 ========================================== */
 
-.search-results {
+.site-search .search-results {
     display: none;
 
     position: absolute;
 
-    top: calc(100% + 8px);
+    top: 62px;
 
     left: 18px;
     right: 18px;
 
-    max-height: 420px;
+    max-height: 400px;
 
     overflow-y: auto;
 
     background: #0b2234;
 
-    border: 1px solid rgba(0,171,240,.18);
+    border: 1px solid rgba(0,171,240,.20);
 
     border-radius: 15px;
 
-    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.40);
 }
 
-.search-result {
+
+/* ==========================================
+   RESULT
+========================================== */
+
+.site-search .search-result {
     display: flex;
 
     align-items: center;
 
-    gap: 13px;
+    gap: 12px;
 
     padding: 13px 15px;
 
-    border-bottom: 1px solid rgba(255,255,255,.06);
-
     text-decoration: none;
 
+    border-bottom: 1px solid rgba(255,255,255,.06);
+
     color: #fff;
-
-    transition: .25s ease;
 }
 
-.search-result:last-child {
-    border-bottom: none;
+.site-search .search-result:hover {
+    background: rgba(0,171,240,.08);
 }
 
-.search-result:hover {
-    background: rgba(0,171,240,.09);
-}
+.site-search .search-result img {
+    width: 50px;
+    height: 50px;
 
-.search-result img {
-    width: 52px;
-    height: 52px;
+    flex-shrink: 0;
 
     object-fit: cover;
 
@@ -187,8 +245,6 @@
     text-align: center;
 
     color: #aebdc7;
-
-    font-size: 14px;
 }
 
 
@@ -199,41 +255,24 @@
 @media (max-width: 768px) {
 
     .site-search {
-        margin: 18px auto 8px;
+        max-width: none;
 
-        padding: 0 14px;
+        margin-top: 20px;
+
+        padding: 0 18px;
     }
 
-    .search-box {
-        border-radius: 12px;
+    .site-search .search-box {
+        height: 52px;
     }
 
-    .search-box input {
-        padding: 12px 9px;
-
+    .site-search .search-box input {
         font-size: 14px;
     }
 
-    .search-box > i {
-        margin-left: 13px;
-
-        font-size: 15px;
-    }
-
-    .search-results {
-        left: 14px;
-        right: 14px;
-
-        max-height: 350px;
-    }
-
-    .search-result {
-        padding: 11px 12px;
-    }
-
-    .search-result img {
-        width: 45px;
-        height: 45px;
+    .site-search .search-results {
+        left: 18px;
+        right: 18px;
     }
 }
 
@@ -245,18 +284,27 @@
 @media (max-width: 420px) {
 
     .site-search {
-        margin-top: 14px;
+        margin-top: 16px;
+
+        padding: 0 14px;
     }
 
-    .search-box input {
+    .site-search .search-box {
+        height: 50px;
+
+        border-radius: 25px;
+    }
+
+    .site-search .search-box input {
         font-size: 13px;
     }
 
-    .search-box input::placeholder {
+    .site-search .search-box input::placeholder {
         font-size: 12px;
     }
 
-    .search-result-content h4 {
-        font-size: 13px;
+    .site-search .search-results {
+        left: 14px;
+        right: 14px;
     }
 }
