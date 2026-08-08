@@ -435,3 +435,108 @@ body{
     }
 
 }
+/* ===========================
+   Homepage Stats Panel
+=========================== */
+
+.stats-form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin:30px 0;
+}
+
+.stats-box{
+    display:flex;
+    flex-direction:column;
+}
+
+.stats-box label{
+    color:#ffffff;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.stats-box input{
+    width:100%;
+    height:52px;
+    padding:0 16px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#1d2a3d;
+    color:#fff;
+    font-size:18px;
+    transition:.3s;
+}
+
+.stats-box input:focus{
+    border:2px solid #00bfff;
+    box-shadow:0 0 15px rgba(0,191,255,.4);
+}
+
+#statsPanel{
+    max-width:700px;
+    background:#111a2e;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+}
+
+#statsPanel h1{
+    text-align:center;
+    color:#00bfff;
+    margin-bottom:25px;
+    font-size:42px;
+}
+
+#statsPanel button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:14px;
+    background:#00bfff;
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+
+#statsPanel button:hover{
+    background:#0099e6;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,191,255,.35);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+#statsPanel{
+    padding:20px;
+    border-radius:16px;
+}
+
+#statsPanel h1{
+    font-size:28px;
+}
+
+.stats-form{
+    grid-template-columns:1fr;
+    gap:16px;
+}
+
+.stats-box input{
+    height:48px;
+    font-size:16px;
+}
+
+#statsPanel button{
+    height:50px;
+    font-size:17px;
+}
+
+}

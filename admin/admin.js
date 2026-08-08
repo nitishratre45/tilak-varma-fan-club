@@ -118,6 +118,7 @@ window.showMatches = function () {
     hideAllPanels();
 
     document.getElementById("matchesPanel").style.display = "block";
+    loadMatches();
 
 };
 
@@ -540,6 +541,133 @@ window.addMatch = async function () {
         console.error("Match Error:", error);
 
         alert("❌ Failed to Add Match");
+
+    }
+
+};
+
+// ======================================
+// LOAD MATCHES IN DASHBOARD
+// ======================================
+
+window.loadMatches = async function () {
+
+    const matchesList = document.getElementById("matchesList");
+
+    if (!matchesList) return;
+
+    matchesList.innerHTML = "Loading Matches...";
+
+    try {
+
+        const snapshot = await getDocs(
+            collection(db, "matches")
+        );
+
+        if (snapshot.empty) {
+
+            matchesList.innerHTML = `
+                <p>No matches added yet.</p>
+            `;
+
+            return;
+        }
+
+        matchesList.innerHTML = "";
+
+        snapshot.forEach((matchDoc) => {
+
+            const match = matchDoc.data();
+
+            matchesList.innerHTML += `
+
+                <div class="admin-match-card">
+
+                    <h3>
+                        ${match.title || "Cricket Match"}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            ${match.team1 || "Team 1"}
+                        </strong>
+
+                        &nbsp; VS &nbsp;
+
+                        <strong>
+                            ${match.team2 || "Team 2"}
+                        </strong>
+                    </p>
+
+                    <p>
+                        📅 ${match.date || "Date TBA"}
+                    </p>
+
+                    <p>
+                        ⏰ ${match.time || "Time TBA"}
+                    </p>
+
+                    <p>
+                        📍 ${match.venue || "Venue TBA"}
+                    </p>
+
+                    <p>
+                        Status:
+                        ${match.status || "Upcoming"}
+                    </p>
+
+                    ${
+                        match.result
+                        ? `<p>${match.result}</p>`
+                        : ""
+                    }
+
+                    <button
+                        onclick="deleteMatch('${matchDoc.id}')">
+                        🗑️ Delete
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error("Load Matches Error:", error);
+
+        matchesList.innerHTML =
+            "<p>❌ Failed to load matches.</p>";
+
+    }
+
+};
+// ======================================
+// DELETE MATCH
+// ======================================
+
+window.deleteMatch = async function (id) {
+
+    if (!confirm("Delete this match?")) {
+        return;
+    }
+
+    try {
+
+        await deleteDoc(
+            doc(db, "matches", id)
+        );
+
+        alert("✅ Match Deleted");
+
+        loadMatches();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ Failed to Delete Match");
 
     }
 
