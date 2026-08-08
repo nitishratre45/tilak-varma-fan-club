@@ -156,7 +156,7 @@ padding:8px 16px;
     position:fixed;
     top:80px;
     right:-100%;
-    width:75%;
+    width:70%;
     max-width:150px;
     height:auto;
     max-height:70vh;
@@ -173,7 +173,7 @@ padding:8px 16px;
 }
 
 .nav-links.active{
-    right:15px;
+    right:8px;
 }
 
 .nav-links li{
@@ -261,3 +261,4 @@ border-radius:12px;
 }
 
 }
+
