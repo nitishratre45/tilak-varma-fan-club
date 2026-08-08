@@ -110,6 +110,8 @@ window.showRecords = function () {
 
     document.getElementById("recordsPanel").style.display = "block";
 
+    window.loadRecords();
+
 };
 
 
@@ -664,6 +666,199 @@ window.loadMatches = async function () {
         console.error(error);
 
         alert("❌ Failed to Delete Match");
+
+    }
+
+};
+
+
+// ======================================
+// ADD RECORD
+// ======================================
+
+window.addRecord = async function () {
+
+    const title =
+        document.getElementById("recordTitle").value.trim();
+
+    const value =
+        document.getElementById("recordValue").value.trim();
+
+    const description =
+        document.getElementById("recordDescription").value.trim();
+
+
+    if (!title || !value) {
+
+        alert("⚠️ Please enter Record Title and Value");
+
+        return;
+    }
+
+
+    try {
+
+        await addDoc(
+            collection(db, "records"),
+            {
+
+                title: title,
+
+                value: value,
+
+                description: description,
+
+                timestamp: Date.now()
+
+            }
+        );
+
+
+        alert("✅ Record Added Successfully");
+
+
+        document.getElementById("recordTitle").value = "";
+
+        document.getElementById("recordValue").value = "";
+
+        document.getElementById("recordDescription").value = "";
+
+
+        window.loadRecords();
+
+    }
+
+    catch (error) {
+
+        console.error("Record Error:", error);
+
+        alert("❌ Failed to Add Record");
+
+    }
+
+};
+
+
+// ======================================
+// LOAD RECORDS IN DASHBOARD
+// ======================================
+
+window.loadRecords = async function () {
+
+    const recordsList =
+        document.getElementById("recordsList");
+
+    if (!recordsList) return;
+
+
+    recordsList.innerHTML =
+        "Loading Records...";
+
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "records")
+            );
+
+
+        if (snapshot.empty) {
+
+            recordsList.innerHTML = `
+                <p>No records added yet.</p>
+            `;
+
+            return;
+
+        }
+
+
+        recordsList.innerHTML = "";
+
+
+        snapshot.forEach((recordDoc) => {
+
+            const record =
+                recordDoc.data();
+
+
+            recordsList.innerHTML += `
+
+                <div class="admin-record-card">
+
+                    <h3>
+                        ${record.title}
+                    </h3>
+
+                    <h2>
+                        ${record.value}
+                    </h2>
+
+                    <p>
+                        ${record.description || ""}
+                    </p>
+
+                    <button
+                        onclick="deleteRecord('${recordDoc.id}')">
+
+                        🗑️ Delete
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Load Records Error:",
+            error
+        );
+
+        recordsList.innerHTML =
+            "<p>❌ Failed to load records.</p>";
+
+    }
+
+};
+
+
+// ======================================
+// DELETE RECORD
+// ======================================
+
+window.deleteRecord = async function (id) {
+
+    if (!confirm("Delete this record?")) {
+        return;
+    }
+
+
+    try {
+
+        await deleteDoc(
+            doc(db, "records", id)
+        );
+
+
+        alert("✅ Record Deleted");
+
+
+        window.loadRecords();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("❌ Failed to Delete Record");
 
     }
 

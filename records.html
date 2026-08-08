@@ -36,7 +36,7 @@
 
 <li><a href="index.html">Home</a></li>
 
-<li><a href="stats.html" class="active">Stats</a></li>
+<li><a href="stats.html">Stats</a></li>
 
 <li><a href="news.html">News</a></li>
 
@@ -44,7 +44,7 @@
 
 <li><a href="career.html">Career</a></li>
 
-<li><a href="records.html">Records</a></li>
+<li><a href="records.html" class="active">Records</a></li>
 
 <li><a href="matches.html">Matches</a></li>
 
@@ -56,9 +56,33 @@
 </nav>
 
 </header>
-<h2> updating</h2>
+<!-- ================= RECORDS ================= -->
 
-<script type="module" src="js/news.js"></script>
+<section class="records-section">
+
+    <div class="records-header">
+
+        <h1>🏆 Tilak Varma Records</h1>
+
+        <p>
+            Career highlights and major records
+        </p>
+
+    </div>
+
+
+    <div
+        id="recordsContainer"
+        class="records-container">
+
+        <div class="records-loading">
+            🏏 Loading Records...
+        </div>
+
+    </div>
+
+</section>
+<script type="module" src="js/records.js"></script>
 <script type="module" src="js/script.js"></script>
 
 </body>

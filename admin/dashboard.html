@@ -176,14 +176,44 @@
 
 </div>
 
-
-<!-- ================= Records Panel ================= -->
+<!-- ================= RECORDS PANEL ================= -->
 
 <div id="recordsPanel" style="display: none">
 
     <h1>🏆 Records Management</h1>
 
-    <p>Records Management Coming Soon...</p>
+    <div class="record-form">
+
+        <input
+            type="text"
+            id="recordTitle"
+            placeholder="Record Title"
+        >
+
+        <input
+            type="text"
+            id="recordValue"
+            placeholder="Record Value"
+        >
+
+        <textarea
+            id="recordDescription"
+            placeholder="Record Description"
+        ></textarea>
+
+        <button onclick="addRecord()">
+            🏆 Add Record
+        </button>
+
+    </div>
+
+
+    <hr style="margin:40px 0">
+
+
+    <h2>📋 Added Records</h2>
+
+    <div id="recordsList"></div>
 
 </div>
 
