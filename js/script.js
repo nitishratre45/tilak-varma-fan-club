@@ -204,7 +204,7 @@ window.addEventListener("scroll", () => {
             current = section.getAttribute("id");
 
         }
-
+      
     });
 
     links.forEach(link => {
