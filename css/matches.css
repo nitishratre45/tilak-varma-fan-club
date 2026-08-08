@@ -1,21 +1,29 @@
 /* ==========================================
-   MATCHES PAGE
+   PREMIUM MATCHES PAGE
 ========================================== */
 
-.matches-page {
-    padding: 70px 7% 80px;
+.matches-header {
+    max-width: 1100px;
+    margin: 65px auto 25px;
+    padding: 0 25px;
 }
 
-.matches-page h1 {
-    color: #fff;
+.matches-header h1 {
+    margin: 0 0 8px;
+
     font-size: 42px;
-    margin-bottom: 8px;
+    font-weight: 800;
+
+    color: #ffffff;
 }
 
-.matches-page > p {
-    color: #b9c7d1;
+.matches-header p {
+    margin: 0;
+
+    color: #b8c7d1;
     font-size: 17px;
-    margin-bottom: 35px;
+
+    line-height: 1.6;
 }
 
 
@@ -24,16 +32,18 @@
 ========================================== */
 
 .matches-container {
+    max-width: 1100px;
+
+    margin: 0 auto 70px;
+
+    padding: 0 25px;
+
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(300px, 1fr)
-    );
 
-    gap: 25px;
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
 
-    max-width: 1150px;
-    margin: 0 auto;
+    gap: 24px;
 }
 
 
@@ -44,17 +54,18 @@
 .match-card {
     position: relative;
 
-    background: linear-gradient(
-        145deg,
-        #102f47,
-        #0b2234
-    );
+    background:
+        linear-gradient(
+            145deg,
+            #102f47,
+            #0a2030
+        );
 
-    border: 1px solid rgba(0, 171, 240, .18);
+    border: 1px solid rgba(0,171,240,.18);
 
     border-radius: 20px;
 
-    padding: 25px;
+    padding: 24px;
 
     overflow: hidden;
 
@@ -64,24 +75,8 @@
     transition: .35s ease;
 }
 
-.match-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: -70px;
-    right: -70px;
-
-    width: 160px;
-    height: 160px;
-
-    background: rgba(0,171,240,.08);
-
-    border-radius: 50%;
-}
-
 .match-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
 
     border-color: rgba(0,171,240,.45);
 
@@ -98,19 +93,22 @@
 .match-status {
     display: inline-block;
 
-    padding: 7px 14px;
+    padding: 7px 15px;
+
+    margin-bottom: 16px;
 
     border-radius: 50px;
 
-    background: #00abf0;
+    background: linear-gradient(
+        135deg,
+        #00abf0,
+        #008fd0
+    );
 
-    color: white;
+    color: #fff;
 
     font-size: 13px;
-
     font-weight: 700;
-
-    margin-bottom: 18px;
 }
 
 
@@ -119,13 +117,13 @@
 ========================================== */
 
 .match-card h2 {
+    margin: 0 0 18px;
+
     color: #fff;
 
     font-size: 24px;
 
-    margin: 0 0 18px;
-
-    line-height: 1.3;
+    font-weight: 800;
 }
 
 
@@ -137,10 +135,9 @@
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    justify-content: space-between;
-
-    gap: 12px;
+    gap: 15px;
 
     margin: 20px 0;
 }
@@ -153,7 +150,6 @@
     color: #fff;
 
     font-size: 17px;
-
     font-weight: 700;
 }
 
@@ -161,7 +157,6 @@
     color: #00abf0;
 
     font-size: 14px;
-
     font-weight: 800;
 }
 
@@ -171,25 +166,21 @@
 ========================================== */
 
 .match-info {
+    margin-top: 18px;
+
+    padding-top: 15px;
+
     border-top: 1px solid rgba(255,255,255,.08);
-
-    padding-top: 16px;
-
-    margin-top: 15px;
 }
 
 .match-info p {
-    color: #cbd6dd;
+    margin: 9px 0;
+
+    color: #c8d4dc;
 
     font-size: 14px;
 
-    margin: 9px 0;
-
     line-height: 1.5;
-}
-
-.match-info strong {
-    color: #fff;
 }
 
 
@@ -198,9 +189,9 @@
 ========================================== */
 
 .match-result {
-    margin-top: 18px;
+    margin-top: 16px;
 
-    padding: 13px 15px;
+    padding: 12px 14px;
 
     background: rgba(0,171,240,.08);
 
@@ -217,19 +208,15 @@
 
 
 /* ==========================================
-   EMPTY STATE
+   LOADING
 ========================================== */
 
-.no-matches {
+.match-loading {
+    grid-column: 1 / -1;
+
     text-align: center;
 
-    padding: 50px 20px;
-
-    background: #102b40;
-
-    border: 1px solid rgba(0,171,240,.15);
-
-    border-radius: 18px;
+    padding: 35px;
 
     color: #aebdc7;
 
@@ -243,28 +230,30 @@
 
 @media (max-width: 768px) {
 
-    .matches-page {
-        padding: 45px 18px 55px;
+    .matches-header {
+        margin: 35px auto 20px;
+
+        padding: 0 18px;
+
+        text-align: center;
     }
 
-    .matches-page h1 {
+    .matches-header h1 {
         font-size: 32px;
-
-        text-align: center;
     }
 
-    .matches-page > p {
-        text-align: center;
-
-        font-size: 15px;
-
-        line-height: 1.6;
+    .matches-header p {
+        font-size: 14px;
     }
 
     .matches-container {
         grid-template-columns: 1fr;
 
         gap: 18px;
+
+        padding: 0 18px;
+
+        margin-bottom: 50px;
     }
 
     .match-card {
@@ -293,9 +282,22 @@
 
 @media (max-width: 420px) {
 
-    .matches-page {
-        padding-left: 14px;
-        padding-right: 14px;
+    .matches-header {
+        padding: 0 14px;
+
+        margin-top: 28px;
+    }
+
+    .matches-header h1 {
+        font-size: 28px;
+    }
+
+    .matches-header p {
+        font-size: 13px;
+    }
+
+    .matches-container {
+        padding: 0 14px;
     }
 
     .match-card {
@@ -310,9 +312,5 @@
 
     .match-card h2 {
         font-size: 19px;
-    }
-
-    .match-team {
-        font-size: 14px;
     }
 }
