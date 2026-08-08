@@ -334,35 +334,6 @@
 
 
 /* ==========================================
-   NEWS MOBILE
-========================================== */
-
-@media (max-width: 992px) {
-
-    .news-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .news-container {
-        grid-template-columns: 1fr;
-    }
-
-    .news-card img {
-        height: 210px;
-    }
-
-    .news-content h3 {
-        font-size: 20px;
-    }
-
-}
-
-
-/* ==========================================
    GALLERY MOBILE
 ========================================== */
 
