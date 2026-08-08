@@ -1235,10 +1235,17 @@ footer hr {
 @media (max-width: 500px) {
 
     footer {
-        padding: 28px 18px 14px;
-        margin-top: 35px;
-    }
+    padding: 32px 7% 15px;
+    margin-top: 40px;
 
+    background: linear-gradient(
+        180deg,
+        #081b29,
+        #041019
+    );
+
+    border-top: 1px solid rgba(0,171,240,.15);
+}
     .footer-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
