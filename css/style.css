@@ -869,62 +869,153 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
     font-size:17px;
 
 }
+/* ==========================================
+   PREMIUM CAREER STATS
+========================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        #10293d,
+        #081b29
+    );
+
+    padding: 24px 18px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(0,171,240,.15);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.22);
+
+    transition: .3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0,171,240,.45);
+
+    box-shadow: 0 14px 30px rgba(0,171,240,.18);
+}
+
+/* Blue top line */
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 20%;
+    right: 20%;
+
+    height: 3px;
+
+    background: #00abf0;
+
+    border-radius: 0 0 10px 10px;
+}
+
+.stat-card h2 {
+    font-size: 36px;
+
+    color: var(--primary);
+
+    margin: 5px 0 8px;
+
+    font-weight: 800;
+}
+
+.stat-card p {
+    color: #d5e0e8;
+
+    font-size: 14px;
+
+    margin: 0;
+
+    line-height: 1.5;
+}
 
 
 /* ==========================================
-   CAREER STATS
+   TABLET
 ========================================== */
 
-.stats-grid{
+@media (max-width: 992px) {
 
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:25px;
-
-}
-
-.stat-card{
-
-    background:var(--card);
-
-    padding:35px;
-
-    text-align:center;
-
-    border-radius:18px;
-
-    transition:.35s;
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
 
 }
 
-.stat-card:hover{
 
-    transform:translateY(-8px);
+/* ==========================================
+   MOBILE
+========================================== */
 
-    box-shadow:0 0 30px rgba(0,171,240,.35);
+@media (max-width: 600px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .stat-card {
+        padding: 18px 10px;
+        border-radius: 13px;
+    }
+
+    .stat-card h2 {
+        font-size: 29px;
+        margin-bottom: 5px;
+    }
+
+    .stat-card p {
+        font-size: 12px;
+    }
 
 }
 
-.stat-card h2{
 
-    font-size:45px;
+/* ==========================================
+   SMALL PHONES
+========================================== */
 
-    color:var(--primary);
+@media (max-width: 380px) {
 
-    margin-bottom:15px;
+    .stats-grid {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 15px 8px;
+    }
+
+    .stat-card h2 {
+        font-size: 26px;
+    }
+
+    .stat-card p {
+        font-size: 11px;
+    }
 
 }
-
-.stat-card p{
-
-    color:#ddd;
-
-    font-size:17px;
-
-}
-
 
 /* ==========================================
    FOOTER
