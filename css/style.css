@@ -937,9 +937,9 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
 
     .about-image img {
         width: 310px;
-        height: 250px;
+        height: 330px;
 
-        border-radius: 18px;
+        border-radius: 17px;
     }
 
     .about-content {
