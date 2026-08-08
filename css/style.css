@@ -936,10 +936,10 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
     }
 
     .about-image img {
-        width: 210px;
-        height: 210px;
+        width: 310px;
+        height: 310px;
 
-        border-radius: 18px;
+        border-radius: 23px;
     }
 
     .about-content {
