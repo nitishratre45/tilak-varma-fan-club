@@ -13,44 +13,59 @@ import {
 
 async function loadNews() {
 
-    const params = new URLSearchParams(window.location.search);
-   const newsId = params.get("id");
+    const container = document.getElementById("newsContainer");
 
-    if (newsId) {
+    container.innerHTML = "<h2>Loading News...</h2>";
 
-    const newsDoc = await getDoc(doc(db, "news", newsId));
+    try {
 
-    if (newsDoc.exists()) {
+        const q = query(collection(db, "news"));
 
-        const news = newsDoc.data();
+        const snapshot = await getDocs(q);
 
-        newsContainer.innerHTML = `
+        container.innerHTML = "";
 
-            <article class="news-full">
+        snapshot.forEach((doc) => {
 
-                <img
-                    src="${news.image}"
-                    alt="${news.title}"
-                    class="news-full-image"
-                >
+            const news = doc.data();
 
-                <div class="news-full-content">
+            container.innerHTML += `
 
-                    <small>Latest News</small>
+            <div class="news-card">
 
-                    <h1>${news.title}</h1>
+                <img src="${news.image}" alt="">
+
+                <div class="news-content">
+
+                    <span class="news-date">
+                        ${news.date || "Latest"}
+                    </span>
+
+                    <h3>${news.title}</h3>
 
                     <p>${news.description}</p>
 
+                    <a href="news-details.html?id=${doc.id}" class="read-btn">
+
+                     Read More →
+
+                    </a>
+
                 </div>
 
-            </article>
-
+            </div>
 
             `;
 
-    };
+        });
 
+    }
+
+    catch (err) {
+
+        container.innerHTML = "<h2>Unable to load news.</h2>";
+
+        console.error(err);
 
     }
 
