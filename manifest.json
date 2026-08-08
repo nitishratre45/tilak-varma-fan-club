@@ -1,0 +1,23 @@
+{
+  "name": "Tilak Varma Fan Club",
+  "short_name": "Tilak Varma FC",
+  "description": "Latest Tilak Varma news, stats, records, matches and gallery.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#081b29",
+  "theme_color": "#081b29",
+  "orientation": "portrait-primary",
+
+  "icons": [
+    {
+      "src": "/image/tilaklogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/image/tilaklogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
