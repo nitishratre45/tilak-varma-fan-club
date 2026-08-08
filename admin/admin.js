@@ -487,3 +487,60 @@ window.saveStats = async function () {
     }
 
 };
+
+// ======================================
+// ADD MATCH
+// ======================================
+
+window.addMatch = async function () {
+
+    const title = document.getElementById("matchTitle").value.trim();
+    const team1 = document.getElementById("team1").value.trim();
+    const team2 = document.getElementById("team2").value.trim();
+    const date = document.getElementById("matchDate").value;
+    const time = document.getElementById("matchTime").value;
+    const venue = document.getElementById("venue").value.trim();
+    const status = document.getElementById("matchStatus").value.trim();
+    const result = document.getElementById("matchResult").value.trim();
+
+    if (!title || !team1 || !team2 || !date || !time) {
+        alert("⚠️ Please fill Match Title, Teams, Date and Time");
+        return;
+    }
+
+    try {
+
+        await addDoc(collection(db, "matches"), {
+
+            title: title,
+            team1: team1,
+            team2: team2,
+            date: date,
+            time: time,
+            venue: venue,
+            status: status || "Upcoming",
+            result: result,
+            timestamp: Date.now()
+
+        });
+
+        alert("✅ Match Added Successfully");
+
+        document.getElementById("matchTitle").value = "";
+        document.getElementById("team1").value = "";
+        document.getElementById("team2").value = "";
+        document.getElementById("matchDate").value = "";
+        document.getElementById("matchTime").value = "";
+        document.getElementById("venue").value = "";
+        document.getElementById("matchStatus").value = "";
+        document.getElementById("matchResult").value = "";
+
+    } catch (error) {
+
+        console.error("Match Error:", error);
+
+        alert("❌ Failed to Add Match");
+
+    }
+
+};

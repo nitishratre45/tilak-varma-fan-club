@@ -180,15 +180,72 @@
 
           <p>Records Management Coming Soon...</p>
         </div>
+<!-- ================= Matches Panel ================= -->
 
-        <!-- ================= Matches Panel ================= -->
+<div id="matchesPanel" style="display: none">
 
-        <div id="matchesPanel" style="display: none">
-          <h1>🏏 Match Management</h1>
+    <h1>🏏 Match Management</h1>
 
-          <p>Match Management Coming Soon...</p>
-        </div>
+    <div class="match-form">
 
+        <input
+            type="text"
+            id="matchTitle"
+            placeholder="Match Title"
+        >
+
+        <input
+            type="text"
+            id="team1"
+            placeholder="Team 1"
+        >
+
+        <input
+            type="text"
+            id="team2"
+            placeholder="Team 2"
+        >
+
+        <input
+            type="date"
+            id="matchDate"
+        >
+
+        <input
+            type="time"
+            id="matchTime"
+        >
+
+        <input
+            type="text"
+            id="venue"
+            placeholder="Venue"
+        >
+
+        <input
+            type="text"
+            id="matchStatus"
+            placeholder="Status (Upcoming / Live / Completed)"
+        >
+
+        <textarea
+            id="matchResult"
+            placeholder="Match Result / Details"
+        ></textarea>
+
+        <button onclick="addMatch()">
+            🏏 Add Match
+        </button>
+
+    </div>
+
+    <hr style="margin:40px 0">
+
+    <h2>📋 Added Matches</h2>
+
+    <div id="matchesList"></div>
+
+</div>
         <!-- ================= Settings Panel ================= -->
 
         <div id="settingsPanel" style="display: none">

@@ -540,3 +540,93 @@ body{
 }
 
 }
+
+/* ==========================================
+   MATCH MANAGEMENT
+========================================== */
+
+.match-form {
+    max-width: 700px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.match-form input,
+.match-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid rgba(0,171,240,.2);
+
+    border-radius: 10px;
+
+    background: #10293d;
+
+    color: #fff;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.match-form textarea {
+    min-height: 100px;
+
+    resize: vertical;
+
+    grid-column: 1 / -1;
+}
+
+.match-form input:focus,
+.match-form textarea:focus {
+    border-color: #00abf0;
+
+    box-shadow: 0 0 12px rgba(0,171,240,.15);
+}
+
+.match-form button {
+    grid-column: 1 / -1;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #00abf0;
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.match-form button:hover {
+    opacity: .9;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .match-form {
+        grid-template-columns: 1fr;
+    }
+
+    .match-form textarea,
+    .match-form button {
+        grid-column: auto;
+    }
+
+}
