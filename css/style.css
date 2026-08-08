@@ -131,7 +131,7 @@ body{
 
 .navbar{
 
-width:90%;
+width:70%;
 max-width:1400px;
 
 height:85px;
@@ -1379,5 +1379,30 @@ padding:12px 24px;
 
 font-size:15px;
 
+}
+
+
+/* =================================
+   MOBILE SCROLL HEADER
+================================= */
+
+@media (max-width: 992px) {
+
+    header.scroll-hide .logo {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-30px);
+        pointer-events: none;
+    }
+
+    header.scroll-hide .menu,
+    header.scroll-hide .menu-toggle {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    header .logo {
+        transition: .3s ease;
+    }
 }
 }

@@ -90,6 +90,28 @@ window.addEventListener("scroll", () => {
 
 });
 
+// =================================
+// MOBILE HEADER ON SCROLL
+// =================================
+
+window.addEventListener("scroll", () => {
+
+    if (window.innerWidth <= 992) {
+
+        if (window.scrollY > 80) {
+
+            header.classList.add("scroll-hide");
+
+        } else {
+
+            header.classList.remove("scroll-hide");
+
+        }
+
+    }
+
+});
+
 
 // ===========================================
 // BACK TO TOP BUTTON

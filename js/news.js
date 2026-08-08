@@ -43,7 +43,8 @@ async function loadNews() {
                 <div class="news-content">
 
                     <span class="news-date">
-                        ${news.date || "Latest"}
+                       ${news.date || "Latest"}
+                         ${news.time ? " • " + news.time : ""}
                     </span>
 
                     <h3>${news.title}</h3>
@@ -124,3 +125,47 @@ if (menuToggle && navLinks) {
     });
 
 }
+
+
+
+// ===========================================
+// STICKY HEADER
+// ===========================================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("sticky");
+
+    } else {
+
+        header.classList.remove("sticky");
+
+    }
+
+});
+
+// =================================
+// MOBILE HEADER ON SCROLL
+// =================================
+
+window.addEventListener("scroll", () => {
+
+    if (window.innerWidth <= 992) {
+
+        if (window.scrollY > 80) {
+
+            header.classList.add("scroll-hide");
+
+        } else {
+
+            header.classList.remove("scroll-hide");
+
+        }
+
+    }
+
+});
