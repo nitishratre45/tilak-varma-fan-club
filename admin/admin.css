@@ -755,3 +755,268 @@ body{
     }
 
 }
+
+/* ==========================================
+   ADMIN - RECORDS MANAGEMENT
+========================================== */
+
+#recordsPanel {
+    max-width: 1000px;
+}
+
+#recordsPanel > h1 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   RECORD FORM
+========================================== */
+
+.record-form {
+    max-width: 700px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.record-form input,
+.record-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    background: #102b40;
+
+    color: #fff;
+
+    border: 1px solid rgba(0,171,240,.22);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.record-form input::placeholder,
+.record-form textarea::placeholder {
+    color: #8498a7;
+}
+
+.record-form input:focus,
+.record-form textarea:focus {
+    border-color: #00abf0;
+
+    box-shadow:
+        0 0 0 3px rgba(0,171,240,.10);
+}
+
+.record-form textarea {
+    grid-column: 1 / -1;
+
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+/* ==========================================
+   ADD BUTTON
+========================================== */
+
+.record-form button {
+    grid-column: 1 / -1;
+
+    padding: 13px 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #00abf0,
+        #008fd0
+    );
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.record-form button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,171,240,.25);
+}
+
+
+/* ==========================================
+   ADDED RECORDS
+========================================== */
+
+#recordsList {
+    margin-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 18px;
+
+    max-width: 1000px;
+}
+
+
+/* ==========================================
+   RECORD CARD
+========================================== */
+
+.admin-record-card {
+    background: linear-gradient(
+        145deg,
+        #102f47,
+        #0b2234
+    );
+
+    border: 1px solid rgba(0,171,240,.17);
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.20);
+
+    transition: .3s;
+}
+
+.admin-record-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0,171,240,.4);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28);
+}
+
+
+/* TITLE */
+
+.admin-record-card h3 {
+    margin: 0 0 10px;
+
+    color: #fff;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+}
+
+
+/* VALUE */
+
+.admin-record-card h2 {
+    margin: 0 0 10px;
+
+    color: #00abf0;
+
+    font-size: 27px;
+
+    font-weight: 800;
+}
+
+
+/* DESCRIPTION */
+
+.admin-record-card p {
+    margin: 0;
+
+    color: #b9c7d1;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   DELETE BUTTON
+========================================== */
+
+.admin-record-card button {
+    margin-top: 16px;
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e53935;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.admin-record-card button:hover {
+    background: #ff4b47;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 14px rgba(229,57,53,.25);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    #recordsPanel > h1 {
+        font-size: 25px;
+    }
+
+    .record-form {
+        grid-template-columns: 1fr;
+    }
+
+    .record-form textarea,
+    .record-form button {
+        grid-column: auto;
+    }
+
+    #recordsList {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-record-card {
+        padding: 17px;
+    }
+
+}

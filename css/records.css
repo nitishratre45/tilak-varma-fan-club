@@ -1,0 +1,318 @@
+/* ==========================================
+   PREMIUM RECORDS PAGE
+========================================== */
+
+.records-section {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 65px 25px 80px;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.records-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.records-header h1 {
+    margin: 0 0 10px;
+
+    color: #fff;
+
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.records-header p {
+    margin: 0;
+
+    color: #aebdc7;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   RECORDS GRID
+========================================== */
+
+.records-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==========================================
+   RECORD CARD
+========================================== */
+
+.record-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102f47,
+            #0a2030
+        );
+
+    border: 1px solid rgba(0,171,240,.16);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.22);
+
+    transition: .35s ease;
+}
+
+.record-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    top: -65px;
+    right: -65px;
+
+    background: rgba(0,171,240,.08);
+
+    border-radius: 50%;
+}
+
+.record-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0,171,240,.4);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.32),
+        0 0 22px rgba(0,171,240,.12);
+}
+
+
+/* ==========================================
+   TROPHY ICON
+========================================== */
+
+.record-icon {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(0,171,240,.12);
+
+    font-size: 25px;
+}
+
+
+/* ==========================================
+   RECORD CONTENT
+========================================== */
+
+.record-content {
+    position: relative;
+
+    flex: 1;
+}
+
+.record-content h2 {
+    margin: 0 0 8px;
+
+    color: #fff;
+
+    font-size: 19px;
+
+    line-height: 1.35;
+}
+
+.record-value {
+    color: #00abf0;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+.record-content p {
+    margin: 0;
+
+    color: #b9c7d1;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.records-loading {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 35px;
+
+    color: #aebdc7;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   EMPTY / ERROR
+========================================== */
+
+.record-empty {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    background: #102b40;
+
+    border: 1px solid rgba(0,171,240,.15);
+
+    border-radius: 18px;
+}
+
+.record-empty h2 {
+    color: #fff;
+
+    margin-bottom: 8px;
+}
+
+.record-empty p {
+    color: #aebdc7;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .records-section {
+        padding: 45px 18px 55px;
+    }
+
+    .records-header {
+        margin-bottom: 28px;
+    }
+
+    .records-header h1 {
+        font-size: 32px;
+    }
+
+    .records-header p {
+        font-size: 14px;
+    }
+
+    .records-container {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .record-card {
+        padding: 18px;
+
+        gap: 14px;
+
+        border-radius: 16px;
+    }
+
+    .record-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 21px;
+
+        border-radius: 12px;
+    }
+
+    .record-content h2 {
+        font-size: 17px;
+    }
+
+    .record-value {
+        font-size: 22px;
+    }
+
+    .record-content p {
+        font-size: 13px;
+    }
+}
+
+
+/* ==========================================
+   SMALL PHONE
+========================================== */
+
+@media (max-width: 420px) {
+
+    .records-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .records-header h1 {
+        font-size: 28px;
+    }
+
+    .record-card {
+        padding: 16px;
+    }
+
+    .record-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 19px;
+    }
+
+    .record-content h2 {
+        font-size: 16px;
+    }
+
+    .record-value {
+        font-size: 20px;
+    }
+}
