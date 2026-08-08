@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+< lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,7 +75,16 @@
     </button>
 
     </div>
+    <script>
+           const menu = document.querySelector(".menu-toggle");
+           const navLinks = document.querySelector(".nav-links");
 
+          if (menu && navLinks) {
+           menu.addEventListener("click", () => {
+           navLinks.classList.toggle("active");
+      });
+}
+    </script>
     <script type="module" src="js/gallery.js"></script>
   </body>
 </html>
