@@ -54,27 +54,32 @@
     main,
     footer {
         max-width: 100%;
+        box-sizing: border-box;
     }
 
 
-    /* HERO */
+    /* ==========================================
+       HERO
+    ========================================== */
 
     .hero {
+        display: flex;
         flex-direction: column;
+
         text-align: center;
         justify-content: center;
+        align-items: center;
 
         gap: 25px;
 
-        padding: 90px 18px 40px;
+        padding: 70px 18px 40px;
     }
 
-    .hero-text {
-        width: 100%;
-        max-width: 100%;
-    }
+    /* PHOTO FIRST */
 
     .hero-image {
+        order: 1;
+
         width: 100%;
 
         display: flex;
@@ -86,33 +91,60 @@
         display: block;
 
         width: 280px;
-        max-width: 90%;
+        max-width: 85%;
+        height: auto;
 
         margin: 0 auto;
+
+        border-radius: 25px;
+    }
+
+    /* TEXT AFTER PHOTO */
+
+    .hero-text {
+        order: 2;
+
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero h1 {
         font-size: 40px;
+        line-height: 1.1;
+        margin-bottom: 12px;
     }
 
     .hero h3 {
         font-size: 20px;
+        line-height: 1.4;
     }
 
     .hero p {
         font-size: 16px;
+        line-height: 1.7;
     }
 
-    .hero-buttons {
-        justify-content: center;
-    }
 
+    /* ==========================================
+       HERO BUTTONS
+    ========================================== */
+
+    .hero-buttons,
     .buttons {
+        display: flex;
+
         justify-content: center;
+        align-items: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
     }
 
 
-    /* HOME GRIDS */
+    /* ==========================================
+       HOME GRIDS
+    ========================================== */
 
     .stats,
     .timeline-container,
@@ -121,7 +153,9 @@
     }
 
 
-    /* MENU BUTTON */
+    /* ==========================================
+       MENU BUTTON
+    ========================================== */
 
     .menu-toggle {
         display: block;
@@ -136,7 +170,6 @@
     }
 
 }
-
 
 /* ==========================================
    SMALL PHONE
