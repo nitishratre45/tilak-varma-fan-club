@@ -43,7 +43,9 @@ async function loadMatchesFromAPI() {
         const result = await response.json();
 
 
-        console.log("CricAPI Response:", result);
+        console.log( "CRICAPI FULL RESPONSE:",
+           JSON.stringify(result, null, 2)
+        );
 
 
         if (!result.data || !Array.isArray(result.data)) {
