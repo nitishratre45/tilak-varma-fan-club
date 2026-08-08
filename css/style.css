@@ -430,65 +430,158 @@ box-shadow:0 12px 35px rgba(0,171,240,.55);
 
     font-size:18px;
 
-}
-/* ==========================================
-   INFO SECTION
+}/* ==========================================
+   PREMIUM INFO SECTION
 ========================================== */
 
-.info-grid{
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+}
 
-    display:grid;
+.info-card {
+    position: relative;
+    overflow: hidden;
 
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    background: linear-gradient(
+        145deg,
+        rgba(16,41,61,.95),
+        rgba(8,27,41,.98)
+    );
 
-    gap:25px;
+    padding: 28px 24px;
 
-    margin-top:50px;
+    border-radius: 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(0,171,240,.16);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.22);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+
+/* Blue glow at top */
+
+.info-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+    right: 15%;
+
+    height: 3px;
+
+    background: #00abf0;
+
+    border-radius: 0 0 10px 10px;
+
+    opacity: .8;
+}
+
+
+/* Hover */
+
+.info-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(0,171,240,.45);
+
+    box-shadow:
+        0 18px 40px rgba(0,171,240,.18);
+}
+
+
+/* Heading */
+
+.info-card h3 {
+    color: var(--primary);
+
+    margin: 5px 0 14px;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+/* Paragraph */
+
+.info-card p {
+    color: #d7e0e7;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+@media (max-width: 768px) {
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .info-card {
+        padding: 16px 10px;
+        border-radius: 13px;
+    }
+
+    .info-card h3 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .info-card p {
+        font-size: 11.5px;
+        line-height: 1.5;
+    }
 
 }
 
-.info-card{
 
-    background:var(--card);
+/* ==========================================
+   SMALL PHONES
+========================================== */
 
-    padding:30px;
+@media (max-width: 420px) {
 
-    border-radius:18px;
+    .info-grid {
+        gap: 11px;
+    }
 
-    text-align:center;
+    .info-card {
+        padding: 18px 12px;
 
-    transition:.35s;
+        border-radius: 14px;
+    }
 
-    border:1px solid rgba(255,255,255,.08);
+    .info-card h3 {
+        font-size: 16px;
+    }
 
-}
-
-.info-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 0 30px rgba(0,171,240,.35);
-
-}
-
-.info-card h3{
-
-    color:var(--primary);
-
-    margin-bottom:15px;
-
-    font-size:22px;
+    .info-card p {
+        font-size: 12.5px;
+    }
 
 }
-
-.info-card p{
-
-    color:#ddd;
-
-    line-height:1.8;
-
-}
-
 /* ======================================
    PREMIUM LIVE MATCH
 ====================================== */
