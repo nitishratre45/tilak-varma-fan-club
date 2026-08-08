@@ -863,3 +863,128 @@ window.deleteRecord = async function (id) {
     }
 
 };
+
+// ======================================
+// DASHBOARD OVERVIEW
+// ======================================
+
+async function loadDashboardOverview() {
+
+    try {
+
+        const newsSnapshot =
+            await getDocs(collection(db, "news"));
+
+        const gallerySnapshot =
+            await getDocs(collection(db, "gallery"));
+
+        const recordsSnapshot =
+            await getDocs(collection(db, "records"));
+
+        const matchesSnapshot =
+            await getDocs(collection(db, "matches"));
+
+
+        // ===============================
+        // TOTAL COUNTS
+        // ===============================
+
+        const totalNews =
+            document.getElementById("totalNews");
+
+        const totalGallery =
+            document.getElementById("totalGallery");
+
+        const totalRecords =
+            document.getElementById("totalRecords");
+
+        const totalMatches =
+            document.getElementById("totalMatches");
+
+
+        if (totalNews) {
+            totalNews.textContent =
+                newsSnapshot.size;
+        }
+
+        if (totalGallery) {
+            totalGallery.textContent =
+                gallerySnapshot.size;
+        }
+
+        if (totalRecords) {
+            totalRecords.textContent =
+                recordsSnapshot.size;
+        }
+
+        if (totalMatches) {
+            totalMatches.textContent =
+                matchesSnapshot.size;
+        }
+
+
+        // ===============================
+        // RECENT ACTIVITY
+        // ===============================
+
+        const activity =
+            document.getElementById("recentActivity");
+
+        if (!activity) return;
+
+
+        activity.innerHTML = `
+
+            <div class="activity-item">
+                📰
+                <span>
+                    ${newsSnapshot.size}
+                    news articles published
+                </span>
+            </div>
+
+            <div class="activity-item">
+                📷
+                <span>
+                    ${gallerySnapshot.size}
+                    gallery photos uploaded
+                </span>
+            </div>
+
+            <div class="activity-item">
+                🏆
+                <span>
+                    ${recordsSnapshot.size}
+                    records available
+                </span>
+            </div>
+
+            <div class="activity-item">
+                🏏
+                <span>
+                    ${matchesSnapshot.size}
+                    matches added
+                </span>
+            </div>
+
+        `;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Dashboard Overview Error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ======================================
+// LOAD DASHBOARD
+// ======================================
+
+loadDashboardOverview();
