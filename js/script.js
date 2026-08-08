@@ -341,9 +341,8 @@ if (statsSection) {
     observer.observe(statsSection);
 
 }
-
 // ===========================================
-// LOAD LATEST NEWS
+// LOAD LATEST 2 NEWS ON HOME
 // ===========================================
 
 async function loadNews() {
@@ -355,53 +354,60 @@ async function loadNews() {
     newsContainer.innerHTML = "";
 
     try {
-    const docs = snapshot.docs.slice(0, 2);
 
-    docs.forEach((doc) => {
+        const snapshot = await getDocs(collection(db, "news"));
 
-    const news = doc.data();
+        let html = "";
 
-    html += `
-    
-    <div class="news-card">
+        // Home page par sirf latest 2 news
+        const latestNews = snapshot.docs.slice(0, 2);
 
-        <img src="${news.image}" alt="${news.title}">
+        latestNews.forEach((doc) => {
 
-        <div class="news-content">
+            const news = doc.data();
 
-            <small style="color:#00abf0;">
-                Latest News
-            </small>
+            html += `
 
-            <h3>${news.title}</h3>
+                <div class="news-card">
 
-            <p>
-                ${news.description.substring(0, 120)}...
-            </p>
+                    <img
+                        src="${news.image}"
+                        alt="${news.title}"
+                    >
 
-            <a href="news.html?id=${doc.id}" class="btn">
-                Read More →
-            </a>
+                    <div class="news-content">
 
-        </div>
+                        <small style="color:#00abf0;">
+                            Latest News
+                        </small>
 
-    </div>
+                        <h3>${news.title}</h3>
 
-`;
+                        <p>
+                            ${news.description.substring(0, 120)}...
+                        </p>
+
+                        <a href="news.html" class="btn">
+                            Read More →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
 
         });
 
         newsContainer.innerHTML = html;
 
-    }
+    } catch (error) {
 
-    catch(error){
+        console.error("News Loading Error:", error);
 
-        console.log(error);
-
-        newsContainer.innerHTML =
-
-        "<h3>Unable to load News.</h3>";
+        newsContainer.innerHTML = `
+            <p>News could not be loaded.</p>
+        `;
 
     }
 
