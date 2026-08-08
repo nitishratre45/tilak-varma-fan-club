@@ -22,10 +22,15 @@ async function loadNews() {
         const q = query(collection(db, "news"));
 
         const snapshot = await getDocs(q);
+        const newsDocs = snapshot.docs.sort((a, b) => {
+
+        return (b.data().timestamp || 0) - (a.data().timestamp || 0);
+
+        });
 
         container.innerHTML = "";
 
-        snapshot.forEach((doc) => {
+        newsDocs.forEach((doc) => {
 
             const news = doc.data();
 
@@ -43,7 +48,7 @@ async function loadNews() {
 
                     <h3>${news.title}</h3>
 
-                    <p>${news.description}</p>
+                    <p>${news.description.substring(0, 180)}...</p>
 
                     <a href="news-details.html?id=${doc.id}" class="read-btn">
 

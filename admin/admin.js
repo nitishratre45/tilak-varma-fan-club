@@ -181,7 +181,9 @@ window.addNews = async function () {
             title: title,
             description: description,
             image: imageURL,
-            date: new Date().toLocaleDateString()
+            date: new Date().toLocaleDateString(),
+            time: new Date().toLocaleTimeString(),
+            timestamp: Date.now()
 
         });
 
