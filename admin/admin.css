@@ -574,3 +574,184 @@ body{
     font-weight: bold;
     cursor: pointer;
 }
+
+/* ==========================================
+   MATCH MANAGEMENT
+========================================== */
+
+.match-form {
+    max-width: 720px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.match-form input,
+.match-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 171, 240, 0.25);
+    background: #102b40;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+.match-form input:focus,
+.match-form textarea:focus {
+    border-color: #00abf0;
+    box-shadow: 0 0 0 3px rgba(0, 171, 240, 0.10);
+}
+
+.match-form textarea {
+    grid-column: 1 / -1;
+    min-height: 110px;
+    resize: vertical;
+}
+
+.match-form button {
+    grid-column: 1 / -1;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg, #00abf0, #008fd0);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.match-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 171, 240, .25);
+}
+
+
+/* ==========================================
+   ADDED MATCHES
+========================================== */
+
+#matchesList {
+    margin-top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+
+    max-width: 1000px;
+}
+
+.admin-match-card {
+    background: linear-gradient(
+        145deg,
+        #102b40,
+        #0b2234
+    );
+
+    border: 1px solid rgba(0, 171, 240, .18);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.20);
+
+    transition: .3s;
+}
+
+.admin-match-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0,171,240,.45);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.30),
+        0 0 20px rgba(0,171,240,.10);
+}
+
+.admin-match-card h3 {
+    margin: 0 0 15px;
+
+    color: #00abf0;
+
+    font-size: 21px;
+}
+
+.admin-match-card p {
+    margin: 8px 0;
+
+    color: #d6e0e7;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.admin-match-card strong {
+    color: #fff;
+
+    font-size: 16px;
+}
+
+
+/* DELETE BUTTON */
+
+.admin-match-card button {
+    margin-top: 15px;
+
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #e53935;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.admin-match-card button:hover {
+    background: #ff4b47;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(229,57,53,.25);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .match-form {
+        grid-template-columns: 1fr;
+    }
+
+    .match-form textarea,
+    .match-form button {
+        grid-column: auto;
+    }
+
+    #matchesList {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-match-card {
+        padding: 18px;
+    }
+
+}
