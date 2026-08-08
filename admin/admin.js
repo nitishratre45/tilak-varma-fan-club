@@ -118,10 +118,10 @@ window.showMatches = function () {
     hideAllPanels();
 
     document.getElementById("matchesPanel").style.display = "block";
-    loadMatches();
+
+    window.loadMatches();
 
 };
-
 
 window.showSettings = function () {
 
@@ -526,6 +526,7 @@ window.addMatch = async function () {
         });
 
         alert("✅ Match Added Successfully");
+        window.loadMatches();
 
         document.getElementById("matchTitle").value = "";
         document.getElementById("team1").value = "";
