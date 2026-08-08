@@ -355,37 +355,37 @@ async function loadNews() {
     newsContainer.innerHTML = "";
 
     try {
+    const docs = snapshot.docs.slice(0, 2);
 
-        const snapshot = await getDocs(collection(db, "news"));
+    docs.forEach((doc) => {
 
-        let html = "";
+    const news = doc.data();
 
-        snapshot.forEach((doc) => {
+    html += `
+    
+    <div class="news-card">
 
-            const news = doc.data();
+        <img src="${news.image}" alt="${news.title}">
 
-           html += `
-
-         <div class="news-card">
-
-            <img src="${news.image}" alt="${news.title}">
-
-            <div class="news-content">
+        <div class="news-content">
 
             <small style="color:#00abf0;">
+                Latest News
             </small>
 
             <h3>${news.title}</h3>
 
-            <p>${news.description.substring(0,120)}...</p>
+            <p>
+                ${news.description.substring(0, 120)}...
+            </p>
 
-            <a href="news.html" class="btn">
-            Read More →
+            <a href="news.html?id=${doc.id}" class="btn">
+                Read More →
             </a>
 
-    </div>
+        </div>
 
-</div>
+    </div>
 
 `;
 
