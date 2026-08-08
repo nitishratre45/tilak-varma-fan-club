@@ -817,7 +817,7 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
     display: grid;
     grid-template-columns: 380px 1fr;
     align-items: center;
-    gap: 55px;
+    gap: 20px;
 }
 
 .about-image {
