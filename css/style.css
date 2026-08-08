@@ -1014,6 +1014,112 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
     .stat-card p {
         font-size: 11px;
     }
+
+}/* ==========================================
+   PREMIUM FOOTER
+========================================== */
+
+footer {
+    background: linear-gradient(
+        180deg,
+        #081b29,
+        #041019
+    );
+
+    padding: 50px 7% 22px;
+
+    margin-top: 60px;
+
+    border-top: 1px solid rgba(0,171,240,.15);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 35px;
+}
+
+.footer-box {
+    padding: 5px;
+}
+
+.footer-box h2,
+.footer-box h3 {
+    color: var(--primary);
+
+    margin: 0 0 15px;
+
+    font-weight: 700;
+}
+
+.footer-box h2 {
+    font-size: 22px;
+}
+
+.footer-box h3 {
+    font-size: 17px;
+}
+
+.footer-box p {
+    color: #b9c7d1;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    max-width: 330px;
+
+    margin: 0;
+}
+
+.footer-box a {
+    display: block;
+
+    width: fit-content;
+
+    color: #d8e1e7;
+
+    text-decoration: none;
+
+    margin: 8px 0;
+
+    font-size: 14px;
+
+    transition: .25s ease;
+}
+
+.footer-box a:hover {
+    color: var(--primary);
+
+    padding-left: 5px;
+}
+
+footer hr {
+    max-width: 1200px;
+
+    border: none;
+
+    height: 1px;
+
+    background: rgba(255,255,255,.12);
+
+    margin: 35px auto 18px;
+}
+
+.copyright {
+    text-align: center;
+
+    color: #7f909d;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
 @media (max-width: 500px) {
 
     footer {
@@ -1064,7 +1170,7 @@ box-shadow:0 20px 40px rgba(0,171,240,.35);
         line-height: 1.5;
     }
 
-}}
+}
 /* ==========================================
    SOCIAL FLOATING
 ========================================== */
