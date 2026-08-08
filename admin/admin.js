@@ -119,7 +119,7 @@ window.showMatches = function () {
 
     document.getElementById("matchesPanel").style.display = "block";
 
-    window.loadMatches();
+    loadMatches();
 
 };
 
@@ -526,7 +526,7 @@ window.addMatch = async function () {
         });
 
         alert("✅ Match Added Successfully");
-        window.loadMatches();
+    
 
         document.getElementById("matchTitle").value = "";
         document.getElementById("team1").value = "";
