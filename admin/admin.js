@@ -643,12 +643,7 @@ window.loadMatches = async function () {
 
     }
 
-};
-// ======================================
-// DELETE MATCH
-// ======================================
-
-window.deleteMatch = async function (id) {
+};window.deleteMatch = async function (id) {
 
     if (!confirm("Delete this match?")) {
         return;
@@ -662,7 +657,7 @@ window.deleteMatch = async function (id) {
 
         alert("✅ Match Deleted");
 
-        loadMatches();
+        window.loadMatches();
 
     } catch (error) {
 
