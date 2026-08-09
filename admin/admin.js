@@ -59,6 +59,7 @@ function hideAllPanels() {
     document.getElementById("careerPanel").style.display = "none";
     document.getElementById("recordsPanel").style.display = "none";
     document.getElementById("matchesPanel").style.display = "none";
+    document.getElementById("instagramPanel").style.display = "none";
     document.getElementById("settingsPanel").style.display = "none";
 
 }
@@ -124,7 +125,6 @@ window.showMatches = function () {
     loadMatches();
 
 };
-
 window.showSettings = function () {
 
     hideAllPanels();

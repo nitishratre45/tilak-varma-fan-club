@@ -31,9 +31,9 @@
           <li onclick="showRecords()">🏆 Records</li>
 
           <li onclick="showMatches()">🏏 Matches</li>
+          <li onclick="showInstagramFollowers()">📸 Instagram Followers</li>
           
-
-
+          
           <li onclick="showSettings()">⚙️ Settings</li>
 
           <li onclick="logout()">🚪 Logout</li>
@@ -307,7 +307,36 @@
     <p>Website Settings Coming Soon...</p>
 
     </div>
-   
+   <!-- Instagram Followers -->
+
+<div class="admin-card">
+
+    <h3>
+        <i class="fab fa-instagram"></i>
+        Instagram Followers
+    </h3>
+
+    <label for="instagramFollowersInput">
+        Followers Count
+    </label>
+
+    <input
+        type="number"
+        id="instagramFollowersInput"
+        placeholder="75000"
+        min="0"
+    >
+
+    <button
+        type="button"
+        id="saveInstagramFollowers"
+    >
+        Save Followers
+    </button>
+
+    <p id="instagramFollowersStatus"></p>
+
+</div>
     <!-- End Admin Container -->
 
     <script type="module" src="admin.js"></script>
