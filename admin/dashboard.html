@@ -13,14 +13,13 @@
  
     <body>
       <div class="admin-container">
-      <!-- Sidebar -->
+           <!-- Sidebar -->
 
-      <div class="sidebar">
-        <h2>🏏 Admin Panel</h2>
+           <h2>🏏 Admin Panel</h2>
 
-        <ul>
-          <li onclick="showDashboard()">🏠 Dashboard</li>
-          <li onclick="showStats()">📊 Stats</li>
+           <ul>
+           <li onclick="showDashboard()">🏠 Dashboard</li>
+           <li onclick="showStats()">📊 Stats</li>
 
           <li onclick="showNews()">📰 News</li>
 
@@ -34,13 +33,12 @@
           <li onclick="showSettings()">⚙️ Settings</li>
 
           <li onclick="logout()">🚪 Logout</li>
-        </ul>
-      </div>
+          </ul>
+          </div>
+          <!-- Main Content -->
 
-      <!-- Main Content -->
-
-      <div class="content">
-
+           <div class="content">
+ 
         <!-- ================= DASHBOARD OVERVIEW ================= -->
 
         <div id="dashboardContent">
@@ -72,7 +70,6 @@
             <p>🏏 Total Matches</p>
         </div>
 
-      </div>
     </div>
 
     <!-- ================= RECENT ACTIVITY ================= -->
@@ -88,16 +85,18 @@
         </div>
 
     </div>
-    <!-- ================= INSTAGRAM FOLLOWERS ================= -->
+<!-- ================= INSTAGRAM FOLLOWERS ================= -->
 
-<div class="admin-card instagram-admin-card">
+<div class="instagram-admin-card">
 
     <h2>
         <i class="fab fa-instagram"></i>
         Instagram Followers
     </h2>
 
-    <p>Website par Instagram followers count manually update karein.</p>
+    <p>
+        Website par Instagram followers count manually update karein.
+    </p>
 
     <label for="instagramFollowersInput">
         Followers Count
@@ -111,12 +110,12 @@
     >
 
     <button
-    type="button"
-    id="saveInstagramFollowers"
-    onclick="saveInstagramFollowers()"
->
-    Save Followers
-</button>
+        type="button"
+        id="saveInstagramFollowers"
+        onclick="saveInstagramFollowers()"
+    >
+        Save Followers
+    </button>
 
     <p id="instagramFollowersStatus"></p>
 
