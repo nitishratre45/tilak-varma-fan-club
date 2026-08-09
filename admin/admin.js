@@ -132,6 +132,17 @@ window.showSettings = function () {
     document.getElementById("settingsPanel").style.display = "block";
 
 };
+
+window.showInstagramFollowers = function () {
+
+    hideAllPanels();
+
+    document.getElementById("instagramPanel").style.display = "block";
+};
+
+};
+
+
 window.showStats = function () {
 
     hideAllPanels();
