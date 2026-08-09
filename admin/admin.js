@@ -1042,43 +1042,6 @@ window.saveInstagramFollowers = async function () {
     }
 
 };
-
-
-// ======================================
-// LOAD INSTAGRAM FOLLOWERS
-// ======================================
-
-async function loadInstagramFollowers() {
-
-    const input =
-        document.getElementById("instagramFollowersInput");
-
-    if (!input) return;
-
-    try {
-
-        const settingsRef =
-            doc(db, "siteSettings", "social");
-
-        const settingsSnap =
-            await getDocs(
-                collection(db, "siteSettings")
-            );
-
-        // Existing document will be loaded later
-        // from Home page.
-
-    } catch (error) {
-
-        console.error(
-            "Load Instagram Followers Error:",
-            error
-        );
-
-    }
-
-}
-
 // ======================================
 // LOAD DASHBOARD
 // ======================================
