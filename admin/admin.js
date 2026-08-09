@@ -60,6 +60,7 @@ function hideAllPanels() {
     document.getElementById("recordsPanel").style.display = "none";
     document.getElementById("matchesPanel").style.display = "none";
     document.getElementById("instagramPanel").style.display = "none";
+
     document.getElementById("settingsPanel").style.display = "none";
 
 }
@@ -130,15 +131,6 @@ window.showSettings = function () {
     hideAllPanels();
 
     document.getElementById("settingsPanel").style.display = "block";
-
-};
-
-window.showInstagramFollowers = function () {
-
-    hideAllPanels();
-
-    document.getElementById("instagramPanel").style.display = "block";
-};
 
 };
 
