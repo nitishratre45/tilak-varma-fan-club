@@ -667,7 +667,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 });
 
+async function loadInstagramFollowers() {
 
+    const followerElement =
+        document.getElementById("instagramFollowers");
+
+    if (!followerElement) return;
+
+    try {
+
+        const response =
+            await fetch("/api/instagram-followers");
+
+        const data =
+            await response.json();
+
+        if (!data.success) {
+            throw new Error(data.error);
+        }
+
+        const followers =
+            Number(data.followers);
+
+        followerElement.textContent =
+            followers.toLocaleString("en-IN");
+
+    } catch (error) {
+
+        console.error(
+            "Instagram followers:",
+            error
+        );
+
+        followerElement.textContent =
+            "Unavailable";
+    }
+}
+
+loadInstagramFollowers();
 
 // ===========================================
 // FINISHED
