@@ -60,6 +60,7 @@ function hideAllPanels() {
     document.getElementById("recordsPanel").style.display = "none";
     document.getElementById("matchesPanel").style.display = "none";
 
+
     document.getElementById("settingsPanel").style.display = "none";
 
 }
@@ -983,7 +984,100 @@ async function loadDashboardOverview() {
     }
 
 }
+// ======================================
+// INSTAGRAM FOLLOWERS
+// ======================================
 
+window.saveInstagramFollowers = async function () {
+
+    const input =
+        document.getElementById("instagramFollowersInput");
+
+    const status =
+        document.getElementById("instagramFollowersStatus");
+
+    if (!input) return;
+
+    const followers = input.value.trim();
+
+    if (!followers) {
+
+        alert("⚠️ Please enter Instagram followers count");
+
+        return;
+    }
+
+    try {
+
+        await setDoc(
+            doc(db, "siteSettings", "social"),
+            {
+                instagramFollowers: Number(followers),
+                updatedAt: Date.now()
+            },
+            {
+                merge: true
+            }
+        );
+
+        status.textContent = "✅ Followers count saved successfully!";
+        status.style.color = "#00c853";
+
+        alert("✅ Instagram Followers Updated");
+
+    } catch (error) {
+
+        console.error(
+            "Instagram Followers Error:",
+            error
+        );
+
+        status.textContent =
+            "❌ Failed to save followers count.";
+
+        status.style.color = "red";
+
+        alert("❌ Failed to Save");
+
+    }
+
+};
+
+
+// ======================================
+// LOAD INSTAGRAM FOLLOWERS
+// ======================================
+
+async function loadInstagramFollowers() {
+
+    const input =
+        document.getElementById("instagramFollowersInput");
+
+    if (!input) return;
+
+    try {
+
+        const settingsRef =
+            doc(db, "siteSettings", "social");
+
+        const settingsSnap =
+            await getDocs(
+                collection(db, "siteSettings")
+            );
+
+        // Existing document will be loaded later
+        // from Home page.
+
+    } catch (error) {
+
+        console.error(
+            "Load Instagram Followers Error:",
+            error
+        );
+
+    }
+
+}
 
 // ======================================
 // LOAD DASHBOARD
