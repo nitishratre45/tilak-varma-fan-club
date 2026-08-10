@@ -985,64 +985,6 @@ async function loadDashboardOverview() {
 
 }
 // ======================================
-// INSTAGRAM FOLLOWERS
-// ======================================
-
-window.saveInstagramFollowers = async function () {
-
-    const input =
-        document.getElementById("instagramFollowersInput");
-
-    const status =
-        document.getElementById("instagramFollowersStatus");
-
-    if (!input) return;
-
-    const followers = input.value.trim();
-
-    if (!followers) {
-
-        alert("⚠️ Please enter Instagram followers count");
-
-        return;
-    }
-
-    try {
-
-        await setDoc(
-            doc(db, "siteSettings", "social"),
-            {
-                instagramFollowers: Number(followers),
-                updatedAt: Date.now()
-            },
-            {
-                merge: true
-            }
-        );
-
-        status.textContent = "✅ Followers count saved successfully!";
-        status.style.color = "#00c853";
-
-        alert("✅ Instagram Followers Updated");
-
-    } catch (error) {
-
-        console.error(
-            "Instagram Followers Error:",
-            error
-        );
-
-        status.textContent =
-            "❌ Failed to save followers count.";
-
-        status.style.color = "red";
-
-        alert("❌ Failed to Save");
-
-    }
-
-};
-// ======================================
 // LOAD DASHBOARD
 // ======================================
 
