@@ -1,367 +1,693 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-     <meta charset="UTF-8" />
 
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <meta name="theme-color" content="#00a8ff">
+<head>
 
-     <title>Admin Dashboard</title>
- 
-     <link rel="stylesheet" href="admin.css" />
-    </head>
- 
-    <body>
-      <div class="admin-container">
-           <!-- Sidebar -->
+    <meta charset="UTF-8">
 
-           <h2>🏏 Admin Panel</h2>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-           <ul>
-           <li onclick="showDashboard()">🏠 Dashboard</li>
-           <li onclick="showStats()">📊 Stats</li>
+    <meta
+        name="theme-color"
+        content="#00a8ff"
+    >
 
-          <li onclick="showNews()">📰 News</li>
+    <title>Admin Dashboard | Tilak Varma Fan Club</title>
 
-          <li onclick="showGallery()">📷 Gallery</li>
-          
-          <li onclick="showCareer()">👤 Career</li>
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
 
-          <li onclick="showRecords()">🏆 Records</li>
+    <!-- Font Awesome -->
 
-          <li onclick="showMatches()">🏏 Matches</li>
-          <li onclick="showSettings()">⚙️ Settings</li>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
-          <li onclick="logout()">🚪 Logout</li>
-          </ul>
-          </div>
-          <!-- Main Content -->
+</head>
 
-           <div class="content">
- 
-        <!-- ================= DASHBOARD OVERVIEW ================= -->
+<body>
 
-        <div id="dashboardContent">
+<div class="admin-container">
 
-          <h1>Welcome Admin 👋</h1>
+    <!-- ================= SIDEBAR ================= -->
 
-         <p>Manage your Tilak Varma Fan Club website from here.</p>
+    <aside class="sidebar">
 
+        <h2>🏏 Admin Panel</h2>
 
-          <div class="dashboard-cards">
+        <ul>
 
-        <div class="dash-card">
-            <h2 id="totalNews">0</h2>
-            <p>📰 Total News</p>
-        </div>
+            <li onclick="showDashboard()">
+                🏠 Dashboard
+            </li>
 
-        <div class="dash-card">
-            <h2 id="totalGallery">0</h2>
-            <p>📷 Total Gallery</p>
-        </div>
+            <li onclick="showStats()">
+                📊 Stats
+            </li>
 
-        <div class="dash-card">
-            <h2 id="totalRecords">0</h2>
-            <p>🏆 Total Records</p>
-        </div>
+            <li onclick="showNews()">
+                📰 News
+            </li>
 
-        <div class="dash-card">
-            <h2 id="totalMatches">0</h2>
-            <p>🏏 Total Matches</p>
-        </div>
+            <li onclick="showGallery()">
+                📷 Gallery
+            </li>
 
-         </div>
+            <li onclick="showCareer()">
+                👤 Career
+            </li>
 
-      <!-- ================= RECENT ACTIVITY ================= -->
+            <li onclick="showRecords()">
+                🏆 Records
+            </li>
 
-        <div class="recent-activity">
+            <li onclick="showMatches()">
+                🏏 Matches
+            </li>
 
-           <h2>🕐 Recent Activity</h2>
+            <li onclick="showSettings()">
+                ⚙️ Settings
+            </li>
 
-           <div id="recentActivity">
+            <li onclick="logout()">
+                🚪 Logout
+            </li>
 
-            <p>Loading activity...</p>
+        </ul>
 
-          </div>
-          </div>
- <!-- ================= News Panel ================= -->
-     <div id="newsPanel" style="display: none">
-          <h1>📰 Publish News</h1>
+    </aside>
 
-          <input type="text" id="newsTitle" placeholder="News Title" />
 
-          <textarea id="newsDesc" placeholder="News Description"></textarea>
+    <!-- ================= MAIN CONTENT ================= -->
 
-          <label><b>📷 Select News Image</b></label>
+    <main class="content">
 
-          <br /><br />
 
-          <input type="file" id="newsImage" accept="image/*" />
+        <!-- ================= DASHBOARD ================= -->
 
-          <br /><br />
-
-          <button onclick="addNews()">🚀 Publish News</button>
-
-          <hr style="margin: 40px 0" />
-
-          <h2>📰 Published News</h2>
-
-          <div id="newsList"></div>
-        </div>
-
-        <!-- ================= Gallery Panel ================= -->
-
-        <div id="galleryPanel" style="display: none">
-          <h1>📷 Upload Gallery Photo</h1>
-
-          <label><b>📷 Select Gallery Image</b></label>
-
-          <br /><br />
-
-          <input type="file" id="galleryImage" accept="image/*" />
-
-          <br /><br />
-
-          <button onclick="addGallery()">📤 Upload Photo</button>
-
-          <hr style="margin: 40px 0" />
-
-          <h2>📷 Gallery Photos</h2>
-
-          <div id="galleryList"></div>
-        </div>
-        <!-- ================= Stats Panel ================= -->
-
-        <div id="statsPanel" style="display:none;">
-
-          <h1>📊 Homepage Stats</h1>
-          <div class="stats-form">
-
-         <div class="stats-box">
-           <label>Total Matches</label>
-           <input type="number" id="matches">
-          </div>
-
-          <div class="stats-box">
-           <label>Total Runs</label>
-            <input type="number" id="runs">
-          </div>
-
-         <div class="stats-box">
-           <label>Average</label>
-           <input type="number" step="0.01" id="average">
-         </div>
-
-          <div class="stats-box">
-            <label>Strike Rate</label>
-            <input type="number" step="0.01" id="strikeRate">
-         </div>
-
-         <div class="stats-box">
-          <label>100s</label>
-           <input type="number" id="hundreds">
-         </div>
-
-         <div class="stats-box">
-           <label>50s</label>
-            <input type="number" id="fifties">
-          </div>
-
-        </div>
-
-        <button onclick="saveStats()">
-        💾 Save Stats
-        </button>
-      </div>
-<!-- ================= Career Panel ================= -->
-
-<div id="careerPanel" style="display: none">
-
-    <h1>👤 Career Management</h1>
-
-    <p>Career Management Coming Soon...</p>
-
-</div>
-
-<!-- ================= RECORDS PANEL ================= -->
-
-<div id="recordsPanel" style="display: none">
-
-    <h1>🏆 Records Management</h1>
-
-    <div class="record-form">
-
-        <input
-            type="text"
-            id="recordTitle"
-            placeholder="Record Title"
+        <section
+            id="dashboardContent"
+            class="admin-panel"
         >
 
-        <input
-            type="text"
-            id="recordValue"
-            placeholder="Record Value"
+            <h1>
+                Welcome Admin 👋
+            </h1>
+
+            <p>
+                Manage your Tilak Varma Fan Club website from here.
+            </p>
+
+
+            <!-- Dashboard Cards -->
+
+            <div class="dashboard-cards">
+
+                <div class="dash-card">
+
+                    <h2 id="totalNews">
+                        0
+                    </h2>
+
+                    <p>
+                        📰 Total News
+                    </p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <h2 id="totalGallery">
+                        0
+                    </h2>
+
+                    <p>
+                        📷 Total Gallery
+                    </p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <h2 id="totalRecords">
+                        0
+                    </h2>
+
+                    <p>
+                        🏆 Total Records
+                    </p>
+
+                </div>
+
+
+                <div class="dash-card">
+
+                    <h2 id="totalMatches">
+                        0
+                    </h2>
+
+                    <p>
+                        🏏 Total Matches
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Recent Activity -->
+
+            <div class="recent-activity">
+
+                <h2>
+                    🕐 Recent Activity
+                </h2>
+
+                <div id="recentActivity">
+
+                    <p>
+                        Loading activity...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= STATS ================= -->
+
+        <section
+            id="statsPanel"
+            class="admin-panel"
+            style="display: none;"
         >
 
-        <textarea
-            id="recordDescription"
-            placeholder="Record Description"
-        ></textarea>
-
-        <button onclick="addRecord()">
-            🏆 Add Record
-        </button>
-
-    </div>
+            <h1>
+                📊 Homepage Stats
+            </h1>
 
 
-    <hr style="margin:40px 0">
+            <div class="stats-form">
 
 
-    <h2>📋 Added Records</h2>
+                <div class="stats-box">
 
-    <div id="recordsList"></div>
+                    <label>
+                        Total Matches
+                    </label>
 
-</div>
+                    <input
+                        type="number"
+                        id="matches"
+                    >
+
+                </div>
 
 
-<!-- ================= MATCHES PANEL ================= -->
+                <div class="stats-box">
 
-<div id="matchesPanel" style="display: none;">
+                    <label>
+                        Total Runs
+                    </label>
 
-    <h1>🏏 Match Management</h1>
+                    <input
+                        type="number"
+                        id="runs"
+                    >
 
-    <div class="match-form">
+                </div>
 
-        <input
-            type="text"
-            id="matchTitle"
-            placeholder="Match Title"
+
+                <div class="stats-box">
+
+                    <label>
+                        Average
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="average"
+                    >
+
+                </div>
+
+
+                <div class="stats-box">
+
+                    <label>
+                        Strike Rate
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="strikeRate"
+                    >
+
+                </div>
+
+
+                <div class="stats-box">
+
+                    <label>
+                        100s
+                    </label>
+
+                    <input
+                        type="number"
+                        id="hundreds"
+                    >
+
+                </div>
+
+
+                <div class="stats-box">
+
+                    <label>
+                        50s
+                    </label>
+
+                    <input
+                        type="number"
+                        id="fifties"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button onclick="saveStats()">
+                💾 Save Stats
+            </button>
+
+        </section>
+
+
+
+        <!-- ================= NEWS ================= -->
+
+        <section
+            id="newsPanel"
+            class="admin-panel"
+            style="display: none;"
         >
 
-        <input
-            type="text"
-            id="team1"
-            placeholder="Team 1"
-        >
+            <h1>
+                📰 Publish News
+            </h1>
 
-        <input
-            type="text"
-            id="team2"
-            placeholder="Team 2"
-        >
-
-        <input
-            type="date"
-            id="matchDate"
-        >
-
-        <input
-            type="time"
-            id="matchTime"
-        >
-
-        <input
-            type="text"
-            id="venue"
-            placeholder="Venue"
-        >
-
-        <input
-            type="text"
-            id="matchStatus"
-            placeholder="Status (Upcoming / Live / Completed)"
-        >
-
-        <textarea
-            id="matchResult"
-            placeholder="Match Result / Details"
-        ></textarea>
-
-        <button onclick="addMatch()">
-            🏏 Add Match
-        </button>
-
-    </div>
-    <hr>
-    <h2>📋 Added Matches</h2>
-    <div id="matchesList"></div>
-
-   </div>
-   <!-- ================= SETTINGS PANEL ================= -->
-
-<div id="settingsPanel" style="display: none;">
-
-    <h1>⚙️ Website Settings</h1>
-
-    <p class="settings-subtitle">
-        Manage important website information from here.
-    </p>
-
-    <div class="settings-form">
-
-        <!-- Announcement -->
-
-        <div class="setting-box">
-
-            <label for="announcementText">
-                📢 Website Announcement
-            </label>
 
             <input
                 type="text"
-                id="announcementText"
-                placeholder="Enter website announcement"
+                id="newsTitle"
+                placeholder="News Title"
             >
 
-        </div>
 
-        <!-- Instagram -->
+            <textarea
+                id="newsDesc"
+                placeholder="News Description"
+            ></textarea>
 
-        <div class="setting-box">
 
-            <label for="instagramLink">
-                📸 Instagram Link
+            <label>
+                <b>
+                    📷 Select News Image
+                </b>
             </label>
 
-            <input
-                type="url"
-                id="instagramLink"
-                placeholder="https://instagram.com/..."
-            >
+            <br><br>
 
-        </div>
-
-        <!-- Telegram -->
-
-        <div class="setting-box">
-
-            <label for="telegramLink">
-                ✈️ Telegram Link
-            </label>
 
             <input
-                type="url"
-                id="telegramLink"
-                placeholder="https://t.me/..."
+                type="file"
+                id="newsImage"
+                accept="image/*"
             >
 
-        </div>
+            <br><br>
 
-        <!-- Save -->
 
-        <button
-            type="button"
-            onclick="saveWebsiteSettings()"
+            <button onclick="addNews()">
+                🚀 Publish News
+            </button>
+
+
+            <hr>
+
+
+            <h2>
+                📰 Published News
+            </h2>
+
+
+            <div id="newsList"></div>
+
+        </section>
+
+
+
+        <!-- ================= GALLERY ================= -->
+
+        <section
+            id="galleryPanel"
+            class="admin-panel"
+            style="display: none;"
         >
-            💾 Save Settings
-        </button>
 
-        <p id="settingsStatus"></p>
+            <h1>
+                📷 Upload Gallery Photo
+            </h1>
 
-    </div>
+
+            <label>
+                <b>
+                    📷 Select Gallery Image
+                </b>
+            </label>
+
+            <br><br>
+
+
+            <input
+                type="file"
+                id="galleryImage"
+                accept="image/*"
+            >
+
+            <br><br>
+
+
+            <button onclick="addGallery()">
+                📤 Upload Photo
+            </button>
+
+
+            <hr>
+
+
+            <h2>
+                📷 Gallery Photos
+            </h2>
+
+
+            <div id="galleryList"></div>
+
+        </section>
+
+
+
+        <!-- ================= CAREER ================= -->
+
+        <section
+            id="careerPanel"
+            class="admin-panel"
+            style="display: none;"
+        >
+
+            <h1>
+                👤 Career Management
+            </h1>
+
+            <p>
+                Career Management Coming Soon...
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= RECORDS ================= -->
+
+        <section
+            id="recordsPanel"
+            class="admin-panel"
+            style="display: none;"
+        >
+
+            <h1>
+                🏆 Records Management
+            </h1>
+
+
+            <div class="record-form">
+
+                <input
+                    type="text"
+                    id="recordTitle"
+                    placeholder="Record Title"
+                >
+
+
+                <input
+                    type="text"
+                    id="recordValue"
+                    placeholder="Record Value"
+                >
+
+
+                <textarea
+                    id="recordDescription"
+                    placeholder="Record Description"
+                ></textarea>
+
+
+                <button onclick="addRecord()">
+                    🏆 Add Record
+                </button>
+
+            </div>
+
+
+            <hr>
+
+
+            <h2>
+                📋 Added Records
+            </h2>
+
+
+            <div id="recordsList"></div>
+
+        </section>
+
+
+
+        <!-- ================= MATCHES ================= -->
+
+        <section
+            id="matchesPanel"
+            class="admin-panel"
+            style="display: none;"
+        >
+
+            <h1>
+                🏏 Match Management
+            </h1>
+
+
+            <div class="match-form">
+
+                <input
+                    type="text"
+                    id="matchTitle"
+                    placeholder="Match Title"
+                >
+
+
+                <input
+                    type="text"
+                    id="team1"
+                    placeholder="Team 1"
+                >
+
+
+                <input
+                    type="text"
+                    id="team2"
+                    placeholder="Team 2"
+                >
+
+
+                <input
+                    type="date"
+                    id="matchDate"
+                >
+
+
+                <input
+                    type="time"
+                    id="matchTime"
+                >
+
+
+                <input
+                    type="text"
+                    id="venue"
+                    placeholder="Venue"
+                >
+
+
+                <input
+                    type="text"
+                    id="matchStatus"
+                    placeholder="Status (Upcoming / Live / Completed)"
+                >
+
+
+                <textarea
+                    id="matchResult"
+                    placeholder="Match Result / Details"
+                ></textarea>
+
+
+                <button onclick="addMatch()">
+                    🏏 Add Match
+                </button>
+
+            </div>
+
+
+            <hr>
+
+
+            <h2>
+                📋 Added Matches
+            </h2>
+
+
+            <div id="matchesList"></div>
+
+        </section>
+
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section
+            id="settingsPanel"
+            class="admin-panel"
+            style="display: none;"
+        >
+
+            <h1>
+                ⚙️ Website Settings
+            </h1>
+
+
+            <p class="settings-subtitle">
+                Manage important website information from here.
+            </p>
+
+
+            <div class="settings-form">
+
+
+                <!-- Announcement -->
+
+                <div class="setting-box">
+
+                    <label for="announcementText">
+
+                        📢 Website Announcement
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="announcementText"
+                        placeholder="Enter website announcement"
+                    >
+
+                </div>
+
+
+
+                <!-- Instagram -->
+
+                <div class="setting-box">
+
+                    <label for="instagramLink">
+
+                        📸 Instagram Link
+
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="instagramLink"
+                        placeholder="https://instagram.com/..."
+                    >
+
+                </div>
+
+
+
+                <!-- Telegram -->
+
+                <div class="setting-box">
+
+                    <label for="telegramLink">
+
+                        ✈️ Telegram Link
+
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="telegramLink"
+                        placeholder="https://t.me/..."
+                    >
+
+                </div>
+
+
+
+                <!-- Save -->
+
+                <button
+                    type="button"
+                    onclick="saveWebsiteSettings()"
+                >
+                    💾 Save Settings
+                </button>
+
+
+                <p id="settingsStatus"></p>
+
+            </div>
+
+        </section>
+
+
+    </main>
 
 </div>
-    <script type="module" src="admin.js"></script>
-  </body>
+
+
+<!-- ================= ADMIN JAVASCRIPT ================= -->
+
+<script
+    type="module"
+    src="admin.js"
+></script>
+
+</body>
+
 </html>
