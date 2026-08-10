@@ -261,3 +261,31 @@ transform:translateY(-8px) scale(1.03);
 box-shadow:0 20px 40px rgba(0,171,240,.35);
 
 }
+
+/* ======================================
+   WEBSITE ANNOUNCEMENT
+====================================== */
+
+.website-announcement {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    text-align: center;
+    background: #00a8ff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.website-announcement span {
+    margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+
+    .website-announcement {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+}

@@ -639,11 +639,47 @@ if (popup && closePopup) {
 
 }
 
+// ======================================
+// LOAD WEBSITE ANNOUNCEMENT
+// ======================================
 
-loadInstagramFollowers();
+async function loadWebsiteAnnouncement() {
 
-// ===========================================
-// FINISHED
-// ===========================================
+    const announcementElement =
+        document.getElementById("announcementText");
 
-console.log("✅ Tilak Varma Fan Club Loaded Successfully");
+    if (!announcementElement) return;
+
+    try {
+
+        const settingsRef =
+            doc(db, "siteSettings", "general");
+
+        const settingsSnap =
+            await getDoc(settingsRef);
+
+        if (settingsSnap.exists()) {
+
+            const data = settingsSnap.data();
+
+            if (data.announcement) {
+
+                announcementElement.textContent =
+                    data.announcement;
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Announcement Error:",
+            error
+        );
+
+    }
+
+}
+
+loadWebsiteAnnouncement();

@@ -288,18 +288,80 @@
     <div id="matchesList"></div>
 
    </div>
-    <!-- ================= Settings Panel ================= -->
+   <!-- ================= WEBSITE SETTINGS ================= -->
 
-    <div id="settingsPanel" style="display: none">
+<div id="settingsPanel" style="display: none">
 
     <h1>⚙️ Website Settings</h1>
 
-    <p>Website Settings Coming Soon...</p>
+    <p class="settings-subtitle">
+        Manage important website information from here.
+    </p>
+
+    <div class="settings-form">
+
+        <!-- Announcement -->
+
+        <div class="setting-box">
+
+            <label for="announcementText">
+                📢 Website Announcement
+            </label>
+
+            <input
+                type="text"
+                id="announcementText"
+                placeholder="Enter website announcement"
+            >
+
+        </div>
+
+        <!-- Instagram -->
+
+        <div class="setting-box">
+
+            <label for="instagramLink">
+                📸 Instagram Link
+            </label>
+
+            <input
+                type="url"
+                id="instagramLink"
+                placeholder="https://instagram.com/..."
+            >
+
+        </div>
+
+        <!-- Telegram -->
+
+        <div class="setting-box">
+
+            <label for="telegramLink">
+                ✈️ Telegram Link
+            </label>
+
+            <input
+                type="url"
+                id="telegramLink"
+                placeholder="https://t.me/..."
+            >
+
+        </div>
+
+        <!-- Save -->
+
+        <button
+            type="button"
+            onclick="saveWebsiteSettings()"
+        >
+            💾 Save Settings
+        </button>
+
+        <p id="settingsStatus"></p>
 
     </div>
 
-    <!-- End Admin Container -->
-
+</div>
     <script type="module" src="admin.js"></script>
   </body>
 </html>

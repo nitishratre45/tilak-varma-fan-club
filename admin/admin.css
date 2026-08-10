@@ -1387,3 +1387,86 @@ body{
     margin-bottom: 0;
     font-weight: 600;
 }
+
+/* ======================================
+   WEBSITE SETTINGS
+====================================== */
+
+.settings-subtitle {
+    color: #9fb0bc;
+    margin-bottom: 25px;
+}
+
+.settings-form {
+    max-width: 700px;
+    padding: 25px;
+    background: #102f47;
+    border: 1px solid rgba(0, 168, 255, 0.20);
+    border-radius: 16px;
+}
+
+.setting-box {
+    margin-bottom: 22px;
+}
+
+.setting-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.setting-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #28516a;
+    border-radius: 8px;
+    background: #081b29;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+}
+
+.setting-box input:focus {
+    border-color: #00a8ff;
+    box-shadow: 0 0 0 2px rgba(0, 168, 255, 0.12);
+}
+
+.settings-form button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #00a8ff;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.settings-form button:hover {
+    background: #008fd4;
+    transform: translateY(-1px);
+}
+
+#settingsStatus {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+
+    .settings-form {
+        padding: 18px;
+    }
+
+    .setting-box input {
+        font-size: 14px;
+    }
+
+    .settings-form button {
+        width: 100%;
+    }
+
+}

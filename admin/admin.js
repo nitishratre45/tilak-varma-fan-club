@@ -989,3 +989,57 @@ async function loadDashboardOverview() {
 // ======================================
 
 loadDashboardOverview();
+
+// ======================================
+// WEBSITE SETTINGS
+// ======================================
+
+window.saveWebsiteSettings = async function () {
+
+    const announcement =
+        document.getElementById("announcementText").value.trim();
+
+    const instagramLink =
+        document.getElementById("instagramLink").value.trim();
+
+    const telegramLink =
+        document.getElementById("telegramLink").value.trim();
+
+    const status =
+        document.getElementById("settingsStatus");
+
+    try {
+
+        await setDoc(
+            doc(db, "siteSettings", "general"),
+            {
+                announcement: announcement,
+                instagramLink: instagramLink,
+                telegramLink: telegramLink,
+                updatedAt: Date.now()
+            }
+        );
+
+        if (status) {
+            status.textContent = "✅ Settings saved successfully!";
+            status.style.color = "#00c853";
+        }
+
+        alert("✅ Website Settings Saved");
+
+    } catch (error) {
+
+        console.error(
+            "Website Settings Error:",
+            error
+        );
+
+        if (status) {
+            status.textContent = "❌ Failed to save settings.";
+            status.style.color = "red";
+        }
+
+        alert("❌ Failed to Save Settings");
+    }
+
+};
