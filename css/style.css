@@ -134,7 +134,7 @@ body{
 width:70%;
 max-width:1400px;
 
-height:85px;
+height:45px;
 
 margin:auto;
 
@@ -148,14 +148,14 @@ justify-content:space-between;
 
 display:flex;
 align-items:center;
-gap:15px;
+gap:90px;
 
 }
 
 .logo img{
 
-width:60px;
-height:60px;
+width: 42px;
+height:42px;
 
 border-radius:50%;
 
@@ -426,7 +426,7 @@ box-shadow:0 12px 35px rgba(0,171,240,.55);
 
     color:#cfcfcf;
 
-    margin-bottom:50px;
+    margin-bottom:18px;
 
     font-size:18px;
 
